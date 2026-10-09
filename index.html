@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#161D23">
+<title>BedrockDock – eigen tools, op vaste grond gebouwd</title>
+<meta name="description" content="BedrockDock ontwikkelt eigen tools: Wat Levert Het Op en Harborlight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --l0: #161D23;
+  --l1: #1B242B;
+  --l2: #212C34;
+  --l3: #28353E;
+  --l4: #2F3E48;
+  --line: #3A4A55;
+  --text: #E8ECEE;
+  --muted: #9FACB4;
+  --stone: #6B7983;
+  --stone-dark: #4A5760;
+  --accent: #E8590C;
+  --accent-text: #FF7A33;
+  --display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --wrap: 1180px;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--l0);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.1875rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { width: min(var(--wrap), 100% - 48px); margin-inline: auto; }
+:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.025em; line-height: 1.08; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.25rem); font-weight: 700; max-width: 18ch; }
+p { margin: 0; }
+.lead { color: var(--muted); max-width: 46ch; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: rgba(22, 29, 35, .86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(58, 74, 85, .55);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--display); font-size: 1.4rem; letter-spacing: -0.03em; }
+.brand b { font-weight: 700; }
+.brand span { font-weight: 500; color: var(--accent-text); }
+.nav ul { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-family: var(--display); font-size: .95rem; font-weight: 500; }
+.nav ul a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav ul a:hover { color: var(--text); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--display); font-weight: 700; font-size: 1rem;
+  padding: 15px 26px; border-radius: 10px; text-decoration: none; cursor: pointer; border: 0;
+  background: var(--accent); color: #161D23;
+  transition: background .2s, transform .2s;
+}
+.btn:hover { background: #FF6B1F; transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
+.btn.ghost:hover { border-color: var(--stone); background: rgba(255,255,255,.04); transform: none; }
+.nav .btn { padding: 10px 18px; font-size: .92rem; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; padding: clamp(56px, 9vw, 120px) 0 0; overflow: hidden; background: var(--l0); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero h1 { font-size: clamp(2.7rem, 6.4vw, 5.6rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+.hero .lead { margin-top: 28px; font-size: 1.3rem; }
+.hero .actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-art { position: relative; }
+.hero-art svg { width: 100%; height: auto; overflow: visible; }
+.drop { animation: drop 1.15s cubic-bezier(.22, 1, .36, 1) .35s both; transform-box: fill-box; }
+@keyframes drop {
+  0% { transform: translateY(-150px); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.waterline { display: block; width: 100%; height: 64px; margin-top: clamp(32px, 5vw, 64px); }
+
+/* ---------- Strata sections ---------- */
+section { position: relative; }
+.layer { padding: clamp(72px, 10vw, 128px) 0; }
+.s-diensten { background: var(--l1); }
+.s-werkwijze { background: var(--l2); }
+.s-werk { background: var(--l3); }
+.s-contact { background: var(--l4); }
+
+.head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: clamp(40px, 6vw, 72px); }
+.head .lead { justify-self: end; }
+
+/* Diensten: accordion */
+.rows { border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px;
+  padding: 30px 4px;
+  font-family: var(--display); font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.4rem); letter-spacing: -0.025em;
+  transition: color .2s, padding .25s;
+}
+summary::-webkit-details-marker { display: none; }
+summary:hover { color: var(--accent-text); padding-left: 14px; }
+.plus {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); position: relative; flex: none;
+  transition: transform .3s, background .2s, border-color .2s;
+}
+.plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; background: currentColor; transform: translate(-50%, -50%); }
+.plus::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .3s; }
+details[open] .plus { background: var(--accent); border-color: var(--accent); color: #161D23; transform: rotate(180deg); }
+details[open] .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+.detail { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; padding: 0 4px 40px; }
+.detail p { color: var(--muted); max-width: 52ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; list-style: none; margin: 0; padding: 0; justify-self: end; max-width: 420px; }
+.chips li { font-family: var(--display); font-size: .88rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: var(--l3); border: 1px solid var(--line); color: var(--text); }
+.s-diensten .chips li { background: var(--l2); }
+
+/* Werkwijze: echte volgorde */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; counter-reset: step; list-style: none; padding: 0; margin: 0; }
+.steps li { position: relative; padding: 0 28px 0 0; counter-increment: step; }
+.steps li::before {
+  content: counter(step);
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 12px;
+  font-family: var(--display); font-weight: 700; font-size: 1.2rem;
+  background: var(--l1); border: 1.5px solid var(--line); color: var(--text);
+  position: relative; z-index: 1;
+}
+.steps li:last-child::before { background: var(--accent); border-color: var(--accent); color: #161D23; }
+.steps li::after { content: ""; position: absolute; top: 25px; left: 52px; right: 0; height: 2px; background: var(--line); }
+.steps li:last-child::after { display: none; }
+.steps h3 { font-size: 1.5rem; margin: 26px 0 10px; font-weight: 700; }
+.steps p { color: var(--muted); font-size: 1.06rem; }
+
+/* Eigen werk */
+.work { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; }
+.card {
+  position: relative; overflow: hidden;
+  background: var(--l2); border: 1px solid var(--line); border-radius: 18px;
+  padding: clamp(28px, 4vw, 44px);
+  display: flex; flex-direction: column; gap: 18px; min-height: 380px;
+}
+.card.big { background: linear-gradient(160deg, #2B3944 0%, var(--l2) 70%); }
+.status { align-self: flex-start; font-family: var(--display); font-size: .85rem; font-weight: 500; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-text); }
+.card h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; }
+.card p { color: var(--muted); max-width: 44ch; }
+.card .viz { margin-top: auto; padding-top: 12px; }
+.meter { display: flex; align-items: flex-end; gap: 6px; height: 90px; }
+.meter i { flex: 1; background: var(--stone-dark); border-radius: 4px 4px 0 0; display: block; }
+.meter i.hl { background: var(--accent); }
+.gauge { display: grid; gap: 10px; }
+.gauge div { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 12px; font-family: var(--display); font-size: .9rem; color: var(--muted); }
+.gauge span { display: block; height: 8px; border-radius: 4px; background: var(--stone-dark); position: relative; overflow: hidden; }
+.gauge span::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--accent); border-radius: 4px; }
+.note { margin-top: 28px; color: var(--muted); font-size: 1rem; max-width: 60ch; }
+
+/* Principes */
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.principles li { border-top: 3px solid var(--stone-dark); padding-top: 22px; }
+.principles li:first-child { border-top-color: var(--accent); }
+.principles h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+.principles p { color: var(--muted); font-size: 1.06rem; }
+@media (max-width: 900px) { .principles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .principles { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.contact h2 { max-width: 12ch; }
+.contact .lead { margin-top: 24px; }
+form { display: grid; gap: 18px; }
+label { display: grid; gap: 8px; font-family: var(--display); font-weight: 500; font-size: .95rem; }
+input, textarea, select {
+  font: inherit; font-family: var(--body); font-size: 1.1rem; color: var(--text);
+  background: var(--l1); border: 1.5px solid var(--line); border-radius: 10px; padding: 14px 16px; width: 100%;
+  transition: border-color .2s;
+}
+input:hover, textarea:hover, select:hover { border-color: var(--stone); }
+textarea { min-height: 140px; resize: vertical; }
+.hint { font-size: .95rem; color: var(--muted); }
+
+/* Taalschakelaar */
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.lang { display: inline-flex; border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; }
+.lang button {
+  font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .02em;
+  color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang button:hover { color: var(--text); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #161D23; }
+
+/* Harborlight: meldingen */
+.alerts { display: grid; gap: 10px; }
+.alerts div { display: grid; grid-template-columns: 14px 1fr; align-items: center; gap: 14px; background: var(--l1); border: 1px solid var(--line); border-radius: 10px; padding: 13px 16px; }
+.alerts b { width: 12px; height: 12px; border-radius: 50%; background: var(--stone); display: block; }
+.alerts i { height: 8px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.alerts div.hot { border-color: var(--accent); }
+.alerts div.hot b { background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 89, 12, .25), 0 0 18px 4px rgba(232, 89, 12, .45); }
+.alerts div.hot i { background: #8C5A3C; }
+.sub { font-family: var(--display); font-weight: 500; font-size: 1rem; color: var(--accent-text); margin-top: -10px; }
+footer .disc { flex-basis: 100%; font-size: .9rem; color: #A9B6BD; max-width: 80ch; }
+
+/* Footer = bedrock */
+footer { background: #34444F; padding: 44px 0 48px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+footer p { color: #C2CCD2; font-size: 1rem; }
+footer .brand { font-size: 1.25rem; }
+footer .brand span { color: #FF8A4D; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero .wrap, .head, .detail, .work, .contact { grid-template-columns: 1fr; }
+  .head .lead, .chips { justify-self: start; }
+  .hero-art { max-width: 460px; order: 2; }
+  .nav ul { display: none; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 44px 24px; }
+  .steps li::after { display: none; }
+  .card { min-height: 0; }
+}
+@media (max-width: 560px) { .nav .btn { display: none; } }
+@media (max-width: 520px) {
+  body { font-size: 1.125rem; }
+  .steps { grid-template-columns: 1fr; }
+  .gauge div { grid-template-columns: 72px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .drop { animation: none; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" data-i18n-aria="aria.top" aria-label="BedrockDock, naar boven">
+      <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="0" y="80" width="120" height="36" rx="6" fill="#6B7983"/>
+        <rect x="12" y="42" width="96" height="34" rx="6" fill="#9FACB4"/>
+        <rect x="28" y="4" width="64" height="34" rx="6" fill="#E8590C"/>
+      </svg>
+      <span style="color:inherit"><b>Bedrock</b><span>Dock</span></span>
+    </a>
+    <nav aria-label="Hoofdmenu" data-i18n-aria="aria.menu">
+      <ul>
+        <li><a href="#tools" data-i18n="nav.tools">Tools</a></li>
+        <li><a href="#aanpak" data-i18n="nav.approach">Aanpak</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="btn" href="#contact" data-i18n="nav.cta">Blijf op de hoogte</a>
+      <div class="lang" role="group" aria-label="Taal / Language">
+        <button type="button" data-lang="nl" aria-pressed="true">NL</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 data-i18n="hero.h1">Eigen tools, op vaste grond gebouwd.</h1>
+        <p class="lead" data-i18n="hero.lead">BedrockDock ontwikkelt zelf slimme tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.</p>
+        <div class="actions">
+          <a class="btn" href="#tools" data-i18n="hero.cta1">Bekijk de tools</a>
+          <a class="btn ghost" href="#aanpak" data-i18n="hero.cta2">Zo bouwen we</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <svg viewBox="0 0 480 440" role="img" data-i18n-aria="hero.alt" aria-label="Drie gestapelde lagen: rekenmodel, ontwerp en tool, boven het water van een kade">
+          <defs>
+            <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#E8590C" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#E8590C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="240" cy="240" rx="230" ry="150" fill="url(#glow)"/>
+          <rect x="10" y="318" width="460" height="10" rx="3" fill="#3A4A55"/>
+          <rect x="30" y="230" width="420" height="84" rx="12" fill="#4A5760"/>
+          <rect x="70" y="142" width="340" height="84" rx="12" fill="#6B7983"/>
+          <g class="drop">
+            <rect x="130" y="54" width="220" height="84" rx="12" fill="#E8590C"/>
+            <g stroke="#B94306" stroke-width="3" stroke-linecap="round" opacity=".7">
+              <line x1="168" y1="66" x2="168" y2="126"/><line x1="206" y1="66" x2="206" y2="126"/>
+              <line x1="274" y1="66" x2="274" y2="126"/><line x1="312" y1="66" x2="312" y2="126"/>
+            </g>
+          </g>
+          <g font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="20" fill="#E8ECEE">
+            <text x="62" y="278" data-i18n="hero.l1">Rekenmodel</text>
+            <text x="102" y="190" fill="#161D23" data-i18n="hero.l2">Ontwerp</text>
+          </g>
+          <path d="M0 350 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#E8590C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M0 376 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B7983" stroke-width="4" stroke-linecap="round"/>
+          <path d="M0 402 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3A4A55" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <p style="margin-top:6px;text-align:center;font-family:var(--display);font-size:.95rem;color:var(--muted)" data-i18n="hero.cap">Elke tool ligt bovenop een rekenmodel dat klopt.</p>
+      </div>
+    </div>
+
+    <svg class="waterline" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 64 V30 q25 -22 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 V64 Z" fill="#1B242B"/>
+    </svg>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="layer s-diensten" id="tools" style="margin-top:-2px;padding-top:clamp(32px,5vw,56px)">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="tools.h2">De tools</h2>
+        <p class="lead" data-i18n="tools.lead">Twee tools in ontwikkeling. Allebei beginnen bij iets waar mensen nu te veel gedoe mee hebben.</p>
+      </div>
+
+      <div class="work">
+        <article class="card big">
+          <span class="status" data-i18n="status">In ontwikkeling</span>
+          <h3>Wat Levert Het Op</h3>
+          <p data-i18n="wlho.p">Een duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie welke verduurzaming zich terugverdient. Ook na het einde van de saldering.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="wlho.c1">Airco of hybride warmtepomp</li>
+            <li data-i18n="wlho.c2">Gasloos koken en verwarmen</li>
+            <li data-i18n="wlho.c3">Thuisbatterij</li>
+            <li data-i18n="wlho.c4">Dynamisch contract</li>
+          </ul>
+          <div class="viz" aria-hidden="true">
+            <div class="meter">
+              <i style="height:18%"></i><i style="height:26%"></i><i style="height:34%"></i><i style="height:42%"></i><i style="height:50%"></i><i style="height:57%"></i><i style="height:64%"></i><i class="hl" style="height:72%"></i><i class="hl" style="height:80%"></i><i class="hl" style="height:88%"></i><i class="hl" style="height:96%"></i>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status" data-i18n="status">In ontwikkeling</span>
+          <h3>Harborlight</h3>
+          <p class="sub" data-i18n="hl.sub">Notifier for Zabbix</p>
+          <p data-i18n="hl.p">Een desktop-app die meldingen uit Zabbix als notificaties op je bureaublad zet. Zo zie je een storing op het moment dat hij ontstaat, ook als het dashboard dicht staat.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="hl.plat">Eerst voor Windows. Mac en Linux volgen later.</li>
+          </ul>
+          <div class="viz" aria-hidden="true">
+            <div class="alerts">
+              <div class="hot"><b></b><i style="--w:78%"></i></div>
+              <div><b></b><i style="--w:56%"></i></div>
+              <div><b></b><i style="--w:66%"></i></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AANPAK -->
+  <section class="layer s-werkwijze" id="aanpak">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="ap.h2">Zo bouwen we een tool</h2>
+        <p class="lead" data-i18n="ap.lead">Vier afspraken die we met onszelf maken, bij elke tool opnieuw.</p>
+      </div>
+      <ul class="principles">
+        <li>
+          <h3 data-i18n="ap.1h">Eerst doorrekenen</h3>
+          <p data-i18n="ap.1p">Het rekenmodel komt voor het ontwerp. We toetsen het aan echte metingen voordat iemand het ziet.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ap.2h">Weinig invoer</h3>
+          <p data-i18n="ap.2p">Klikken in plaats van formulieren. Geen bestanden uploaden en geen account aanmaken.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ap.3h">Eerlijke uitkomst</h3>
+          <p data-i18n="ap.3p">Als je al goed zit, zegt de tool dat ook. Geen advies alleen om iets te verkopen.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ap.4h">Eén ding goed</h3>
+          <p data-i18n="ap.4p">Elke tool lost één vraag op. Wat daar niet bij hoort, laten we bewust weg.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="layer s-contact" id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2 data-i18n="ct.h2">Blijf op de hoogte.</h2>
+        <p class="lead" data-i18n="ct.lead">Laat weten welke tool je interesseert, of welke vraag jij graag door een tool beantwoord zou zien. Dan hoor je het als er iets te proberen valt.</p>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <label><span data-i18n="ct.name">Je naam</span>
+          <input type="text" name="naam" autocomplete="name" required>
+        </label>
+        <label><span data-i18n="ct.topic">Waar ben je naar benieuwd?</span>
+          <select name="type">
+            <option>Wat Levert Het Op</option>
+            <option>Harborlight</option>
+            <option data-i18n="ct.o3">Beide tools</option>
+            <option data-i18n="ct.o4">Ik heb een idee voor een tool</option>
+          </select>
+        </label>
+        <label><span data-i18n="ct.msg">Bericht</span>
+          <textarea name="bericht" required></textarea>
+        </label>
+        <button class="btn" type="submit" data-i18n="ct.send">Open e-mail met je bericht</button>
+        <p class="hint" id="formHint" role="status" data-i18n="ct.hint">Dit opent je eigen e-mailprogramma met alles al ingevuld.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" data-i18n-aria="aria.top" aria-label="BedrockDock, naar boven">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="0" y="80" width="120" height="36" rx="6" fill="#8896A0"/>
+        <rect x="12" y="42" width="96" height="34" rx="6" fill="#C2CCD2"/>
+        <rect x="28" y="4" width="64" height="34" rx="6" fill="#FF8A4D"/>
+      </svg>
+      <span style="color:inherit"><b>Bedrock</b><span>Dock</span></span>
+    </a>
+    <p>Built on solid ground. © 2026 BedrockDock</p>
+    <p class="disc" data-i18n="disc">Zabbix is een handelsmerk van Zabbix LLC. Harborlight is een onafhankelijk product en is niet verbonden aan Zabbix.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    nl: {
+      'title': 'BedrockDock – eigen tools, op vaste grond gebouwd',
+      'desc': 'BedrockDock ontwikkelt eigen tools: Wat Levert Het Op en Harborlight.',
+      'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
+      'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en tool, boven het water van een kade',
+      'nav.tools': 'Tools', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
+      'hero.h1': 'Eigen tools, op vaste grond gebouwd.',
+      'hero.lead': 'BedrockDock ontwikkelt zelf slimme tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.',
+      'hero.cta1': 'Bekijk de tools', 'hero.cta2': 'Zo bouwen we',
+      'hero.l1': 'Rekenmodel', 'hero.l2': 'Ontwerp',
+      'hero.cap': 'Elke tool ligt bovenop een rekenmodel dat klopt.',
+      'tools.h2': 'De tools',
+      'tools.lead': 'Twee tools in ontwikkeling. Allebei beginnen bij iets waar mensen nu te veel gedoe mee hebben.',
+      'status': 'In ontwikkeling',
+      'wlho.p': 'Een duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie welke verduurzaming zich terugverdient. Ook na het einde van de saldering.',
+      'wlho.c1': 'Airco of hybride warmtepomp', 'wlho.c2': 'Gasloos koken en verwarmen', 'wlho.c3': 'Thuisbatterij', 'wlho.c4': 'Dynamisch contract',
+      'hl.sub': 'Notifier for Zabbix',
+      'hl.p': 'Een desktop-app die meldingen uit Zabbix als notificaties op je bureaublad zet. Zo zie je een storing op het moment dat hij ontstaat, ook als het dashboard dicht staat.',
+      'hl.plat': 'Eerst voor Windows. Mac en Linux volgen later.',
+      'ap.h2': 'Zo bouwen we een tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij elke tool opnieuw.',
+      'ap.1h': 'Eerst doorrekenen', 'ap.1p': 'Het rekenmodel komt voor het ontwerp. We toetsen het aan echte metingen voordat iemand het ziet.',
+      'ap.2h': 'Weinig invoer', 'ap.2p': 'Klikken in plaats van formulieren. Geen bestanden uploaden en geen account aanmaken.',
+      'ap.3h': 'Eerlijke uitkomst', 'ap.3p': 'Als je al goed zit, zegt de tool dat ook. Geen advies alleen om iets te verkopen.',
+      'ap.4h': 'Eén ding goed', 'ap.4p': 'Elke tool lost één vraag op. Wat daar niet bij hoort, laten we bewust weg.',
+      'ct.h2': 'Blijf op de hoogte.',
+      'ct.lead': 'Laat weten welke tool je interesseert, of welke vraag jij graag door een tool beantwoord zou zien. Dan hoor je het als er iets te proberen valt.',
+      'ct.name': 'Je naam', 'ct.topic': 'Waar ben je naar benieuwd?', 'ct.msg': 'Bericht',
+      'ct.o3': 'Beide tools', 'ct.o4': 'Ik heb een idee voor een tool',
+      'ct.send': 'Open e-mail met je bericht',
+      'ct.hint': 'Dit opent je eigen e-mailprogramma met alles al ingevuld.',
+      'ct.err': 'Vul je naam en een bericht in, dan kan de e-mail worden geopend.',
+      'ct.ok': 'Je e-mailprogramma wordt geopend. Staat er niets? Mail dan naar ',
+      'mail.subj': 'BedrockDock tools: ', 'mail.hi': 'Hallo,', 'mail.bye': 'Groet,',
+      'disc': 'Zabbix is een handelsmerk van Zabbix LLC. Harborlight is een onafhankelijk product en is niet verbonden aan Zabbix.'
+    },
+    en: {
+      'title': 'BedrockDock – our own tools, built on solid ground',
+      'desc': 'BedrockDock builds its own tools: Wat Levert Het Op and Harborlight.',
+      'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
+      'hero.alt': 'Three stacked layers: calculation model, design and tool, above the water of a quay',
+      'nav.tools': 'Tools', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
+      'hero.h1': 'Our own tools, built on solid ground.',
+      'hero.lead': 'BedrockDock builds smart tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.',
+      'hero.cta1': 'See the tools', 'hero.cta2': 'How we build',
+      'hero.l1': 'Calculation model', 'hero.l2': 'Design',
+      'hero.cap': 'Every tool sits on top of a model that holds up.',
+      'tools.h2': 'The tools',
+      'tools.lead': 'Two tools in development. Both start with something people currently find too much hassle.',
+      'status': 'In development',
+      'wlho.p': 'A sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see which upgrades pay for themselves, even after net metering ends.',
+      'wlho.c1': 'Air conditioning or hybrid heat pump', 'wlho.c2': 'Gas-free cooking and heating', 'wlho.c3': 'Home battery', 'wlho.c4': 'Dynamic energy contract',
+      'hl.sub': 'Notifier for Zabbix',
+      'hl.p': 'A desktop app that turns Zabbix alerts into desktop notifications. You see a problem the moment it happens, even when the dashboard is closed.',
+      'hl.plat': 'Windows first. Mac and Linux to follow later.',
+      'ap.h2': 'How we build a tool', 'ap.lead': 'Four rules we set ourselves, every time we start a new tool.',
+      'ap.1h': 'Calculate first', 'ap.1p': 'The calculation model comes before the design. We test it against real measurements before anyone sees it.',
+      'ap.2h': 'Little input', 'ap.2p': 'Clicks instead of forms. No file uploads and no account to create.',
+      'ap.3h': 'An honest answer', 'ap.3p': 'If you are already in good shape, the tool says so. No advice just to sell something.',
+      'ap.4h': 'One thing, done well', 'ap.4p': 'Each tool answers one question. Whatever does not belong to it, we leave out on purpose.',
+      'ct.h2': 'Stay in the loop.',
+      'ct.lead': 'Tell us which tool interests you, or which question you would like a tool to answer. You will hear from us when there is something to try.',
+      'ct.name': 'Your name', 'ct.topic': 'What are you curious about?', 'ct.msg': 'Message',
+      'ct.o3': 'Both tools', 'ct.o4': 'I have an idea for a tool',
+      'ct.send': 'Open email with your message',
+      'ct.hint': 'This opens your own email app with everything filled in.',
+      'ct.err': 'Fill in your name and a message so the email can be opened.',
+      'ct.ok': 'Your email app is opening. Nothing happened? Email ',
+      'mail.subj': 'BedrockDock tools: ', 'mail.hi': 'Hello,', 'mail.bye': 'Regards,',
+      'disc': 'Zabbix is a trademark of Zabbix LLC. Harborlight is an independent product and is not affiliated with Zabbix.'
+    }
+  };
+
+  var lang = 'nl';
+  try { var saved = localStorage.getItem('bd-lang'); if (saved === 'nl' || saved === 'en') lang = saved; } catch (e) {}
+
+  var form = document.getElementById('contactForm');
+  var hint = document.getElementById('formHint');
+  var TO = 'hello@bedrockdock.com'; // pas aan zodra het domein en mailadres vaststaan
+  var hintState = 'ct.hint';
+
+  function t(k) { return T[lang][k]; }
+
+  function apply() {
+    document.documentElement.lang = lang;
+    document.title = t('title');
+    var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t('desc'));
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n')); if (v) el.textContent = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n-aria')); if (v) el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    if (hintState === 'ct.ok') hint.textContent = t('ct.ok') + TO + '.';
+    else hint.textContent = t(hintState);
+  }
+
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      lang = b.getAttribute('data-lang');
+      try { localStorage.setItem('bd-lang', lang); } catch (e) {}
+      apply();
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = new FormData(form);
+    var naam = (d.get('naam') || '').toString().trim();
+    var bericht = (d.get('bericht') || '').toString().trim();
+    if (!naam || !bericht) {
+      hintState = 'ct.err'; apply(); hint.style.color = '#FF8A4D';
+      return;
+    }
+    var sel = form.elements['type'];
+    var topic = sel.options[sel.selectedIndex].text;
+    var subject = t('mail.subj') + topic;
+    var body = t('mail.hi') + '\n\n' + bericht + '\n\n' + t('mail.bye') + '\n' + naam;
+    window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    hintState = 'ct.ok'; apply(); hint.style.color = '';
+  });
+
+  apply();
+})();
+</script>
+</body>
+</html>
