@@ -216,6 +216,46 @@ textarea { min-height: 140px; resize: vertical; }
 .alerts div.hot b { background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 89, 12, .25), 0 0 18px 4px rgba(232, 89, 12, .45); }
 .alerts div.hot i { background: #8C5A3C; }
 .sub { font-family: var(--display); font-weight: 500; font-size: 1rem; color: var(--accent-text); margin-top: -10px; }
+.more { font-family: var(--display); font-weight: 500; font-size: 1rem; color: var(--accent-text); text-decoration: none; }
+.more:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Harborlight: detailsectie */
+.hl-block { margin-top: clamp(56px, 8vw, 96px); }
+.hl-block > h3, .hl-now h3.sh { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; margin-bottom: 24px; }
+.hl-now { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.hl-now > div > p { color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
+.panel { background: var(--l1); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+.panel .bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--l0); }
+.panel .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--stone-dark); display: block; }
+.panel .tabs { display: flex; gap: 4px; padding: 12px 14px 0; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: .88rem; font-weight: 500; }
+.panel .tabs span { padding: 8px 12px; color: var(--muted); border-bottom: 2px solid transparent; }
+.panel .tabs span.on { color: var(--text); border-bottom-color: var(--accent); }
+.panel .rows2 { display: grid; gap: 10px; padding: 16px; }
+.panel .rows2 div { display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 14px; background: var(--l2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.panel .rows2 b { width: 12px; height: 12px; border-radius: 50%; background: var(--stone); display: block; }
+.panel .rows2 .hot { border-color: var(--accent); }
+.panel .rows2 .hot b { background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 89, 12, .25); }
+.panel .rows2 i { height: 8px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.panel .rows2 em { width: 38px; height: 8px; border-radius: 4px; background: var(--l4); display: block; }
+.panel .foot { display: flex; justify-content: flex-end; padding: 0 16px 16px; }
+.panel .foot span { font-family: var(--display); font-size: .85rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.track { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.track li { display: grid; grid-template-columns: 76px 1fr; gap: 4px 18px; align-items: baseline; background: var(--l2); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
+.track li.now { border-color: var(--accent); }
+.track .tag { grid-row: span 2; font-family: var(--display); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--stone); }
+.track li.done .tag { color: var(--muted); }
+.track li.now .tag { color: var(--accent-text); }
+.track strong { font-family: var(--display); font-size: 1.15rem; }
+.track span:last-child { color: var(--muted); font-size: 1rem; }
+.principles.three { grid-template-columns: repeat(3, 1fr); }
+.editions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.editions .card { min-height: 0; gap: 14px; }
+.editions .card.pro { border-color: var(--accent); }
+.editions ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: grid; gap: 8px; }
+.editions li::marker { color: var(--accent-text); }
+.hl-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(28px, 4vw, 40px); border-radius: 18px; background: var(--l2); border: 1px solid var(--line); }
+.hl-cta p { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.45rem); font-weight: 500; max-width: 40ch; line-height: 1.35; }
+.disclaimer { margin-top: 20px; color: var(--muted); font-size: .95rem; }
 
 /* Footer = bedrock */
 footer { background: #34444F; padding: 44px 0 48px; }
@@ -226,7 +266,7 @@ footer .brand span { color: #FF8A4D; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .hero .wrap, .head, .detail, .work, .contact { grid-template-columns: 1fr; }
+  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.three { grid-template-columns: 1fr; }
   .head .lead, .chips { justify-self: start; }
   .hero-art { max-width: 460px; order: 2; }
   .nav ul { display: none; }
@@ -262,6 +302,7 @@ footer .brand span { color: #FF8A4D; }
     <nav aria-label="Main menu" data-i18n-aria="aria.menu">
       <ul>
         <li><a href="#tools" data-i18n="nav.tools">Tools</a></li>
+        <li><a href="#harborlight">Harborlight</a></li>
         <li><a href="#aanpak" data-i18n="nav.approach">Approach</a></li>
       </ul>
     </nav>
@@ -355,10 +396,11 @@ footer .brand span { color: #FF8A4D; }
           <span class="status" data-i18n="status">In development</span>
           <h3>Harborlight</h3>
           <p class="sub" data-i18n="hl.sub">Notifier for Zabbix</p>
-          <p data-i18n="hl.p">A desktop app that turns Zabbix alerts into desktop notifications. You see a problem the moment it happens, even when the dashboard is closed.</p>
+          <p data-i18n="hl.p">A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters and a snooze button.</p>
           <ul class="chips" style="justify-self:start">
             <li data-i18n="hl.plat">Windows first, then Linux.</li>
           </ul>
+          <a class="more" href="#harborlight" data-i18n="hl.more">More about Harborlight →</a>
           <div class="viz" aria-hidden="true">
             <div class="alerts">
               <div class="hot"><b></b><i style="--w:78%"></i></div>
@@ -396,6 +438,96 @@ footer .brand span { color: #FF8A4D; }
           <p data-i18n="ap.4p">Each tool answers one question. Whatever does not belong to it, we leave out on purpose.</p>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- HARBORLIGHT -->
+  <section class="layer s-werk" id="harborlight">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="hlx.h2">Harborlight: where we are now</h2>
+        <p class="lead" data-i18n="hlx.lead">Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions and a snooze button for when you need a moment without alerts. No noise from separate Windows notifications, just one calm overview of what is really going on.</p>
+      </div>
+
+      <div class="hl-now">
+        <div class="panel" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="tabs">
+            <span class="on" data-i18n="hlx.tab1">Production</span>
+            <span data-i18n="hlx.tab2">Network</span>
+            <span data-i18n="hlx.tab3">Office</span>
+          </div>
+          <div class="rows2">
+            <div class="hot"><b></b><i style="--w:82%"></i><em></em></div>
+            <div><b></b><i style="--w:60%"></i><em></em></div>
+            <div><b></b><i style="--w:70%"></i><em></em></div>
+            <div><b></b><i style="--w:48%"></i><em></em></div>
+          </div>
+          <div class="foot"><span data-i18n="hlx.snooze">Snooze 1 h</span></div>
+        </div>
+
+        <div>
+          <h3 class="sh" data-i18n="hlx.nowh">Where we are now</h3>
+          <p data-i18n="hlx.nowp">The design is done. We know what Harborlight will look like, what it does and how it handles your data. Now we start building.</p>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t1h">Design</strong><span data-i18n="hlx.t1p">Look, features and data handling.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="hlx.t2h">Building for Windows</strong><span data-i18n="hlx.t2p">The first version.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong>Linux</strong><span data-i18n="hlx.t3p">After the Windows version.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.careh">What we pay attention to</h3>
+        <ul class="principles three">
+          <li>
+            <h3 data-i18n="hlx.c1h">Read-only access</h3>
+            <p data-i18n="hlx.c1p">Harborlight reads from Zabbix and changes nothing there. Your settings and exceptions are stored locally on your own computer.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hlx.c2h">Open source</h3>
+            <p data-i18n="hlx.c2p">The source code of the basic version will be public. That way you can see for yourself what a tool with access to your monitoring actually does.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hlx.c3h">Your AI, your data</h3>
+            <p data-i18n="hlx.c3p">In the pro version, Harborlight gives a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.nexth">What is coming</h3>
+        <div class="editions">
+          <article class="card">
+            <h3 data-i18n="hlx.e1h">Basic</h3>
+            <p class="sub" data-i18n="hlx.e1sub">Free</p>
+            <ul>
+              <li data-i18n="hlx.e1a">Alert panel with tabs per host group</li>
+              <li data-i18n="hlx.e1b">Severity filters and per-host exceptions</li>
+              <li data-i18n="hlx.e1c">Snooze button</li>
+              <li data-i18n="hlx.e1d">Open source</li>
+            </ul>
+          </article>
+          <article class="card pro">
+            <h3>Pro</h3>
+            <p class="sub" data-i18n="hlx.e2sub">With AI explanation</p>
+            <ul>
+              <li data-i18n="hlx.e2a">Everything in Basic</li>
+              <li data-i18n="hlx.e2b">AI explanation with alerts, using your own AI</li>
+              <li data-i18n="hlx.e2c">An overview of problems that are about to happen</li>
+              <li data-i18n="hlx.e2d">Sign-in with Entra ID</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <div class="hl-cta">
+          <p data-i18n="hlx.cta">Want to stay in the loop or help shape the first version? Send us a message.</p>
+          <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="nav.cta">Stay in the loop</a>
+        </div>
+        <p class="disclaimer" data-i18n="hlx.disc">Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.</p>
+      </div>
     </div>
   </section>
 
@@ -463,8 +595,28 @@ footer .brand span { color: #FF8A4D; }
       'wlho.p': 'Een duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie welke verduurzaming zich terugverdient. Ook na het einde van de saldering.',
       'wlho.c1': 'Airco of hybride warmtepomp', 'wlho.c2': 'Gasloos koken en verwarmen', 'wlho.c3': 'Thuisbatterij', 'wlho.c4': 'Dynamisch contract',
       'hl.sub': 'Notifier for Zabbix',
-      'hl.p': 'Een desktop-app die meldingen uit Zabbix als notificaties op je bureaublad zet. Zo zie je een storing op het moment dat hij ontstaat, ook als het dashboard dicht staat.',
+      'hl.p': 'Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity en een snooze-knop.',
       'hl.plat': 'Eerst voor Windows, daarna Linux.',
+      'hl.more': 'Meer over Harborlight →',
+      'hlx.h2': 'Harborlight: waar staan we nu?',
+      'hlx.lead': 'Harborlight is een desktop-app die je Zabbix-meldingen overzichtelijk bij elkaar brengt. Je krijgt een eigen meldingenpaneel met tabs per hostgroep, filters op severity, per-host uitzonderingen en een snooze-knop voor als je even geen meldingen wilt. Geen ruis van losse Windows-notificaties, maar één rustig overzicht van wat er écht speelt.',
+      'hlx.tab1': 'Productie', 'hlx.tab2': 'Netwerk', 'hlx.tab3': 'Kantoor', 'hlx.snooze': 'Snooze 1 u',
+      'hlx.nowh': 'Waar we nu staan',
+      'hlx.nowp': 'Het ontwerp is klaar. We weten hoe Harborlight eruit komt te zien, wat het doet en hoe het met je gegevens omgaat. Nu beginnen we met bouwen.',
+      'hlx.t1tag': 'Klaar', 'hlx.t1h': 'Ontwerp', 'hlx.t1p': 'Uiterlijk, functies en omgang met je gegevens.',
+      'hlx.t2tag': 'Nu', 'hlx.t2h': 'Bouwen voor Windows', 'hlx.t2p': 'De eerste versie.',
+      'hlx.t3tag': 'Daarna', 'hlx.t3p': 'Na de Windows-versie.',
+      'hlx.careh': 'Waar we op letten',
+      'hlx.c1h': 'Alleen leesrechten', 'hlx.c1p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Je instellingen en uitzonderingen staan lokaal op je eigen computer.',
+      'hlx.c2h': 'Open source', 'hlx.c2p': 'De broncode van de basisversie wordt openbaar. Zo kun je zelf zien wat een tool doet die toegang heeft tot je monitoring.',
+      'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de pro-versie geeft Harborlight bij een melding een korte uitleg van wat er aan de hand is. Daarvoor koppel je je eigen AI, zoals Claude, OpenAI, Azure OpenAI of een lokaal model. Je data hoeft je eigen omgeving dus niet te verlaten.',
+      'hlx.nexth': 'Wat er nog komt',
+      'hlx.e1h': 'Basis', 'hlx.e1sub': 'Gratis',
+      'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Snooze-knop', 'hlx.e1d': 'Open source',
+      'hlx.e2sub': 'Met AI-uitleg',
+      'hlx.e2a': 'Alles uit de basisversie', 'hlx.e2b': 'AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Een overzicht van problemen die eraan zitten te komen', 'hlx.e2d': 'Inloggen via Entra ID',
+      'hlx.cta': 'Wil je op de hoogte blijven of meedenken over de eerste versie? Stuur ons een bericht.',
+      'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
       'ap.h2': 'Zo bouwen we een tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij elke tool opnieuw.',
       'ap.1h': 'Eerst doorrekenen', 'ap.1p': 'Het rekenmodel komt voor het ontwerp. We toetsen het aan echte metingen voordat iemand het ziet.',
       'ap.2h': 'Weinig invoer', 'ap.2p': 'Klikken in plaats van formulieren. Geen bestanden uploaden en geen account aanmaken.',
@@ -497,8 +649,28 @@ footer .brand span { color: #FF8A4D; }
       'wlho.p': 'A sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see which upgrades pay for themselves, even after net metering ends.',
       'wlho.c1': 'Air conditioning or hybrid heat pump', 'wlho.c2': 'Gas-free cooking and heating', 'wlho.c3': 'Home battery', 'wlho.c4': 'Dynamic energy contract',
       'hl.sub': 'Notifier for Zabbix',
-      'hl.p': 'A desktop app that turns Zabbix alerts into desktop notifications. You see a problem the moment it happens, even when the dashboard is closed.',
+      'hl.p': 'A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters and a snooze button.',
       'hl.plat': 'Windows first, then Linux.',
+      'hl.more': 'More about Harborlight →',
+      'hlx.h2': 'Harborlight: where we are now',
+      'hlx.lead': 'Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions and a snooze button for when you need a moment without alerts. No noise from separate Windows notifications, just one calm overview of what is really going on.',
+      'hlx.tab1': 'Production', 'hlx.tab2': 'Network', 'hlx.tab3': 'Office', 'hlx.snooze': 'Snooze 1 h',
+      'hlx.nowh': 'Where we are now',
+      'hlx.nowp': 'The design is done. We know what Harborlight will look like, what it does and how it handles your data. Now we start building.',
+      'hlx.t1tag': 'Done', 'hlx.t1h': 'Design', 'hlx.t1p': 'Look, features and data handling.',
+      'hlx.t2tag': 'Now', 'hlx.t2h': 'Building for Windows', 'hlx.t2p': 'The first version.',
+      'hlx.t3tag': 'Next', 'hlx.t3p': 'After the Windows version.',
+      'hlx.careh': 'What we pay attention to',
+      'hlx.c1h': 'Read-only access', 'hlx.c1p': 'Harborlight reads from Zabbix and changes nothing there. Your settings and exceptions are stored locally on your own computer.',
+      'hlx.c2h': 'Open source', 'hlx.c2p': 'The source code of the basic version will be public. That way you can see for yourself what a tool with access to your monitoring actually does.',
+      'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the pro version, Harborlight gives a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.',
+      'hlx.nexth': 'What is coming',
+      'hlx.e1h': 'Basic', 'hlx.e1sub': 'Free',
+      'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Snooze button', 'hlx.e1d': 'Open source',
+      'hlx.e2sub': 'With AI explanation',
+      'hlx.e2a': 'Everything in Basic', 'hlx.e2b': 'AI explanation with alerts, using your own AI', 'hlx.e2c': 'An overview of problems that are about to happen', 'hlx.e2d': 'Sign-in with Entra ID',
+      'hlx.cta': 'Want to stay in the loop or help shape the first version? Send us a message.',
+      'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
       'ap.h2': 'How we build a tool', 'ap.lead': 'Four rules we set ourselves, every time we start a new tool.',
       'ap.1h': 'Calculate first', 'ap.1p': 'The calculation model comes before the design. We test it against real measurements before anyone sees it.',
       'ap.2h': 'Little input', 'ap.2p': 'Clicks instead of forms. No file uploads and no account to create.',
@@ -548,6 +720,15 @@ footer .brand span { color: #FF8A4D; }
       lang = b.getAttribute('data-lang');
       try { localStorage.setItem('bd-lang', lang); } catch (e) {}
       apply();
+    });
+  });
+
+  document.querySelectorAll('[data-topic]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sel = form.elements['type'];
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === a.getAttribute('data-topic')) sel.selectedIndex = i;
+      }
     });
   });
 
