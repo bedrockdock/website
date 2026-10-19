@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#161D23">
 <title>BedrockDock – our own tools, built on solid ground</title>
-<meta name="description" content="BedrockDock builds its own tools: Wat Levert Het Op and Harborlight.">
+<meta name="description" content="BedrockDock builds its own tools: HuisLast and Harborlight.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -376,14 +376,15 @@ footer .brand span { color: #FF8A4D; }
 
       <div class="work">
         <article class="card big">
-          <span class="status" data-i18n="status">In development</span>
-          <h3>Wat Levert Het Op</h3>
-          <p data-i18n="wlho.p">A sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see which upgrades pay for themselves, even after net metering ends.</p>
+          <span class="status" data-i18n="wlho.status">Launching Nov/Dec 2026</span>
+          <h3>HuisLast</h3>
+          <p data-i18n="wlho.p">An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.</p>
+          <p data-i18n="wlho.now">Where we are now: the calculation model is finished and checked against CBS, RVO and Milieu Centraal. The app works, and the paid report with iDEAL payment is built. We are now setting up hosting and mail for the launch in November or December.</p>
           <ul class="chips" style="justify-self:start">
-            <li data-i18n="wlho.c1">Air conditioning or hybrid heat pump</li>
-            <li data-i18n="wlho.c2">Gas-free cooking and heating</li>
-            <li data-i18n="wlho.c3">Home battery</li>
-            <li data-i18n="wlho.c4">Dynamic energy contract</li>
+            <li data-i18n="wlho.c1">Heat pump, hybrid or air conditioning</li>
+            <li data-i18n="wlho.c2">Insulation</li>
+            <li data-i18n="wlho.c3">Solar panels and home battery</li>
+            <li data-i18n="wlho.c4">Going gas-free</li>
           </ul>
           <div class="viz" aria-hidden="true">
             <div class="meter">
@@ -545,7 +546,7 @@ footer .brand span { color: #FF8A4D; }
         </label>
         <label><span data-i18n="ct.topic">What are you curious about?</span>
           <select name="type">
-            <option>Wat Levert Het Op</option>
+            <option>HuisLast</option>
             <option>Harborlight</option>
             <option data-i18n="ct.o3">Both tools</option>
             <option data-i18n="ct.o4">I have an idea for a tool</option>
@@ -580,7 +581,7 @@ footer .brand span { color: #FF8A4D; }
   var T = {
     nl: {
       'title': 'BedrockDock – eigen tools, op vaste grond gebouwd',
-      'desc': 'BedrockDock ontwikkelt eigen tools: Wat Levert Het Op en Harborlight.',
+      'desc': 'BedrockDock ontwikkelt eigen tools: HuisLast en Harborlight.',
       'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
       'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en tool, boven het water van een kade',
       'nav.tools': 'Tools', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
@@ -592,8 +593,10 @@ footer .brand span { color: #FF8A4D; }
       'tools.h2': 'De tools',
       'tools.lead': 'Twee tools in ontwikkeling. Allebei beginnen bij iets waar mensen nu te veel gedoe mee hebben.',
       'status': 'In ontwikkeling',
-      'wlho.p': 'Een duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie welke verduurzaming zich terugverdient. Ook na het einde van de saldering.',
-      'wlho.c1': 'Airco of hybride warmtepomp', 'wlho.c2': 'Gasloos koken en verwarmen', 'wlho.c3': 'Thuisbatterij', 'wlho.c4': 'Dynamisch contract',
+      'wlho.status': 'Live in nov/dec 2026',
+      'wlho.p': 'Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.',
+      'wlho.now': 'Waar we nu staan: het rekenmodel is af en gecontroleerd bij CBS, RVO en Milieu Centraal. De app werkt en het betaalde rapport met iDEAL-betaling is gebouwd. We richten nu hosting en mail in voor de livegang in november of december.',
+      'wlho.c1': 'Warmtepomp, hybride of airco', 'wlho.c2': 'Isolatie', 'wlho.c3': 'Zonnepanelen en thuisbatterij', 'wlho.c4': 'Gasloos wonen',
       'hl.sub': 'Notifier for Zabbix',
       'hl.p': 'Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity en een snooze-knop.',
       'hl.plat': 'Eerst voor Windows, daarna Linux.',
@@ -634,7 +637,7 @@ footer .brand span { color: #FF8A4D; }
     },
     en: {
       'title': 'BedrockDock – our own tools, built on solid ground',
-      'desc': 'BedrockDock builds its own tools: Wat Levert Het Op and Harborlight.',
+      'desc': 'BedrockDock builds its own tools: HuisLast and Harborlight.',
       'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
       'hero.alt': 'Three stacked layers: calculation model, design and tool, above the water of a quay',
       'nav.tools': 'Tools', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
@@ -646,8 +649,10 @@ footer .brand span { color: #FF8A4D; }
       'tools.h2': 'The tools',
       'tools.lead': 'Two tools in development. Both start with something people currently find too much hassle.',
       'status': 'In development',
-      'wlho.p': 'A sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see which upgrades pay for themselves, even after net metering ends.',
-      'wlho.c1': 'Air conditioning or hybrid heat pump', 'wlho.c2': 'Gas-free cooking and heating', 'wlho.c3': 'Home battery', 'wlho.c4': 'Dynamic energy contract',
+      'wlho.status': 'Launching Nov/Dec 2026',
+      'wlho.p': 'An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.',
+      'wlho.now': 'Where we are now: the calculation model is finished and checked against CBS, RVO and Milieu Centraal. The app works, and the paid report with iDEAL payment is built. We are now setting up hosting and mail for the launch in November or December.',
+      'wlho.c1': 'Heat pump, hybrid or air conditioning', 'wlho.c2': 'Insulation', 'wlho.c3': 'Solar panels and home battery', 'wlho.c4': 'Going gas-free',
       'hl.sub': 'Notifier for Zabbix',
       'hl.p': 'A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters and a snooze button.',
       'hl.plat': 'Windows first, then Linux.',
