@@ -260,7 +260,7 @@ textarea { min-height: 140px; resize: vertical; }
 .card .track li { background: var(--l1); padding: 12px 18px; }
 .card .track strong { font-size: 1rem; }
 .card .track span:last-child { font-size: .95rem; }
-.principles.three { grid-template-columns: repeat(3, 1fr); }
+.principles.two { grid-template-columns: repeat(2, 1fr); }
 .editions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .editions .card { min-height: 0; gap: 14px; }
 .editions .card.pro { border-color: var(--accent); }
@@ -280,7 +280,7 @@ footer .brand span { color: #FF8A4D; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .work .card.big { grid-row: auto; }
-  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.three { grid-template-columns: 1fr; }
+  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two { grid-template-columns: 1fr; }
   .head .lead, .chips { justify-self: start; }
   .hero-art { max-width: 460px; order: 2; }
   .nav ul { display: none; }
@@ -516,14 +516,10 @@ footer .brand span { color: #FF8A4D; }
 
       <div class="hl-block">
         <h3 data-i18n="hlx.careh">What we pay attention to</h3>
-        <ul class="principles three">
+        <ul class="principles two">
           <li>
             <h3 data-i18n="hlx.c1h">Read-only access</h3>
             <p data-i18n="hlx.c1p">Harborlight reads from Zabbix and changes nothing there. Your settings and exceptions are stored locally on your own computer.</p>
-          </li>
-          <li>
-            <h3 data-i18n="hlx.c2h">Open source</h3>
-            <p data-i18n="hlx.c2p">The source code of the basic version will be public. That way you can see for yourself what a tool with access to your monitoring actually does.</p>
           </li>
           <li>
             <h3 data-i18n="hlx.c3h">Your AI, your data</h3>
@@ -542,7 +538,6 @@ footer .brand span { color: #FF8A4D; }
               <li data-i18n="hlx.e1a">Alert panel with tabs per host group</li>
               <li data-i18n="hlx.e1b">Severity filters and per-host exceptions</li>
               <li data-i18n="hlx.e1c">Snooze button</li>
-              <li data-i18n="hlx.e1d">Open source</li>
             </ul>
           </article>
           <article class="card pro">
@@ -654,11 +649,10 @@ footer .brand span { color: #FF8A4D; }
       'hlx.t3tag': 'Daarna', 'hlx.t3p': 'Na de Windows-versie.',
       'hlx.careh': 'Waar we op letten',
       'hlx.c1h': 'Alleen leesrechten', 'hlx.c1p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Je instellingen en uitzonderingen staan lokaal op je eigen computer.',
-      'hlx.c2h': 'Open source', 'hlx.c2p': 'De broncode van de basisversie wordt openbaar. Zo kun je zelf zien wat een tool doet die toegang heeft tot je monitoring.',
       'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de pro-versie geeft Harborlight bij een melding een korte uitleg van wat er aan de hand is. Daarvoor koppel je je eigen AI, zoals Claude, OpenAI, Azure OpenAI of een lokaal model. Je data hoeft je eigen omgeving dus niet te verlaten.',
       'hlx.nexth': 'Wat er nog komt',
       'hlx.e1h': 'Basis', 'hlx.e1sub': 'Gratis',
-      'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Snooze-knop', 'hlx.e1d': 'Open source',
+      'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Snooze-knop',
       'hlx.e2sub': 'Met AI-uitleg',
       'hlx.e2a': 'Alles uit de basisversie', 'hlx.e2b': 'AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Een overzicht van problemen die eraan zitten te komen', 'hlx.e2d': 'Inloggen via Entra ID',
       'hlx.cta': 'Wil je op de hoogte blijven of meedenken over de eerste versie? Stuur ons een bericht.',
@@ -716,11 +710,10 @@ footer .brand span { color: #FF8A4D; }
       'hlx.t3tag': 'Next', 'hlx.t3p': 'After the Windows version.',
       'hlx.careh': 'What we pay attention to',
       'hlx.c1h': 'Read-only access', 'hlx.c1p': 'Harborlight reads from Zabbix and changes nothing there. Your settings and exceptions are stored locally on your own computer.',
-      'hlx.c2h': 'Open source', 'hlx.c2p': 'The source code of the basic version will be public. That way you can see for yourself what a tool with access to your monitoring actually does.',
       'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the pro version, Harborlight gives a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.',
       'hlx.nexth': 'What is coming',
       'hlx.e1h': 'Basic', 'hlx.e1sub': 'Free',
-      'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Snooze button', 'hlx.e1d': 'Open source',
+      'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Snooze button',
       'hlx.e2sub': 'With AI explanation',
       'hlx.e2a': 'Everything in Basic', 'hlx.e2b': 'AI explanation with alerts, using your own AI', 'hlx.e2c': 'An overview of problems that are about to happen', 'hlx.e2d': 'Sign-in with Entra ID',
       'hlx.cta': 'Want to stay in the loop or help shape the first version? Send us a message.',
