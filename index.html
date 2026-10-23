@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#161D23">
 <title>BedrockDock – our own apps and tools, built on solid ground</title>
-<meta name="description" content="BedrockDock builds its own apps for home (HuisLast and Sowly) and tools for IT management (Harborlight and Bridgeview).">
+<meta name="description" content="BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -357,8 +357,8 @@ footer .brand span { color: #FF8A4D; }
     </a>
     <nav aria-label="Main menu" data-i18n-aria="aria.menu">
       <ul>
-        <li><a href="#thuis" data-i18n="nav.apps">For home</a></li>
         <li><a href="#it" data-i18n="nav.tools">For IT</a></li>
+        <li><a href="#thuis" data-i18n="nav.apps">For home</a></li>
         <li><a href="#harborlight">Harborlight</a></li>
         <li><a href="#aanpak" data-i18n="nav.approach">Approach</a></li>
       </ul>
@@ -428,10 +428,56 @@ footer .brand span { color: #FF8A4D; }
     <div class="wrap">
       <div class="head">
         <h2 data-i18n="tools.h2">What we build</h2>
-        <p class="lead" data-i18n="tools.lead">Two apps for home and two tools for IT management. Each one starts with something people currently find too much hassle.</p>
+        <p class="lead" data-i18n="tools.lead">Two tools for IT management and two apps for home. Each one starts with something people currently find too much hassle.</p>
       </div>
 
-      <h3 class="group" id="thuis" data-i18n="grp.apps">For home</h3>
+      <h3 class="group" id="it" data-i18n="grp.tools">For IT management</h3>
+      <p class="group-lead" data-i18n="grp.toolsp">Desktop apps for people who manage servers and networks.</p>
+      <div class="work pair">
+        <article class="card">
+          <span class="status" data-i18n="status">In development</span>
+          <h3>Harborlight</h3>
+          <p class="sub" data-i18n="hl.sub">Notifier for Zabbix</p>
+          <p data-i18n="hl.p">A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters, a pop-up for new problems and a snooze button. It also shows which problems are on their way.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="hl.plat">Windows first, then Mac and Linux.</li>
+            <li data-i18n="hl.free">Free up to 25 hosts</li>
+          </ul>
+          <a class="more" href="#harborlight" data-i18n="hl.more">More about Harborlight →</a>
+          <div class="viz" aria-hidden="true">
+            <div class="alerts">
+              <div class="hot"><b></b><i style="--w:78%"></i></div>
+              <div><b></b><i style="--w:56%"></i></div>
+              <div><b></b><i style="--w:66%"></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status" data-i18n="bv.status">Working prototype</span>
+          <h3>Bridgeview</h3>
+          <p class="sub" data-i18n="bv.sub">Connection manager for Windows</p>
+          <p data-i18n="bv.p">All your servers in one window. Open RDP and SSH sessions as tabs side by side and switch between them without losing the connection. A locked or dropped session is back with one click. Later, your team shares one list of connections, with passwords coming from 1Password instead of a vault of our own.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="bv.c1">RDP and SSH in tabs</li>
+            <li data-i18n="bv.c2">Reconnect with one click</li>
+            <li data-i18n="bv.c3">English, Dutch, German and French</li>
+          </ul>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bv.t1h">Prototype</strong><span data-i18n="bv.t1p">RDP and SSH tabs, reconnect, settings and system tray, in the Harborlight look.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="bv.t2h">Testing and detaching</strong><span data-i18n="bv.t2p">RDP against real servers, and tabs in their own window.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="bv.t3h">For teams</strong><span data-i18n="bv.t3p">A shared connection list, folders and passwords from 1Password.</span></li>
+          </ol>
+          <div class="viz" aria-hidden="true">
+            <div class="tabs-viz">
+              <div class="tb"><span class="on"></span><span></span><span></span></div>
+              <div class="scr"><i style="--w:72%"></i><i style="--w:54%"></i><i style="--w:63%"></i></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="group second" id="thuis" data-i18n="grp.apps">For home</h3>
       <p class="group-lead" data-i18n="grp.appsp">Works in your browser, on your phone too.</p>
       <div class="work pair">
         <article class="card big">
@@ -476,52 +522,6 @@ footer .brand span { color: #FF8A4D; }
             </div>
             <figcaption data-i18n="sw.cap">Meet Sprout. Give it a tap.</figcaption>
           </figure>
-        </article>
-      </div>
-
-      <h3 class="group second" id="it" data-i18n="grp.tools">For IT management</h3>
-      <p class="group-lead" data-i18n="grp.toolsp">Desktop apps for people who manage servers and networks.</p>
-      <div class="work pair">
-        <article class="card">
-          <span class="status" data-i18n="status">In development</span>
-          <h3>Harborlight</h3>
-          <p class="sub" data-i18n="hl.sub">Notifier for Zabbix</p>
-          <p data-i18n="hl.p">A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters, a pop-up for new problems and a snooze button. It also shows which problems are on their way.</p>
-          <ul class="chips" style="justify-self:start">
-            <li data-i18n="hl.plat">Windows first, then Mac and Linux.</li>
-            <li data-i18n="hl.free">Free up to 25 hosts</li>
-          </ul>
-          <a class="more" href="#harborlight" data-i18n="hl.more">More about Harborlight →</a>
-          <div class="viz" aria-hidden="true">
-            <div class="alerts">
-              <div class="hot"><b></b><i style="--w:78%"></i></div>
-              <div><b></b><i style="--w:56%"></i></div>
-              <div><b></b><i style="--w:66%"></i></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="status" data-i18n="bv.status">Working prototype</span>
-          <h3>Bridgeview</h3>
-          <p class="sub" data-i18n="bv.sub">Connection manager for Windows</p>
-          <p data-i18n="bv.p">All your servers in one window. Open RDP and SSH sessions as tabs side by side and switch between them without losing the connection. A locked or dropped session is back with one click. Later, your team shares one list of connections, with passwords coming from 1Password instead of a vault of our own.</p>
-          <ul class="chips" style="justify-self:start">
-            <li data-i18n="bv.c1">RDP and SSH in tabs</li>
-            <li data-i18n="bv.c2">Reconnect with one click</li>
-            <li data-i18n="bv.c3">English, Dutch, German and French</li>
-          </ul>
-          <ol class="track">
-            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bv.t1h">Prototype</strong><span data-i18n="bv.t1p">RDP and SSH tabs, reconnect, settings and system tray, in the Harborlight look.</span></li>
-            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="bv.t2h">Testing and detaching</strong><span data-i18n="bv.t2p">RDP against real servers, and tabs in their own window.</span></li>
-            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="bv.t3h">For teams</strong><span data-i18n="bv.t3p">A shared connection list, folders and passwords from 1Password.</span></li>
-          </ol>
-          <div class="viz" aria-hidden="true">
-            <div class="tabs-viz">
-              <div class="tb"><span class="on"></span><span></span><span></span></div>
-              <div class="scr"><i style="--w:72%"></i><i style="--w:54%"></i><i style="--w:63%"></i></div>
-            </div>
-          </div>
         </article>
       </div>
     </div>
@@ -699,7 +699,7 @@ footer .brand span { color: #FF8A4D; }
   var T = {
     nl: {
       'title': 'BedrockDock – eigen apps en tools, op vaste grond gebouwd',
-      'desc': 'BedrockDock ontwikkelt eigen apps voor thuis (HuisLast en Sowly) en tools voor IT-beheer (Harborlight en Bridgeview).',
+      'desc': 'BedrockDock ontwikkelt eigen tools voor IT-beheer (Harborlight en Bridgeview) en apps voor thuis (HuisLast en Sowly).',
       'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
       'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en product, boven het water van een kade',
       'nav.apps': 'Voor thuis', 'nav.tools': 'Voor IT', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
@@ -711,7 +711,7 @@ footer .brand span { color: #FF8A4D; }
       'tools.h2': 'Wat we maken',
       'grp.apps': 'Voor thuis', 'grp.appsp': 'Werkt in je browser, ook op je telefoon.',
       'grp.tools': 'Voor IT-beheer', 'grp.toolsp': 'Desktop-apps voor wie servers en netwerken beheert.',
-      'tools.lead': 'Twee apps voor thuis en twee tools voor IT-beheer. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
+      'tools.lead': 'Twee tools voor IT-beheer en twee apps voor thuis. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
       'status': 'In ontwikkeling',
       'wlho.status': 'Live in nov/dec 2026',
       'wlho.p': 'Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.',
@@ -772,7 +772,7 @@ footer .brand span { color: #FF8A4D; }
     },
     en: {
       'title': 'BedrockDock – our own apps and tools, built on solid ground',
-      'desc': 'BedrockDock builds its own apps for home (HuisLast and Sowly) and tools for IT management (Harborlight and Bridgeview).',
+      'desc': 'BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly).',
       'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
       'hero.alt': 'Three stacked layers: calculation model, design and product, above the water of a quay',
       'nav.apps': 'For home', 'nav.tools': 'For IT', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
@@ -784,7 +784,7 @@ footer .brand span { color: #FF8A4D; }
       'tools.h2': 'What we build',
       'grp.apps': 'For home', 'grp.appsp': 'Works in your browser, on your phone too.',
       'grp.tools': 'For IT management', 'grp.toolsp': 'Desktop apps for people who manage servers and networks.',
-      'tools.lead': 'Two apps for home and two tools for IT management. Each one starts with something people currently find too much hassle.',
+      'tools.lead': 'Two tools for IT management and two apps for home. Each one starts with something people currently find too much hassle.',
       'status': 'In development',
       'wlho.status': 'Launching Nov/Dec 2026',
       'wlho.p': 'An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.',
