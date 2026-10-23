@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#161D23">
-<title>BedrockDock – our own tools, built on solid ground</title>
-<meta name="description" content="BedrockDock builds its own tools: HuisLast, Harborlight, Bridgeview and Sowly.">
+<title>BedrockDock – our own apps and tools, built on solid ground</title>
+<meta name="description" content="BedrockDock builds its own apps for home (HuisLast and Sowly) and tools for IT management (Harborlight and Bridgeview).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -152,7 +152,6 @@ details[open] .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
 
 /* Eigen werk */
 .work { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; }
-.work .card.big { grid-row: span 2; }
 .work .card.big .viz { flex: 1; display: flex; align-items: flex-end; }
 .work .card.big .meter { flex: 1; height: 100%; min-height: 90px; max-height: 220px; }
 .card {
@@ -272,10 +271,13 @@ textarea { min-height: 140px; resize: vertical; }
 .disclaimer { margin-top: 20px; color: var(--muted); font-size: .95rem; }
 
 /* Sowly: brede kaart met mascotte Kiempje */
-.work .card.sowly { grid-column: 1 / -1; min-height: 0; display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px clamp(32px, 5vw, 64px); align-items: center; }
+.group { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; }
+.group-lead { color: var(--muted); margin: 8px 0 28px; max-width: 52ch; }
+.group.second { margin-top: clamp(56px, 8vw, 96px); }
+.work.pair { grid-template-columns: 1fr 1fr; }
 .sowly .txt { display: flex; flex-direction: column; gap: 18px; }
 .sowly .status.live { background: var(--accent); border-color: var(--accent); color: #161D23; font-weight: 700; }
-.garden { background: #E7F4E8; border-radius: 16px; display: grid; place-items: center; padding: 28px 24px 18px; }
+.garden { margin-top: auto !important; background: #E7F4E8; border-radius: 16px; display: grid; place-items: center; padding: 28px 24px 18px; }
 .kiempje {
   width: min(200px, 60%); cursor: pointer; -webkit-tap-highlight-color: transparent;
   --k-line: #2B2119; --k-soil: #7A5238; --k-leaf: #57B84F; --k-leaf2: #2F8F46; --k-leaf3: #8FD35C; --k-radish: #E0486E;
@@ -319,8 +321,7 @@ footer .brand span { color: #FF8A4D; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .work .card.big { grid-row: auto; }
-  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two, .principles.three, .work .card.sowly { grid-template-columns: 1fr; }
+  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two, .principles.three, .work.pair { grid-template-columns: 1fr; }
   .head .lead, .chips { justify-self: start; }
   .hero-art { max-width: 460px; order: 2; }
   .nav ul { display: none; }
@@ -356,7 +357,8 @@ footer .brand span { color: #FF8A4D; }
     </a>
     <nav aria-label="Main menu" data-i18n-aria="aria.menu">
       <ul>
-        <li><a href="#tools" data-i18n="nav.tools">Tools</a></li>
+        <li><a href="#thuis" data-i18n="nav.apps">For home</a></li>
+        <li><a href="#it" data-i18n="nav.tools">For IT</a></li>
         <li><a href="#harborlight">Harborlight</a></li>
         <li><a href="#aanpak" data-i18n="nav.approach">Approach</a></li>
       </ul>
@@ -377,16 +379,16 @@ footer .brand span { color: #FF8A4D; }
   <section class="hero">
     <div class="wrap">
       <div>
-        <h1 data-i18n="hero.h1">Our own tools, built on solid ground.</h1>
-        <p class="lead" data-i18n="hero.lead">BedrockDock builds smart tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.</p>
+        <h1 data-i18n="hero.h1">Our own apps and tools, built on solid ground.</h1>
+        <p class="lead" data-i18n="hero.lead">BedrockDock builds apps and tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.</p>
         <div class="actions">
-          <a class="btn" href="#tools" data-i18n="hero.cta1">See the tools</a>
+          <a class="btn" href="#werk" data-i18n="hero.cta1">See what we build</a>
           <a class="btn ghost" href="#aanpak" data-i18n="hero.cta2">How we build</a>
         </div>
       </div>
 
       <div class="hero-art">
-        <svg viewBox="0 0 480 440" role="img" data-i18n-aria="hero.alt" aria-label="Three stacked layers: calculation model, design and tool, above the water of a quay">
+        <svg viewBox="0 0 480 440" role="img" data-i18n-aria="hero.alt" aria-label="Three stacked layers: calculation model, design and product, above the water of a quay">
           <defs>
             <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#E8590C" stop-opacity=".22"/>
@@ -412,7 +414,7 @@ footer .brand span { color: #FF8A4D; }
           <path d="M0 376 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B7983" stroke-width="4" stroke-linecap="round"/>
           <path d="M0 402 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3A4A55" stroke-width="4" stroke-linecap="round"/>
         </svg>
-        <p style="margin-top:6px;text-align:center;font-family:var(--display);font-size:.95rem;color:var(--muted)" data-i18n="hero.cap">Every tool sits on top of a model that holds up.</p>
+        <p style="margin-top:6px;text-align:center;font-family:var(--display);font-size:.95rem;color:var(--muted)" data-i18n="hero.cap">Everything we build sits on top of a model that holds up.</p>
       </div>
     </div>
 
@@ -421,15 +423,17 @@ footer .brand span { color: #FF8A4D; }
     </svg>
   </section>
 
-  <!-- TOOLS -->
-  <section class="layer s-diensten" id="tools" style="margin-top:-2px;padding-top:clamp(32px,5vw,56px)">
+  <!-- WAT WE MAKEN: VOOR THUIS EN VOOR IT-BEHEER -->
+  <section class="layer s-diensten" id="werk" style="margin-top:-2px;padding-top:clamp(32px,5vw,56px)">
     <div class="wrap">
       <div class="head">
-        <h2 data-i18n="tools.h2">The tools</h2>
-        <p class="lead" data-i18n="tools.lead">Four tools. Each one starts with something people currently find too much hassle.</p>
+        <h2 data-i18n="tools.h2">What we build</h2>
+        <p class="lead" data-i18n="tools.lead">Two apps for home and two tools for IT management. Each one starts with something people currently find too much hassle.</p>
       </div>
 
-      <div class="work">
+      <h3 class="group" id="thuis" data-i18n="grp.apps">For home</h3>
+      <p class="group-lead" data-i18n="grp.appsp">Works in your browser, on your phone too.</p>
+      <div class="work pair">
         <article class="card big">
           <span class="status" data-i18n="wlho.status">Launching Nov/Dec 2026</span>
           <h3>HuisLast</h3>
@@ -453,6 +457,31 @@ footer .brand span { color: #FF8A4D; }
           </div>
         </article>
 
+        <article class="card sowly">
+          <div class="txt">
+            <span class="status live" data-i18n="sw.status">Live on 25 October 2026</span>
+            <h3>Sowly</h3>
+            <p class="sub" data-i18n="sw.sub">Vegetable garden planner</p>
+            <p data-i18n="sw.p">See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. Without an account everything stays on your own device; sign in and your garden goes online.</p>
+            <ul class="chips" style="justify-self:start">
+              <li data-i18n="sw.c1">Monthly calendar</li>
+              <li data-i18n="sw.c2">Timeline per crop</li>
+              <li data-i18n="sw.c3">Garden together</li>
+              <li data-i18n="sw.c4">For the Netherlands and Belgium</li>
+            </ul>
+          </div>
+          <figure class="garden" style="margin:0">
+            <div class="kiempje" id="kiempje" role="img" data-i18n-aria="sw.alt" aria-label="Sprout, the Sowly mascot">
+              <svg viewBox="0 0 120 124" aria-hidden="true"><ellipse class="mshadow" cx="60" cy="114" rx="30" ry="6" style="fill:#000;stroke:none;opacity:.28"/><g class="mbody mz"><path class="marmL" d="M38 84 C26 86 20 78 22 70 C30 70 36 74 40 80Z" style="fill:var(--k-leaf)"/><path class="marmR" d="M82 84 C94 86 100 78 98 70 C90 70 84 74 80 80Z" style="fill:var(--k-leaf)"/><path d="M26 112 C22 92 34 60 60 60 C86 60 98 92 94 112 C80 118 40 118 26 112Z" style="fill:var(--k-leaf3)"/><path d="M30 106 C40 112 80 112 90 106" style="fill:none;stroke:var(--k-soil);stroke-width:7"/><path d="M24 114 C34 106 86 106 96 114 C86 120 34 120 24 114Z" style="fill:var(--k-soil)"/><g class="mhead"><path d="M60 62 C60 52 59 46 60 38" style="fill:none;stroke-width:4"/><path class="mleafL" d="M60 42 C46 44 32 36 30 22 C46 20 58 28 60 42Z" style="fill:var(--k-leaf)"/><path class="mleafR" d="M60 42 C74 40 90 32 92 18 C76 16 62 26 60 42Z" style="fill:var(--k-leaf2)"/><path class="vein" d="M58 40 C50 34 42 28 36 24"/><path class="vein" d="M62 40 C70 32 80 26 88 20"/></g><circle cx="48" cy="80" r="9" style="fill:#fff"/><circle cx="72" cy="80" r="9" style="fill:#fff"/><g class="mpupil"><circle cx="50" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="51.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/><g class="mwink"><circle cx="74" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="75.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/></g></g><ellipse cx="38" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><ellipse cx="82" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><path d="M52 93 Q60 102 68 93Z" style="fill:#B3392F;stroke-width:2.2"/></g><path class="mheart" d="M92 42 C86 36 80 42 92 52 C104 42 98 36 92 42Z" style="fill:var(--k-radish);stroke-width:2"/></svg>
+            </div>
+            <figcaption data-i18n="sw.cap">Meet Sprout. Give it a tap.</figcaption>
+          </figure>
+        </article>
+      </div>
+
+      <h3 class="group second" id="it" data-i18n="grp.tools">For IT management</h3>
+      <p class="group-lead" data-i18n="grp.toolsp">Desktop apps for people who manage servers and networks.</p>
+      <div class="work pair">
         <article class="card">
           <span class="status" data-i18n="status">In development</span>
           <h3>Harborlight</h3>
@@ -494,27 +523,6 @@ footer .brand span { color: #FF8A4D; }
             </div>
           </div>
         </article>
-
-        <article class="card sowly">
-          <div class="txt">
-            <span class="status live" data-i18n="sw.status">Live on 25 October 2026</span>
-            <h3>Sowly</h3>
-            <p class="sub" data-i18n="sw.sub">Vegetable garden planner</p>
-            <p data-i18n="sw.p">See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. Without an account everything stays on your own device; sign in and your garden goes online.</p>
-            <ul class="chips" style="justify-self:start">
-              <li data-i18n="sw.c1">Monthly calendar</li>
-              <li data-i18n="sw.c2">Timeline per crop</li>
-              <li data-i18n="sw.c3">Garden together</li>
-              <li data-i18n="sw.c4">For the Netherlands and Belgium</li>
-            </ul>
-          </div>
-          <figure class="garden" style="margin:0">
-            <div class="kiempje" id="kiempje" role="img" data-i18n-aria="sw.alt" aria-label="Sprout, the Sowly mascot">
-              <svg viewBox="0 0 120 124" aria-hidden="true"><ellipse class="mshadow" cx="60" cy="114" rx="30" ry="6" style="fill:#000;stroke:none;opacity:.28"/><g class="mbody mz"><path class="marmL" d="M38 84 C26 86 20 78 22 70 C30 70 36 74 40 80Z" style="fill:var(--k-leaf)"/><path class="marmR" d="M82 84 C94 86 100 78 98 70 C90 70 84 74 80 80Z" style="fill:var(--k-leaf)"/><path d="M26 112 C22 92 34 60 60 60 C86 60 98 92 94 112 C80 118 40 118 26 112Z" style="fill:var(--k-leaf3)"/><path d="M30 106 C40 112 80 112 90 106" style="fill:none;stroke:var(--k-soil);stroke-width:7"/><path d="M24 114 C34 106 86 106 96 114 C86 120 34 120 24 114Z" style="fill:var(--k-soil)"/><g class="mhead"><path d="M60 62 C60 52 59 46 60 38" style="fill:none;stroke-width:4"/><path class="mleafL" d="M60 42 C46 44 32 36 30 22 C46 20 58 28 60 42Z" style="fill:var(--k-leaf)"/><path class="mleafR" d="M60 42 C74 40 90 32 92 18 C76 16 62 26 60 42Z" style="fill:var(--k-leaf2)"/><path class="vein" d="M58 40 C50 34 42 28 36 24"/><path class="vein" d="M62 40 C70 32 80 26 88 20"/></g><circle cx="48" cy="80" r="9" style="fill:#fff"/><circle cx="72" cy="80" r="9" style="fill:#fff"/><g class="mpupil"><circle cx="50" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="51.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/><g class="mwink"><circle cx="74" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="75.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/></g></g><ellipse cx="38" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><ellipse cx="82" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><path d="M52 93 Q60 102 68 93Z" style="fill:#B3392F;stroke-width:2.2"/></g><path class="mheart" d="M92 42 C86 36 80 42 92 52 C104 42 98 36 92 42Z" style="fill:var(--k-radish);stroke-width:2"/></svg>
-            </div>
-            <figcaption data-i18n="sw.cap">Meet Sprout. Give it a tap.</figcaption>
-          </figure>
-        </article>
       </div>
     </div>
   </section>
@@ -523,8 +531,8 @@ footer .brand span { color: #FF8A4D; }
   <section class="layer s-werkwijze" id="aanpak">
     <div class="wrap">
       <div class="head">
-        <h2 data-i18n="ap.h2">How we build a tool</h2>
-        <p class="lead" data-i18n="ap.lead">Four rules we set ourselves, every time we start a new tool.</p>
+        <h2 data-i18n="ap.h2">How we build an app or tool</h2>
+        <p class="lead" data-i18n="ap.lead">Four rules we set ourselves, for everything we build.</p>
       </div>
       <ul class="principles">
         <li>
@@ -537,11 +545,11 @@ footer .brand span { color: #FF8A4D; }
         </li>
         <li>
           <h3 data-i18n="ap.3h">An honest answer</h3>
-          <p data-i18n="ap.3p">If you are already in good shape, the tool says so. No advice just to sell something.</p>
+          <p data-i18n="ap.3p">If you are already in good shape, we say so. No advice just to sell something.</p>
         </li>
         <li>
           <h3 data-i18n="ap.4h">One thing, done well</h3>
-          <p data-i18n="ap.4p">Each tool answers one question. Whatever does not belong to it, we leave out on purpose.</p>
+          <p data-i18n="ap.4p">Each app or tool answers one question. Whatever does not belong to it, we leave out on purpose.</p>
         </li>
       </ul>
     </div>
@@ -645,7 +653,7 @@ footer .brand span { color: #FF8A4D; }
     <div class="wrap contact">
       <div>
         <h2 data-i18n="ct.h2">Stay in the loop.</h2>
-        <p class="lead" data-i18n="ct.lead">Tell us which tool interests you, or which question you would like a tool to answer. You will hear from us when there is something to try.</p>
+        <p class="lead" data-i18n="ct.lead">Tell us which app or tool interests you, or which question you would like answered. You will hear from us when there is something to try.</p>
       </div>
 
       <form id="contactForm" novalidate>
@@ -658,8 +666,8 @@ footer .brand span { color: #FF8A4D; }
             <option>Harborlight</option>
             <option>Bridgeview</option>
             <option>Sowly</option>
-            <option data-i18n="ct.o3">Several tools</option>
-            <option data-i18n="ct.o4">I have an idea for a tool</option>
+            <option data-i18n="ct.o3">More than one</option>
+            <option data-i18n="ct.o4">I have an idea for an app or tool</option>
           </select>
         </label>
         <label><span data-i18n="ct.msg">Message</span>
@@ -690,18 +698,20 @@ footer .brand span { color: #FF8A4D; }
 (function () {
   var T = {
     nl: {
-      'title': 'BedrockDock – eigen tools, op vaste grond gebouwd',
-      'desc': 'BedrockDock ontwikkelt eigen tools: HuisLast, Harborlight, Bridgeview en Sowly.',
+      'title': 'BedrockDock – eigen apps en tools, op vaste grond gebouwd',
+      'desc': 'BedrockDock ontwikkelt eigen apps voor thuis (HuisLast en Sowly) en tools voor IT-beheer (Harborlight en Bridgeview).',
       'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
-      'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en tool, boven het water van een kade',
-      'nav.tools': 'Tools', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
-      'hero.h1': 'Eigen tools, op vaste grond gebouwd.',
-      'hero.lead': 'BedrockDock ontwikkelt zelf slimme tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.',
-      'hero.cta1': 'Bekijk de tools', 'hero.cta2': 'Zo bouwen we',
+      'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en product, boven het water van een kade',
+      'nav.apps': 'Voor thuis', 'nav.tools': 'Voor IT', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
+      'hero.h1': 'Eigen apps en tools, op vaste grond gebouwd.',
+      'hero.lead': 'BedrockDock ontwikkelt zelf apps en tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.',
+      'hero.cta1': 'Bekijk wat we maken', 'hero.cta2': 'Zo bouwen we',
       'hero.l1': 'Rekenmodel', 'hero.l2': 'Ontwerp',
-      'hero.cap': 'Elke tool ligt bovenop een rekenmodel dat klopt.',
-      'tools.h2': 'De tools',
-      'tools.lead': 'Vier tools. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
+      'hero.cap': 'Alles wat we maken ligt bovenop een rekenmodel dat klopt.',
+      'tools.h2': 'Wat we maken',
+      'grp.apps': 'Voor thuis', 'grp.appsp': 'Werkt in je browser, ook op je telefoon.',
+      'grp.tools': 'Voor IT-beheer', 'grp.toolsp': 'Desktop-apps voor wie servers en netwerken beheert.',
+      'tools.lead': 'Twee apps voor thuis en twee tools voor IT-beheer. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
       'status': 'In ontwikkeling',
       'wlho.status': 'Live in nov/dec 2026',
       'wlho.p': 'Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.',
@@ -745,34 +755,36 @@ footer .brand span { color: #FF8A4D; }
       'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Binnenkort: AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Binnenkort: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
       'hlx.cta': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
       'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
-      'ap.h2': 'Zo bouwen we een tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij elke tool opnieuw.',
+      'ap.h2': 'Zo bouwen we een app of tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij alles wat we bouwen.',
       'ap.1h': 'Eerst doorrekenen', 'ap.1p': 'Het rekenmodel komt voor het ontwerp. We toetsen het aan echte metingen voordat iemand het ziet.',
       'ap.2h': 'Weinig invoer', 'ap.2p': 'Klikken in plaats van formulieren. Geen bestanden uploaden en geen account aanmaken.',
-      'ap.3h': 'Eerlijke uitkomst', 'ap.3p': 'Als je al goed zit, zegt de tool dat ook. Geen advies alleen om iets te verkopen.',
-      'ap.4h': 'Eén ding goed', 'ap.4p': 'Elke tool lost één vraag op. Wat daar niet bij hoort, laten we bewust weg.',
+      'ap.3h': 'Eerlijke uitkomst', 'ap.3p': 'Als je al goed zit, zeggen we dat ook. Geen advies alleen om iets te verkopen.',
+      'ap.4h': 'Eén ding goed', 'ap.4p': 'Elke app of tool lost één vraag op. Wat daar niet bij hoort, laten we bewust weg.',
       'ct.h2': 'Blijf op de hoogte.',
-      'ct.lead': 'Laat weten welke tool je interesseert, of welke vraag jij graag door een tool beantwoord zou zien. Dan hoor je het als er iets te proberen valt.',
+      'ct.lead': 'Laat weten welke app of tool je interesseert, of welke vraag jij graag beantwoord zou zien. Dan hoor je het als er iets te proberen valt.',
       'ct.name': 'Je naam', 'ct.topic': 'Waar ben je naar benieuwd?', 'ct.msg': 'Bericht',
-      'ct.o3': 'Meerdere tools', 'ct.o4': 'Ik heb een idee voor een tool',
+      'ct.o3': 'Meer dan één', 'ct.o4': 'Ik heb een idee voor een app of tool',
       'ct.send': 'Open e-mail met je bericht',
       'ct.hint': 'Dit opent je eigen e-mailprogramma met alles al ingevuld.',
       'ct.err': 'Vul je naam en een bericht in, dan kan de e-mail worden geopend.',
       'ct.ok': 'Je e-mailprogramma wordt geopend. Staat er niets? Mail dan naar ',
-      'mail.subj': 'BedrockDock tools: ', 'mail.hi': 'Hallo,', 'mail.bye': 'Groet,'
+      'mail.subj': 'BedrockDock: ', 'mail.hi': 'Hallo,', 'mail.bye': 'Groet,'
     },
     en: {
-      'title': 'BedrockDock – our own tools, built on solid ground',
-      'desc': 'BedrockDock builds its own tools: HuisLast, Harborlight, Bridgeview and Sowly.',
+      'title': 'BedrockDock – our own apps and tools, built on solid ground',
+      'desc': 'BedrockDock builds its own apps for home (HuisLast and Sowly) and tools for IT management (Harborlight and Bridgeview).',
       'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
-      'hero.alt': 'Three stacked layers: calculation model, design and tool, above the water of a quay',
-      'nav.tools': 'Tools', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
-      'hero.h1': 'Our own tools, built on solid ground.',
-      'hero.lead': 'BedrockDock builds smart tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.',
-      'hero.cta1': 'See the tools', 'hero.cta2': 'How we build',
+      'hero.alt': 'Three stacked layers: calculation model, design and product, above the water of a quay',
+      'nav.apps': 'For home', 'nav.tools': 'For IT', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
+      'hero.h1': 'Our own apps and tools, built on solid ground.',
+      'hero.lead': 'BedrockDock builds apps and tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.',
+      'hero.cta1': 'See what we build', 'hero.cta2': 'How we build',
       'hero.l1': 'Calculation model', 'hero.l2': 'Design',
-      'hero.cap': 'Every tool sits on top of a model that holds up.',
-      'tools.h2': 'The tools',
-      'tools.lead': 'Four tools. Each one starts with something people currently find too much hassle.',
+      'hero.cap': 'Everything we build sits on top of a model that holds up.',
+      'tools.h2': 'What we build',
+      'grp.apps': 'For home', 'grp.appsp': 'Works in your browser, on your phone too.',
+      'grp.tools': 'For IT management', 'grp.toolsp': 'Desktop apps for people who manage servers and networks.',
+      'tools.lead': 'Two apps for home and two tools for IT management. Each one starts with something people currently find too much hassle.',
       'status': 'In development',
       'wlho.status': 'Launching Nov/Dec 2026',
       'wlho.p': 'An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.',
@@ -816,20 +828,20 @@ footer .brand span { color: #FF8A4D; }
       'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Coming soon: AI explanation with alerts, using your own AI', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Coming soon: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
       'hlx.cta': 'Want to try Harborlight as soon as it is released? Send us a message.',
       'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
-      'ap.h2': 'How we build a tool', 'ap.lead': 'Four rules we set ourselves, every time we start a new tool.',
+      'ap.h2': 'How we build an app or tool', 'ap.lead': 'Four rules we set ourselves, for everything we build.',
       'ap.1h': 'Calculate first', 'ap.1p': 'The calculation model comes before the design. We test it against real measurements before anyone sees it.',
       'ap.2h': 'Little input', 'ap.2p': 'Clicks instead of forms. No file uploads and no account to create.',
-      'ap.3h': 'An honest answer', 'ap.3p': 'If you are already in good shape, the tool says so. No advice just to sell something.',
-      'ap.4h': 'One thing, done well', 'ap.4p': 'Each tool answers one question. Whatever does not belong to it, we leave out on purpose.',
+      'ap.3h': 'An honest answer', 'ap.3p': 'If you are already in good shape, we say so. No advice just to sell something.',
+      'ap.4h': 'One thing, done well', 'ap.4p': 'Each app or tool answers one question. Whatever does not belong to it, we leave out on purpose.',
       'ct.h2': 'Stay in the loop.',
-      'ct.lead': 'Tell us which tool interests you, or which question you would like a tool to answer. You will hear from us when there is something to try.',
+      'ct.lead': 'Tell us which app or tool interests you, or which question you would like answered. You will hear from us when there is something to try.',
       'ct.name': 'Your name', 'ct.topic': 'What are you curious about?', 'ct.msg': 'Message',
-      'ct.o3': 'Several tools', 'ct.o4': 'I have an idea for a tool',
+      'ct.o3': 'More than one', 'ct.o4': 'I have an idea for an app or tool',
       'ct.send': 'Open email with your message',
       'ct.hint': 'This opens your own email app with everything filled in.',
       'ct.err': 'Fill in your name and a message so the email can be opened.',
       'ct.ok': 'Your email app is opening. Nothing happened? Email ',
-      'mail.subj': 'BedrockDock tools: ', 'mail.hi': 'Hello,', 'mail.bye': 'Regards,'
+      'mail.subj': 'BedrockDock: ', 'mail.hi': 'Hello,', 'mail.bye': 'Regards,'
     }
   };
 
