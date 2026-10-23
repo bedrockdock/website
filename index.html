@@ -153,8 +153,8 @@ details[open] .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
 /* Eigen werk */
 .work { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; }
 .work .card.big { grid-row: span 2; }
-.work .card.big .viz { flex: 1; display: flex; }
-.work .card.big .meter { flex: 1; height: auto; min-height: 90px; }
+.work .card.big .viz { flex: 1; display: flex; align-items: flex-end; }
+.work .card.big .meter { flex: 1; height: 100%; min-height: 90px; max-height: 220px; }
 .card {
   position: relative; overflow: hidden;
   background: var(--l2); border: 1px solid var(--line); border-radius: 18px;
@@ -261,6 +261,7 @@ textarea { min-height: 140px; resize: vertical; }
 .card .track strong { font-size: 1rem; }
 .card .track span:last-child { font-size: .95rem; }
 .principles.two { grid-template-columns: repeat(2, 1fr); }
+.principles.three { grid-template-columns: repeat(3, 1fr); }
 .editions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .editions .card { min-height: 0; gap: 14px; }
 .editions .card.pro { border-color: var(--accent); }
@@ -319,7 +320,7 @@ footer .brand span { color: #FF8A4D; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .work .card.big { grid-row: auto; }
-  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two, .work .card.sowly { grid-template-columns: 1fr; }
+  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two, .principles.three, .work .card.sowly { grid-template-columns: 1fr; }
   .head .lead, .chips { justify-self: start; }
   .hero-art { max-width: 460px; order: 2; }
   .nav ul { display: none; }
@@ -456,9 +457,10 @@ footer .brand span { color: #FF8A4D; }
           <span class="status" data-i18n="status">In development</span>
           <h3>Harborlight</h3>
           <p class="sub" data-i18n="hl.sub">Notifier for Zabbix</p>
-          <p data-i18n="hl.p">A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters and a snooze button.</p>
+          <p data-i18n="hl.p">A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters, a pop-up for new problems and a snooze button. It also shows which problems are on their way.</p>
           <ul class="chips" style="justify-self:start">
-            <li data-i18n="hl.plat">Windows first, then Linux.</li>
+            <li data-i18n="hl.plat">Windows first, then Mac and Linux.</li>
+            <li data-i18n="hl.free">Free up to 25 hosts</li>
           </ul>
           <a class="more" href="#harborlight" data-i18n="hl.more">More about Harborlight →</a>
           <div class="viz" aria-hidden="true">
@@ -471,14 +473,20 @@ footer .brand span { color: #FF8A4D; }
         </article>
 
         <article class="card">
-          <span class="status" data-i18n="status">In development</span>
+          <span class="status" data-i18n="bv.status">Working prototype</span>
           <h3>Bridgeview</h3>
           <p class="sub" data-i18n="bv.sub">Connection manager for Windows</p>
-          <p data-i18n="bv.p">All your servers in one window. Open RDP and SSH sessions as tabs side by side and share connections securely with your team through one shared vault.</p>
+          <p data-i18n="bv.p">All your servers in one window. Open RDP and SSH sessions as tabs side by side and switch between them without losing the connection. A locked or dropped session is back with one click. Later, your team shares one list of connections, with passwords coming from 1Password instead of a vault of our own.</p>
           <ul class="chips" style="justify-self:start">
             <li data-i18n="bv.c1">RDP and SSH in tabs</li>
-            <li data-i18n="bv.c2">Shared vault for your team</li>
+            <li data-i18n="bv.c2">Reconnect with one click</li>
+            <li data-i18n="bv.c3">English, Dutch, German and French</li>
           </ul>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bv.t1h">Prototype</strong><span data-i18n="bv.t1p">RDP and SSH tabs, reconnect, settings and system tray, in the Harborlight look.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="bv.t2h">Testing and detaching</strong><span data-i18n="bv.t2p">RDP against real servers, and tabs in their own window.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="bv.t3h">For teams</strong><span data-i18n="bv.t3p">A shared connection list, folders and passwords from 1Password.</span></li>
+          </ol>
           <div class="viz" aria-hidden="true">
             <div class="tabs-viz">
               <div class="tb"><span class="on"></span><span></span><span></span></div>
@@ -544,7 +552,7 @@ footer .brand span { color: #FF8A4D; }
     <div class="wrap">
       <div class="head">
         <h2 data-i18n="hlx.h2">Harborlight: where we are now</h2>
-        <p class="lead" data-i18n="hlx.lead">Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions and a snooze button for when you need a moment without alerts. No noise from separate Windows notifications, just one calm overview of what is really going on.</p>
+        <p class="lead" data-i18n="hlx.lead">Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions, a pop-up for each new problem and a snooze button for when you need a moment without alerts. Harborlight also looks ahead: it shows which problems are likely to occur in the coming week. No noise from separate Windows notifications, just one calm overview of what is really going on.</p>
       </div>
 
       <div class="hl-now">
@@ -566,25 +574,31 @@ footer .brand span { color: #FF8A4D; }
 
         <div>
           <h3 class="sh" data-i18n="hlx.nowh">Where we are now</h3>
-          <p data-i18n="hlx.nowp">The design is done. We know what Harborlight will look like, what it does and how it handles your data. Now we start building.</p>
+          <p data-i18n="hlx.nowp">The first version works and we use it every day. It is available in English, Dutch, German and French. Now we are getting it ready for release, so you can install and update it safely.</p>
           <ol class="track">
             <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t1h">Design</strong><span data-i18n="hlx.t1p">Look, features and data handling.</span></li>
-            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="hlx.t2h">Building for Windows</strong><span data-i18n="hlx.t2p">The first version.</span></li>
-            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong>Linux</strong><span data-i18n="hlx.t3p">After the Windows version.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t2h">First version for Windows</strong><span data-i18n="hlx.t2p">Alert panel, pop-ups, snooze, settings and four languages.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t5h">Upcoming problems and licenses</strong><span data-i18n="hlx.t5p">A look ahead at the next 7 days, and free up to 25 hosts.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="hlx.t6h">Ready for release</strong><span data-i18n="hlx.t6p">Installer, code signing and automatic updates.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="hlx.t3h">Mac and Linux</strong><span data-i18n="hlx.t3p">After the Windows version.</span></li>
           </ol>
         </div>
       </div>
 
       <div class="hl-block">
         <h3 data-i18n="hlx.careh">What we pay attention to</h3>
-        <ul class="principles two">
+        <ul class="principles three">
           <li>
-            <h3 data-i18n="hlx.c1h">Read-only access</h3>
-            <p data-i18n="hlx.c1p">Harborlight reads from Zabbix and changes nothing there. Your settings and exceptions are stored locally on your own computer.</p>
+            <h3 data-i18n="hlx.c1h">Read-only by default</h3>
+            <p data-i18n="hlx.c1p">Harborlight reads from Zabbix and changes nothing there. Acknowledging a problem from the app only works once you switch it on yourself. Your settings and exceptions are stored locally on your own computer.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hlx.c2h">Works in closed networks</h3>
+            <p data-i18n="hlx.c2p">The license key is checked offline on your own computer. Harborlight does not need to reach us to keep working.</p>
           </li>
           <li>
             <h3 data-i18n="hlx.c3h">Your AI, your data</h3>
-            <p data-i18n="hlx.c3p">In the pro version, Harborlight gives a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.</p>
+            <p data-i18n="hlx.c3p">In the Pro version, Harborlight will give a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.</p>
           </li>
         </ul>
       </div>
@@ -593,22 +607,24 @@ footer .brand span { color: #FF8A4D; }
         <h3 data-i18n="hlx.nexth">What is coming</h3>
         <div class="editions">
           <article class="card">
-            <h3 data-i18n="hlx.e1h">Basic</h3>
-            <p class="sub" data-i18n="hlx.e1sub">Free</p>
+            <h3 data-i18n="hlx.e1h">Free</h3>
+            <p class="sub" data-i18n="hlx.e1sub">Up to 25 hosts</p>
             <ul>
               <li data-i18n="hlx.e1a">Alert panel with tabs per host group</li>
               <li data-i18n="hlx.e1b">Severity filters and per-host exceptions</li>
-              <li data-i18n="hlx.e1c">Snooze button</li>
+              <li data-i18n="hlx.e1c">Pop-up for new problems and a snooze button</li>
+              <li data-i18n="hlx.e1d">Acknowledge problems in Zabbix, if you switch it on</li>
             </ul>
           </article>
           <article class="card pro">
             <h3>Pro</h3>
-            <p class="sub" data-i18n="hlx.e2sub">With AI explanation</p>
+            <p class="sub" data-i18n="hlx.e2sub">With a license</p>
             <ul>
-              <li data-i18n="hlx.e2a">Everything in Basic</li>
-              <li data-i18n="hlx.e2b">AI explanation with alerts, using your own AI</li>
-              <li data-i18n="hlx.e2c">An overview of problems that are about to happen</li>
-              <li data-i18n="hlx.e2d">Sign-in with Entra ID</li>
+              <li data-i18n="hlx.e2a">Everything in Free, without the 25-host limit</li>
+              <li data-i18n="hlx.e2c">Upcoming: problems expected in the next 7 days</li>
+              <li data-i18n="hlx.e2b">Coming soon: AI explanation with alerts, using your own AI</li>
+              <li data-i18n="hlx.e2d">Coming soon: sign-in with Entra ID</li>
+              <li data-i18n="hlx.e2e">Try it free for 30 days</li>
             </ul>
           </article>
         </div>
@@ -616,7 +632,7 @@ footer .brand span { color: #FF8A4D; }
 
       <div class="hl-block">
         <div class="hl-cta">
-          <p data-i18n="hlx.cta">Want to stay in the loop or help shape the first version? Send us a message.</p>
+          <p data-i18n="hlx.cta">Want to try Harborlight as soon as it is released? Send us a message.</p>
           <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="nav.cta">Stay in the loop</a>
         </div>
         <p class="disclaimer" data-i18n="hlx.disc">Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.</p>
@@ -695,33 +711,39 @@ footer .brand span { color: #FF8A4D; }
       'wlho.t4tag': 'Nov/dec', 'wlho.t4h': 'Livegang', 'wlho.t4p': 'HuisLast gaat live.',
       'wlho.c1': 'Warmtepomp, hybride of airco', 'wlho.c2': 'Isolatie', 'wlho.c3': 'Zonnepanelen en thuisbatterij', 'wlho.c4': 'Gasloos wonen',
       'hl.sub': 'Notifier for Zabbix',
-      'hl.p': 'Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity en een snooze-knop.',
-      'hl.plat': 'Eerst voor Windows, daarna Linux.',
+      'hl.p': 'Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity, een pop-up bij nieuwe problemen en een snooze-knop. Hij laat ook zien welke problemen eraan zitten te komen.',
+      'hl.plat': 'Eerst voor Windows, daarna Mac en Linux.', 'hl.free': 'Gratis tot 25 hosts',
       'hl.more': 'Meer over Harborlight →',
-      'bv.sub': 'Verbindingsmanager voor Windows',
-      'bv.p': 'Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen naast elkaar en deel verbindingen veilig met je team via één gedeelde kluis.',
-      'bv.c1': 'RDP en SSH in tabbladen', 'bv.c2': 'Gedeelde kluis voor je team',
+      'bv.status': 'Werkend prototype', 'bv.sub': 'Verbindingsmanager voor Windows',
+      'bv.p': 'Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen naast elkaar en wissel ertussen zonder dat de verbinding wegvalt. Een vergrendelde of verbroken sessie is met één klik terug. Later deelt je team één lijst met verbindingen, met wachtwoorden uit 1Password in plaats van een eigen kluis.',
+      'bv.c1': 'RDP en SSH in tabbladen', 'bv.c2': 'Opnieuw verbinden met één klik', 'bv.c3': 'Nederlands, Engels, Duits en Frans',
+      'bv.t1h': 'Prototype', 'bv.t1p': 'RDP- en SSH-tabs, opnieuw verbinden, instellingen en systeemvak, in de stijl van Harborlight.',
+      'bv.t2h': 'Testen en losmaken', 'bv.t2p': 'RDP tegen echte servers, en tabs in een eigen venster.',
+      'bv.t3h': 'Voor teams', 'bv.t3p': 'Een gedeelde lijst met verbindingen, mappen en wachtwoorden uit 1Password.',
       'sw.status': 'Live op 25 oktober 2026', 'sw.sub': 'Moestuinplanner',
       'sw.p': 'Zie per maand wat je in je moestuin zaait, verpot, uitplant en oogst. Houd je eigen tuin bij met een tijdlijn per gewas en tuinier samen door iemand uit te nodigen met een link. Zonder account blijft alles op je eigen apparaat; log je in, dan staat je tuin online.',
       'sw.c1': 'Maandkalender', 'sw.c2': 'Tijdlijn per gewas', 'sw.c3': 'Samen tuinieren', 'sw.c4': 'Voor Nederland en België',
       'sw.alt': 'Kiempje, de mascotte van Sowly', 'sw.cap': 'Dit is Kiempje. Tik er maar eens op.',
       'hlx.h2': 'Harborlight: waar staan we nu?',
-      'hlx.lead': 'Harborlight is een desktop-app die je Zabbix-meldingen overzichtelijk bij elkaar brengt. Je krijgt een eigen meldingenpaneel met tabs per hostgroep, filters op severity, per-host uitzonderingen en een snooze-knop voor als je even geen meldingen wilt. Geen ruis van losse Windows-notificaties, maar één rustig overzicht van wat er écht speelt.',
+      'hlx.lead': 'Harborlight is een desktop-app die je Zabbix-meldingen overzichtelijk bij elkaar brengt. Je krijgt een eigen meldingenpaneel met tabs per hostgroep, filters op severity, per-host uitzonderingen, een pop-up bij elk nieuw probleem en een snooze-knop voor als je even geen meldingen wilt. Harborlight kijkt ook vooruit: je ziet welke problemen de komende week waarschijnlijk optreden. Geen ruis van losse Windows-notificaties, maar één rustig overzicht van wat er écht speelt.',
       'hlx.tab1': 'Productie', 'hlx.tab2': 'Netwerk', 'hlx.tab3': 'Kantoor', 'hlx.snooze': 'Snooze 1 u',
       'hlx.nowh': 'Waar we nu staan',
-      'hlx.nowp': 'Het ontwerp is klaar. We weten hoe Harborlight eruit komt te zien, wat het doet en hoe het met je gegevens omgaat. Nu beginnen we met bouwen.',
+      'hlx.nowp': 'De eerste versie werkt en we gebruiken hem elke dag. Hij is er in het Nederlands, Engels, Duits en Frans. Nu maken we hem klaar voor de release, zodat je hem veilig kunt installeren en bijwerken.',
       'hlx.t1tag': 'Klaar', 'hlx.t1h': 'Ontwerp', 'hlx.t1p': 'Uiterlijk, functies en omgang met je gegevens.',
-      'hlx.t2tag': 'Nu', 'hlx.t2h': 'Bouwen voor Windows', 'hlx.t2p': 'De eerste versie.',
-      'hlx.t3tag': 'Daarna', 'hlx.t3p': 'Na de Windows-versie.',
+      'hlx.t2tag': 'Nu', 'hlx.t2h': 'Eerste versie voor Windows', 'hlx.t2p': 'Meldingenpaneel, pop-ups, snooze, instellingen en vier talen.',
+      'hlx.t5h': 'Aankomende problemen en licenties', 'hlx.t5p': 'Een blik op de komende 7 dagen, en gratis tot 25 hosts.',
+      'hlx.t6h': 'Klaar voor de release', 'hlx.t6p': 'Installer, code-signing en automatische updates.',
+      'hlx.t3tag': 'Daarna', 'hlx.t3h': 'Mac en Linux', 'hlx.t3p': 'Na de Windows-versie.',
       'hlx.careh': 'Waar we op letten',
-      'hlx.c1h': 'Alleen leesrechten', 'hlx.c1p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Je instellingen en uitzonderingen staan lokaal op je eigen computer.',
-      'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de pro-versie geeft Harborlight bij een melding een korte uitleg van wat er aan de hand is. Daarvoor koppel je je eigen AI, zoals Claude, OpenAI, Azure OpenAI of een lokaal model. Je data hoeft je eigen omgeving dus niet te verlaten.',
-      'hlx.nexth': 'Wat er nog komt',
-      'hlx.e1h': 'Basis', 'hlx.e1sub': 'Gratis',
-      'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Snooze-knop',
-      'hlx.e2sub': 'Met AI-uitleg',
-      'hlx.e2a': 'Alles uit de basisversie', 'hlx.e2b': 'AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Een overzicht van problemen die eraan zitten te komen', 'hlx.e2d': 'Inloggen via Entra ID',
-      'hlx.cta': 'Wil je op de hoogte blijven of meedenken over de eerste versie? Stuur ons een bericht.',
+      'hlx.c1h': 'Standaard alleen lezen', 'hlx.c1p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Een probleem bevestigen vanuit de app kan pas als je dat zelf aanzet. Je instellingen en uitzonderingen staan lokaal op je eigen computer.',
+      'hlx.c2h': 'Werkt in afgesloten netwerken', 'hlx.c2p': 'De licentiesleutel wordt offline op je eigen computer gecontroleerd. Harborlight hoeft ons niet te bereiken om te blijven werken.',
+      'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de Pro-versie gaat Harborlight bij een melding een korte uitleg geven van wat er aan de hand is. Daarvoor koppel je je eigen AI, zoals Claude, OpenAI, Azure OpenAI of een lokaal model. Je data hoeft je eigen omgeving dus niet te verlaten.',
+      'hlx.nexth': 'Gratis en Pro',
+      'hlx.e1h': 'Gratis', 'hlx.e1sub': 'Tot 25 hosts',
+      'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Pop-up bij nieuwe problemen en een snooze-knop', 'hlx.e1d': 'Problemen bevestigen in Zabbix, als je dat aanzet',
+      'hlx.e2sub': 'Met licentie',
+      'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Binnenkort: AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Binnenkort: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
+      'hlx.cta': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
       'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
       'ap.h2': 'Zo bouwen we een tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij elke tool opnieuw.',
       'ap.1h': 'Eerst doorrekenen', 'ap.1p': 'Het rekenmodel komt voor het ontwerp. We toetsen het aan echte metingen voordat iemand het ziet.',
@@ -760,33 +782,39 @@ footer .brand span { color: #FF8A4D; }
       'wlho.t4tag': 'Nov/Dec', 'wlho.t4h': 'Launch', 'wlho.t4p': 'HuisLast goes live.',
       'wlho.c1': 'Heat pump, hybrid or air conditioning', 'wlho.c2': 'Insulation', 'wlho.c3': 'Solar panels and home battery', 'wlho.c4': 'Going gas-free',
       'hl.sub': 'Notifier for Zabbix',
-      'hl.p': 'A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters and a snooze button.',
-      'hl.plat': 'Windows first, then Linux.',
+      'hl.p': 'A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters, a pop-up for new problems and a snooze button. It also shows which problems are on their way.',
+      'hl.plat': 'Windows first, then Mac and Linux.', 'hl.free': 'Free up to 25 hosts',
       'hl.more': 'More about Harborlight →',
-      'bv.sub': 'Connection manager for Windows',
-      'bv.p': 'All your servers in one window. Open RDP and SSH sessions as tabs side by side and share connections securely with your team through one shared vault.',
-      'bv.c1': 'RDP and SSH in tabs', 'bv.c2': 'Shared vault for your team',
+      'bv.status': 'Working prototype', 'bv.sub': 'Connection manager for Windows',
+      'bv.p': 'All your servers in one window. Open RDP and SSH sessions as tabs side by side and switch between them without losing the connection. A locked or dropped session is back with one click. Later, your team shares one list of connections, with passwords coming from 1Password instead of a vault of our own.',
+      'bv.c1': 'RDP and SSH in tabs', 'bv.c2': 'Reconnect with one click', 'bv.c3': 'English, Dutch, German and French',
+      'bv.t1h': 'Prototype', 'bv.t1p': 'RDP and SSH tabs, reconnect, settings and system tray, in the Harborlight look.',
+      'bv.t2h': 'Testing and detaching', 'bv.t2p': 'RDP against real servers, and tabs in their own window.',
+      'bv.t3h': 'For teams', 'bv.t3p': 'A shared connection list, folders and passwords from 1Password.',
       'sw.status': 'Live on 25 October 2026', 'sw.sub': 'Vegetable garden planner',
       'sw.p': 'See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. Without an account everything stays on your own device; sign in and your garden goes online.',
       'sw.c1': 'Monthly calendar', 'sw.c2': 'Timeline per crop', 'sw.c3': 'Garden together', 'sw.c4': 'For the Netherlands and Belgium',
       'sw.alt': 'Sprout, the Sowly mascot', 'sw.cap': 'Meet Sprout. Give it a tap.',
       'hlx.h2': 'Harborlight: where we are now',
-      'hlx.lead': 'Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions and a snooze button for when you need a moment without alerts. No noise from separate Windows notifications, just one calm overview of what is really going on.',
+      'hlx.lead': 'Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions, a pop-up for each new problem and a snooze button for when you need a moment without alerts. Harborlight also looks ahead: it shows which problems are likely to occur in the coming week. No noise from separate Windows notifications, just one calm overview of what is really going on.',
       'hlx.tab1': 'Production', 'hlx.tab2': 'Network', 'hlx.tab3': 'Office', 'hlx.snooze': 'Snooze 1 h',
       'hlx.nowh': 'Where we are now',
-      'hlx.nowp': 'The design is done. We know what Harborlight will look like, what it does and how it handles your data. Now we start building.',
+      'hlx.nowp': 'The first version works and we use it every day. It is available in English, Dutch, German and French. Now we are getting it ready for release, so you can install and update it safely.',
       'hlx.t1tag': 'Done', 'hlx.t1h': 'Design', 'hlx.t1p': 'Look, features and data handling.',
-      'hlx.t2tag': 'Now', 'hlx.t2h': 'Building for Windows', 'hlx.t2p': 'The first version.',
-      'hlx.t3tag': 'Next', 'hlx.t3p': 'After the Windows version.',
+      'hlx.t2tag': 'Now', 'hlx.t2h': 'First version for Windows', 'hlx.t2p': 'Alert panel, pop-ups, snooze, settings and four languages.',
+      'hlx.t5h': 'Upcoming problems and licenses', 'hlx.t5p': 'A look ahead at the next 7 days, and free up to 25 hosts.',
+      'hlx.t6h': 'Ready for release', 'hlx.t6p': 'Installer, code signing and automatic updates.',
+      'hlx.t3tag': 'Next', 'hlx.t3h': 'Mac and Linux', 'hlx.t3p': 'After the Windows version.',
       'hlx.careh': 'What we pay attention to',
-      'hlx.c1h': 'Read-only access', 'hlx.c1p': 'Harborlight reads from Zabbix and changes nothing there. Your settings and exceptions are stored locally on your own computer.',
-      'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the pro version, Harborlight gives a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.',
-      'hlx.nexth': 'What is coming',
-      'hlx.e1h': 'Basic', 'hlx.e1sub': 'Free',
-      'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Snooze button',
-      'hlx.e2sub': 'With AI explanation',
-      'hlx.e2a': 'Everything in Basic', 'hlx.e2b': 'AI explanation with alerts, using your own AI', 'hlx.e2c': 'An overview of problems that are about to happen', 'hlx.e2d': 'Sign-in with Entra ID',
-      'hlx.cta': 'Want to stay in the loop or help shape the first version? Send us a message.',
+      'hlx.c1h': 'Read-only by default', 'hlx.c1p': 'Harborlight reads from Zabbix and changes nothing there. Acknowledging a problem from the app only works once you switch it on yourself. Your settings and exceptions are stored locally on your own computer.',
+      'hlx.c2h': 'Works in closed networks', 'hlx.c2p': 'The license key is checked offline on your own computer. Harborlight does not need to reach us to keep working.',
+      'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the Pro version, Harborlight will give a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.',
+      'hlx.nexth': 'Free and Pro',
+      'hlx.e1h': 'Free', 'hlx.e1sub': 'Up to 25 hosts',
+      'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Pop-up for new problems and a snooze button', 'hlx.e1d': 'Acknowledge problems in Zabbix, if you switch it on',
+      'hlx.e2sub': 'With a license',
+      'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Coming soon: AI explanation with alerts, using your own AI', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Coming soon: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
+      'hlx.cta': 'Want to try Harborlight as soon as it is released? Send us a message.',
       'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
       'ap.h2': 'How we build a tool', 'ap.lead': 'Four rules we set ourselves, every time we start a new tool.',
       'ap.1h': 'Calculate first', 'ap.1p': 'The calculation model comes before the design. We test it against real measurements before anyone sees it.',
