@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#161D23">
 <title>BedrockDock – our own tools, built on solid ground</title>
-<meta name="description" content="BedrockDock builds its own tools: HuisLast, Harborlight and Bridgeview.">
+<meta name="description" content="BedrockDock builds its own tools: HuisLast, Harborlight, Bridgeview and Sowly.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -270,6 +270,45 @@ textarea { min-height: 140px; resize: vertical; }
 .hl-cta p { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.45rem); font-weight: 500; max-width: 40ch; line-height: 1.35; }
 .disclaimer { margin-top: 20px; color: var(--muted); font-size: .95rem; }
 
+/* Sowly: brede kaart met mascotte Kiempje */
+.work .card.sowly { grid-column: 1 / -1; min-height: 0; display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px clamp(32px, 5vw, 64px); align-items: center; }
+.sowly .txt { display: flex; flex-direction: column; gap: 18px; }
+.sowly .status.live { background: var(--accent); border-color: var(--accent); color: #161D23; font-weight: 700; }
+.garden { background: #E7F4E8; border-radius: 16px; display: grid; place-items: center; padding: 28px 24px 18px; }
+.kiempje {
+  width: min(200px, 60%); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  --k-line: #2B2119; --k-soil: #7A5238; --k-leaf: #57B84F; --k-leaf2: #2F8F46; --k-leaf3: #8FD35C; --k-radish: #E0486E;
+}
+.kiempje svg { width: 100%; height: auto; overflow: visible; }
+.kiempje path, .kiempje circle, .kiempje ellipse { stroke: var(--k-line); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.kiempje .vein { fill: none; stroke-width: 1.5; opacity: .45; }
+.kiempje .mz { transform-box: fill-box; transform-origin: 50% 100%; }
+.kiempje .mbody { animation: mhop 4.4s ease-in-out infinite; }
+.kiempje .mhead { transform-origin: 60px 52px; animation: mtop 2.2s ease-in-out infinite; }
+.kiempje .mleafL { transform-origin: 60px 40px; animation: mwigL 2.2s ease-in-out infinite; }
+.kiempje .mleafR { transform-origin: 60px 40px; animation: mwigR 2.2s ease-in-out infinite .25s; }
+.kiempje .marmL { transform-origin: 36px 82px; animation: mwave 4.4s ease-in-out infinite; }
+.kiempje .marmR { transform-origin: 84px 82px; animation: mwaveR 4.4s ease-in-out infinite; }
+.kiempje .mwink { transform-origin: 68px 68px; animation: mwink 6.5s infinite; }
+.kiempje .mpupil { animation: mlook 7s ease-in-out infinite; }
+.kiempje .mheart { opacity: 0; transform-origin: 92px 40px; animation: mheart 4.4s ease-out infinite; }
+.kiempje .mshadow { transform-origin: 60px 112px; animation: mshad 4.4s ease-in-out infinite; }
+.kiempje.jump .mbody { animation: mjump .8s cubic-bezier(.3, 1.4, .5, 1); }
+.kiempje.jump .mheart { animation: mheart2 .9s ease-out; }
+@keyframes mhop { 0%, 52%, 100% { transform: translateY(0) scale(1, 1); } 58% { transform: translateY(1px) scale(1.07, .92); } 68% { transform: translateY(-9px) scale(.95, 1.07); } 78% { transform: translateY(0) scale(1.08, .9); } 86% { transform: translateY(0) scale(.98, 1.03); } }
+@keyframes mshad { 0%, 52%, 100% { transform: scale(1); opacity: .28; } 68% { transform: scale(.75); opacity: .16; } 78% { transform: scale(1.08); opacity: .3; } }
+@keyframes mtop { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes mwigL { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(6deg); } }
+@keyframes mwigR { 0%, 100% { transform: rotate(6deg); } 50% { transform: rotate(-7deg); } }
+@keyframes mwave { 0%, 60%, 100% { transform: rotate(0); } 66% { transform: rotate(18deg); } 72% { transform: rotate(-8deg); } 78% { transform: rotate(14deg); } 84% { transform: rotate(0); } }
+@keyframes mwaveR { 0%, 12%, 100% { transform: rotate(0); } 18% { transform: rotate(-30deg); } 24% { transform: rotate(-8deg); } 30% { transform: rotate(-30deg); } 36% { transform: rotate(-8deg); } 42% { transform: rotate(-26deg); } 50% { transform: rotate(0); } }
+@keyframes mwink { 0%, 86%, 100% { transform: scaleY(1); } 90% { transform: scaleY(.1); } 94% { transform: scaleY(1); } }
+@keyframes mlook { 0%, 18%, 100% { transform: translate(0, 0); } 26%, 46% { transform: translate(1.6px, -.6px); } 56%, 76% { transform: translate(-1.6px, .4px); } }
+@keyframes mheart { 0%, 70% { opacity: 0; transform: translateY(8px) scale(.4); } 80% { opacity: 1; transform: translateY(-2px) scale(1); } 100% { opacity: 0; transform: translateY(-16px) scale(.9); } }
+@keyframes mheart2 { 0% { opacity: 0; transform: translateY(8px) scale(.4); } 25% { opacity: 1; transform: scale(1.1); } 100% { opacity: 0; transform: translateY(-22px) scale(.9); } }
+@keyframes mjump { 0% { transform: scale(1); } 18% { transform: translateY(2px) scale(1.12, .84); } 45% { transform: translateY(-18px) scale(.9, 1.14); } 70% { transform: translateY(0) scale(1.1, .88); } 100% { transform: scale(1); } }
+.garden figcaption { margin-top: 10px; font-family: var(--display); font-size: .9rem; font-weight: 500; color: #47664C; }
+
 /* Footer = bedrock */
 footer { background: #34444F; padding: 44px 0 48px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
@@ -280,7 +319,7 @@ footer .brand span { color: #FF8A4D; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .work .card.big { grid-row: auto; }
-  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two { grid-template-columns: 1fr; }
+  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two, .work .card.sowly { grid-template-columns: 1fr; }
   .head .lead, .chips { justify-self: start; }
   .hero-art { max-width: 460px; order: 2; }
   .nav ul { display: none; }
@@ -297,6 +336,7 @@ footer .brand span { color: #FF8A4D; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .drop { animation: none; }
+  .kiempje *, .kiempje.jump * { animation: none !important; }
   * { transition: none !important; }
 }
 </style>
@@ -385,7 +425,7 @@ footer .brand span { color: #FF8A4D; }
     <div class="wrap">
       <div class="head">
         <h2 data-i18n="tools.h2">The tools</h2>
-        <p class="lead" data-i18n="tools.lead">Three tools in development. Each one starts with something people currently find too much hassle.</p>
+        <p class="lead" data-i18n="tools.lead">Four tools. Each one starts with something people currently find too much hassle.</p>
       </div>
 
       <div class="work">
@@ -445,6 +485,27 @@ footer .brand span { color: #FF8A4D; }
               <div class="scr"><i style="--w:72%"></i><i style="--w:54%"></i><i style="--w:63%"></i></div>
             </div>
           </div>
+        </article>
+
+        <article class="card sowly">
+          <div class="txt">
+            <span class="status live" data-i18n="sw.status">Live on 25 October 2026</span>
+            <h3>Sowly</h3>
+            <p class="sub" data-i18n="sw.sub">Vegetable garden planner</p>
+            <p data-i18n="sw.p">See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. Without an account everything stays on your own device; sign in and your garden goes online.</p>
+            <ul class="chips" style="justify-self:start">
+              <li data-i18n="sw.c1">Monthly calendar</li>
+              <li data-i18n="sw.c2">Timeline per crop</li>
+              <li data-i18n="sw.c3">Garden together</li>
+              <li data-i18n="sw.c4">For the Netherlands and Belgium</li>
+            </ul>
+          </div>
+          <figure class="garden" style="margin:0">
+            <div class="kiempje" id="kiempje" role="img" data-i18n-aria="sw.alt" aria-label="Sprout, the Sowly mascot">
+              <svg viewBox="0 0 120 124" aria-hidden="true"><ellipse class="mshadow" cx="60" cy="114" rx="30" ry="6" style="fill:#000;stroke:none;opacity:.28"/><g class="mbody mz"><path class="marmL" d="M38 84 C26 86 20 78 22 70 C30 70 36 74 40 80Z" style="fill:var(--k-leaf)"/><path class="marmR" d="M82 84 C94 86 100 78 98 70 C90 70 84 74 80 80Z" style="fill:var(--k-leaf)"/><path d="M26 112 C22 92 34 60 60 60 C86 60 98 92 94 112 C80 118 40 118 26 112Z" style="fill:var(--k-leaf3)"/><path d="M30 106 C40 112 80 112 90 106" style="fill:none;stroke:var(--k-soil);stroke-width:7"/><path d="M24 114 C34 106 86 106 96 114 C86 120 34 120 24 114Z" style="fill:var(--k-soil)"/><g class="mhead"><path d="M60 62 C60 52 59 46 60 38" style="fill:none;stroke-width:4"/><path class="mleafL" d="M60 42 C46 44 32 36 30 22 C46 20 58 28 60 42Z" style="fill:var(--k-leaf)"/><path class="mleafR" d="M60 42 C74 40 90 32 92 18 C76 16 62 26 60 42Z" style="fill:var(--k-leaf2)"/><path class="vein" d="M58 40 C50 34 42 28 36 24"/><path class="vein" d="M62 40 C70 32 80 26 88 20"/></g><circle cx="48" cy="80" r="9" style="fill:#fff"/><circle cx="72" cy="80" r="9" style="fill:#fff"/><g class="mpupil"><circle cx="50" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="51.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/><g class="mwink"><circle cx="74" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="75.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/></g></g><ellipse cx="38" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><ellipse cx="82" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><path d="M52 93 Q60 102 68 93Z" style="fill:#B3392F;stroke-width:2.2"/></g><path class="mheart" d="M92 42 C86 36 80 42 92 52 C104 42 98 36 92 42Z" style="fill:var(--k-radish);stroke-width:2"/></svg>
+            </div>
+            <figcaption data-i18n="sw.cap">Meet Sprout. Give it a tap.</figcaption>
+          </figure>
         </article>
       </div>
     </div>
@@ -580,6 +641,7 @@ footer .brand span { color: #FF8A4D; }
             <option>HuisLast</option>
             <option>Harborlight</option>
             <option>Bridgeview</option>
+            <option>Sowly</option>
             <option data-i18n="ct.o3">Several tools</option>
             <option data-i18n="ct.o4">I have an idea for a tool</option>
           </select>
@@ -613,7 +675,7 @@ footer .brand span { color: #FF8A4D; }
   var T = {
     nl: {
       'title': 'BedrockDock – eigen tools, op vaste grond gebouwd',
-      'desc': 'BedrockDock ontwikkelt eigen tools: HuisLast, Harborlight en Bridgeview.',
+      'desc': 'BedrockDock ontwikkelt eigen tools: HuisLast, Harborlight, Bridgeview en Sowly.',
       'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
       'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en tool, boven het water van een kade',
       'nav.tools': 'Tools', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
@@ -623,7 +685,7 @@ footer .brand span { color: #FF8A4D; }
       'hero.l1': 'Rekenmodel', 'hero.l2': 'Ontwerp',
       'hero.cap': 'Elke tool ligt bovenop een rekenmodel dat klopt.',
       'tools.h2': 'De tools',
-      'tools.lead': 'Drie tools in ontwikkeling. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
+      'tools.lead': 'Vier tools. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
       'status': 'In ontwikkeling',
       'wlho.status': 'Live in nov/dec 2026',
       'wlho.p': 'Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.',
@@ -639,6 +701,10 @@ footer .brand span { color: #FF8A4D; }
       'bv.sub': 'Verbindingsmanager voor Windows',
       'bv.p': 'Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen naast elkaar en deel verbindingen veilig met je team via één gedeelde kluis.',
       'bv.c1': 'RDP en SSH in tabbladen', 'bv.c2': 'Gedeelde kluis voor je team',
+      'sw.status': 'Live op 25 oktober 2026', 'sw.sub': 'Moestuinplanner',
+      'sw.p': 'Zie per maand wat je in je moestuin zaait, verpot, uitplant en oogst. Houd je eigen tuin bij met een tijdlijn per gewas en tuinier samen door iemand uit te nodigen met een link. Zonder account blijft alles op je eigen apparaat; log je in, dan staat je tuin online.',
+      'sw.c1': 'Maandkalender', 'sw.c2': 'Tijdlijn per gewas', 'sw.c3': 'Samen tuinieren', 'sw.c4': 'Voor Nederland en België',
+      'sw.alt': 'Kiempje, de mascotte van Sowly', 'sw.cap': 'Dit is Kiempje. Tik er maar eens op.',
       'hlx.h2': 'Harborlight: waar staan we nu?',
       'hlx.lead': 'Harborlight is een desktop-app die je Zabbix-meldingen overzichtelijk bij elkaar brengt. Je krijgt een eigen meldingenpaneel met tabs per hostgroep, filters op severity, per-host uitzonderingen en een snooze-knop voor als je even geen meldingen wilt. Geen ruis van losse Windows-notificaties, maar één rustig overzicht van wat er écht speelt.',
       'hlx.tab1': 'Productie', 'hlx.tab2': 'Netwerk', 'hlx.tab3': 'Kantoor', 'hlx.snooze': 'Snooze 1 u',
@@ -674,7 +740,7 @@ footer .brand span { color: #FF8A4D; }
     },
     en: {
       'title': 'BedrockDock – our own tools, built on solid ground',
-      'desc': 'BedrockDock builds its own tools: HuisLast, Harborlight and Bridgeview.',
+      'desc': 'BedrockDock builds its own tools: HuisLast, Harborlight, Bridgeview and Sowly.',
       'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
       'hero.alt': 'Three stacked layers: calculation model, design and tool, above the water of a quay',
       'nav.tools': 'Tools', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
@@ -684,7 +750,7 @@ footer .brand span { color: #FF8A4D; }
       'hero.l1': 'Calculation model', 'hero.l2': 'Design',
       'hero.cap': 'Every tool sits on top of a model that holds up.',
       'tools.h2': 'The tools',
-      'tools.lead': 'Three tools in development. Each one starts with something people currently find too much hassle.',
+      'tools.lead': 'Four tools. Each one starts with something people currently find too much hassle.',
       'status': 'In development',
       'wlho.status': 'Launching Nov/Dec 2026',
       'wlho.p': 'An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.',
@@ -700,6 +766,10 @@ footer .brand span { color: #FF8A4D; }
       'bv.sub': 'Connection manager for Windows',
       'bv.p': 'All your servers in one window. Open RDP and SSH sessions as tabs side by side and share connections securely with your team through one shared vault.',
       'bv.c1': 'RDP and SSH in tabs', 'bv.c2': 'Shared vault for your team',
+      'sw.status': 'Live on 25 October 2026', 'sw.sub': 'Vegetable garden planner',
+      'sw.p': 'See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. Without an account everything stays on your own device; sign in and your garden goes online.',
+      'sw.c1': 'Monthly calendar', 'sw.c2': 'Timeline per crop', 'sw.c3': 'Garden together', 'sw.c4': 'For the Netherlands and Belgium',
+      'sw.alt': 'Sprout, the Sowly mascot', 'sw.cap': 'Meet Sprout. Give it a tap.',
       'hlx.h2': 'Harborlight: where we are now',
       'hlx.lead': 'Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions and a snooze button for when you need a moment without alerts. No noise from separate Windows notifications, just one calm overview of what is really going on.',
       'hlx.tab1': 'Production', 'hlx.tab2': 'Network', 'hlx.tab3': 'Office', 'hlx.snooze': 'Snooze 1 h',
@@ -794,6 +864,12 @@ footer .brand span { color: #FF8A4D; }
     var body = t('mail.hi') + '\n\n' + bericht + '\n\n' + t('mail.bye') + '\n' + naam;
     window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     hintState = 'ct.ok'; apply(); hint.style.color = '';
+  });
+
+  var kiem = document.getElementById('kiempje');
+  kiem.addEventListener('click', function () {
+    kiem.classList.remove('jump'); void kiem.offsetWidth; kiem.classList.add('jump');
+    setTimeout(function () { kiem.classList.remove('jump'); }, 950);
   });
 
   apply();
