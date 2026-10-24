@@ -780,7 +780,7 @@ footer .brand span { color: #FF8A4D; }
             <p class="sub" data-i18n="bvx.e1sub">Works today</p>
             <ul>
               <li data-i18n="bvx.e1a">RDP and SSH as tabs, or in their own window</li>
-              <li data-i18n="bvx.e1b">A dropped or locked session back with one click</li>
+              <li data-i18n="bvx.e1b">A dropped or locked session back with one click or Ctrl+Shift+R, also from inside the session</li>
               <li data-i18n="bvx.e1c">Folders with a filter, a wizard and a default account per folder</li>
               <li data-i18n="bvx.e1d">A shared list, with a blue dot when a colleague is connected</li>
               <li data-i18n="bvx.e1e">Your own admin account, through 1Password, a passkey or a smartcard</li>
@@ -793,6 +793,7 @@ footer .brand span { color: #FF8A4D; }
               <li data-i18n="bvx.e2a">Sharp RDP sessions on high-DPI screens, also when you move a window to another screen</li>
               <li data-i18n="bvx.e2b">Passkeys for SSH, with FIDO2 keys</li>
               <li data-i18n="bvx.e2c">A clear message when the server ends a session</li>
+              <li data-i18n="bvx.e2e">Your tabs from last time back when you start Bridgeview</li>
               <li data-i18n="bvx.e2d">SQL Server or PostgreSQL for larger teams</li>
             </ul>
           </article>
@@ -929,9 +930,9 @@ footer .brand span { color: #FF8A4D; }
       'bvx.c3h': 'Je account blijft veilig op de server', 'bvx.c3p': 'Met Remote Credential Guard of Restricted Admin mode kan je account op een gecompromitteerde server niet misbruikt worden. Is de gekozen bescherming niet beschikbaar, dan verbindt Bridgeview niet, in plaats van stilletjes zonder te verbinden.',
       'bvx.nexth': 'Nu en straks',
       'bvx.e1h': 'In het prototype', 'bvx.e1sub': 'Werkt nu al',
-      'bvx.e1a': 'RDP en SSH als tabbladen, of in een eigen venster', 'bvx.e1b': 'Een verbroken of vergrendelde sessie met één klik terug', 'bvx.e1c': 'Mappen met een filter, een wizard en een standaardaccount per map', 'bvx.e1d': 'Een gedeelde lijst, met een blauw bolletje als een collega verbonden is', 'bvx.e1e': 'Je eigen beheeraccount, via 1Password, een passkey of een smartcard',
+      'bvx.e1a': 'RDP en SSH als tabbladen, of in een eigen venster', 'bvx.e1b': 'Een verbroken of vergrendelde sessie terug met één klik of Ctrl+Shift+R, ook vanuit de sessie zelf', 'bvx.e1c': 'Mappen met een filter, een wizard en een standaardaccount per map', 'bvx.e1d': 'Een gedeelde lijst, met een blauw bolletje als een collega verbonden is', 'bvx.e1e': 'Je eigen beheeraccount, via 1Password, een passkey of een smartcard',
       'bvx.e2h': 'Binnenkort', 'bvx.e2sub': 'Volgende stappen',
-      'bvx.e2a': 'Scherpe RDP-sessies op schermen met hoge DPI, ook als je een venster naar een ander scherm verplaatst', 'bvx.e2b': 'Passkeys voor SSH, met FIDO2-sleutels', 'bvx.e2c': 'Een duidelijke melding als de server een sessie beëindigt', 'bvx.e2d': 'SQL Server of PostgreSQL voor grotere teams',
+      'bvx.e2a': 'Scherpe RDP-sessies op schermen met hoge DPI, ook als je een venster naar een ander scherm verplaatst', 'bvx.e2b': 'Passkeys voor SSH, met FIDO2-sleutels', 'bvx.e2c': 'Een duidelijke melding als de server een sessie beëindigt', 'bvx.e2e': 'Je tabbladen van de vorige keer terug als je Bridgeview start', 'bvx.e2d': 'SQL Server of PostgreSQL voor grotere teams',
       'bvx.cta': 'Wil je Bridgeview met je team proberen? Stuur ons een bericht.',
       'bvx.disc': 'Bridgeview is een onafhankelijk product van BedrockDock en is niet verbonden aan Microsoft of 1Password.',
       'ap.h2': 'Zo bouwen we een app of tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij alles wat we bouwen.',
@@ -1020,9 +1021,9 @@ footer .brand span { color: #FF8A4D; }
       'bvx.c3h': 'Your account stays safe on the server', 'bvx.c3p': 'With Remote Credential Guard or Restricted Admin mode, your account cannot be misused on a compromised server. If the protection you chose is not available, Bridgeview does not connect, instead of quietly connecting without it.',
       'bvx.nexth': 'Now and next',
       'bvx.e1h': 'In the prototype', 'bvx.e1sub': 'Works today',
-      'bvx.e1a': 'RDP and SSH as tabs, or in their own window', 'bvx.e1b': 'A dropped or locked session back with one click', 'bvx.e1c': 'Folders with a filter, a wizard and a default account per folder', 'bvx.e1d': 'A shared list, with a blue dot when a colleague is connected', 'bvx.e1e': 'Your own admin account, through 1Password, a passkey or a smartcard',
+      'bvx.e1a': 'RDP and SSH as tabs, or in their own window', 'bvx.e1b': 'A dropped or locked session back with one click or Ctrl+Shift+R, also from inside the session', 'bvx.e1c': 'Folders with a filter, a wizard and a default account per folder', 'bvx.e1d': 'A shared list, with a blue dot when a colleague is connected', 'bvx.e1e': 'Your own admin account, through 1Password, a passkey or a smartcard',
       'bvx.e2h': 'Coming', 'bvx.e2sub': 'Next steps',
-      'bvx.e2a': 'Sharp RDP sessions on high-DPI screens, also when you move a window to another screen', 'bvx.e2b': 'Passkeys for SSH, with FIDO2 keys', 'bvx.e2c': 'A clear message when the server ends a session', 'bvx.e2d': 'SQL Server or PostgreSQL for larger teams',
+      'bvx.e2a': 'Sharp RDP sessions on high-DPI screens, also when you move a window to another screen', 'bvx.e2b': 'Passkeys for SSH, with FIDO2 keys', 'bvx.e2c': 'A clear message when the server ends a session', 'bvx.e2e': 'Your tabs from last time back when you start Bridgeview', 'bvx.e2d': 'SQL Server or PostgreSQL for larger teams',
       'bvx.cta': 'Want to try Bridgeview with your team? Send us a message.',
       'bvx.disc': 'Bridgeview is an independent product by BedrockDock and is not affiliated with Microsoft or 1Password.',
       'ap.h2': 'How we build an app or tool', 'ap.lead': 'Four rules we set ourselves, for everything we build.',
