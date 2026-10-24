@@ -270,6 +270,25 @@ textarea { min-height: 140px; resize: vertical; }
 .hl-cta p { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.45rem); font-weight: 500; max-width: 40ch; line-height: 1.35; }
 .disclaimer { margin-top: 20px; color: var(--muted); font-size: .95rem; }
 
+/* Bridgeview: detailsectie */
+.s-bv { background: var(--l2); }
+.s-bv .card, .s-bv .hl-cta, .s-bv .track li { background: var(--l3); }
+.bv-split { display: grid; grid-template-columns: 38% 1fr; min-height: 250px; }
+.bv-tree { display: grid; gap: 8px; align-content: start; padding: 14px; border-right: 1px solid var(--line); background: var(--l0); }
+.bv-tree div { display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; }
+.bv-tree div.dir { grid-template-columns: 1fr; padding: 4px 2px 0; }
+.bv-tree div.dir i { width: 54%; background: var(--l4); }
+.bv-tree div.on { background: var(--l2); }
+.bv-tree b { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.bv-tree div.on b { background: var(--accent); box-shadow: 0 0 0 4px rgba(232, 89, 12, .22); }
+.bv-tree i { height: 7px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.bv-tree u { width: 9px; height: 9px; border-radius: 50%; background: #4C8DF6; box-shadow: 0 0 0 4px rgba(76, 141, 246, .22); display: block; }
+.bv-sess { display: flex; flex-direction: column; min-width: 0; }
+.bv-sess .tabs { overflow: hidden; white-space: nowrap; }
+.bv-term { display: grid; gap: 9px; align-content: start; padding: 16px; flex: 1; }
+.bv-term i { height: 7px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.bv-term i.ok { background: #3F7F6A; }
+
 /* Sowly: brede kaart met mascotte Kiempje */
 .prod-head { display: flex; align-items: center; gap: 16px; }
 .app-icon { width: 56px; height: 56px; flex: none; }
@@ -362,6 +381,7 @@ footer .brand span { color: #FF8A4D; }
         <li><a href="#it" data-i18n="nav.tools">For IT</a></li>
         <li><a href="#thuis" data-i18n="nav.apps">For home</a></li>
         <li><a href="#harborlight">Harborlight</a></li>
+        <li><a href="#bridgeview">Bridgeview</a></li>
         <li><a href="#aanpak" data-i18n="nav.approach">Approach</a></li>
       </ul>
     </nav>
@@ -489,17 +509,18 @@ footer .brand span { color: #FF8A4D; }
             <h3>Bridgeview</h3>
           </div>
           <p class="sub" data-i18n="bv.sub">Connection manager for Windows</p>
-          <p data-i18n="bv.p">All your servers in one window. Open RDP and SSH sessions as tabs side by side and switch between them without losing the connection. A locked or dropped session is back with one click. Later, your team shares one list of connections, with passwords coming from 1Password instead of a vault of our own.</p>
+          <p data-i18n="bv.p">All your servers in one window. Open RDP and SSH sessions as tabs, drag a tab into its own window and get a dropped session back with one click. Your team shares one list of connections, and everyone signs in with their own admin account: with a password from 1Password, or without a password at all.</p>
           <ul class="chips" style="justify-self:start">
             <li data-i18n="bv.c1">RDP and SSH in tabs</li>
-            <li data-i18n="bv.c2">Reconnect with one click</li>
+            <li data-i18n="bv.c4">One list for your team</li>
             <li data-i18n="bv.c3">English, Dutch, German and French</li>
           </ul>
           <ol class="track">
-            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bv.t1h">Prototype</strong><span data-i18n="bv.t1p">RDP and SSH tabs, reconnect, settings and system tray, in the Harborlight look.</span></li>
-            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="bv.t2h">Testing and detaching</strong><span data-i18n="bv.t2p">RDP against real servers, and tabs in their own window.</span></li>
-            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="bv.t3h">For teams</strong><span data-i18n="bv.t3p">A shared connection list, folders and passwords from 1Password.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bv.t1h">Prototype for teams</strong><span data-i18n="bv.t1p">Tabs, saved connections, a shared list and secure sign-in.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="bv.t2h">Testing in a real environment</strong><span data-i18n="bv.t2p">RDP servers, a domain and a network share with several computers.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="bv.t3h">Sharp screens and SSH passkeys</strong><span data-i18n="bv.t3p">RDP that follows your screen scaling, and FIDO2 keys for SSH.</span></li>
           </ol>
+          <a class="more" href="#bridgeview" data-i18n="bv.more">More about Bridgeview →</a>
           <div class="viz" aria-hidden="true">
             <div class="tabs-viz">
               <div class="tb"><span class="on"></span><span></span><span></span></div>
@@ -680,6 +701,114 @@ footer .brand span { color: #FF8A4D; }
     </div>
   </section>
 
+  <!-- BRIDGEVIEW -->
+  <section class="layer s-bv" id="bridgeview">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="bvx.h2">Bridgeview: where we are now</h2>
+        <p class="lead" data-i18n="bvx.lead">Bridgeview is a connection manager for Windows that brings all your servers together in one window. RDP and SSH sessions open as tabs, you switch between them without the connection dropping, and you can drag a tab into its own window, for example on a second screen. Your saved connections are in folders with a filter, so the right server is always a few keystrokes away. With a shared list, your whole team works from the same connections, and a blue dot shows when a colleague is already in a session.</p>
+      </div>
+
+      <div class="hl-now">
+        <div class="panel" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="bv-split">
+            <div class="bv-tree">
+              <div class="dir"><i></i></div>
+              <div class="on"><b></b><i style="--w:70%"></i></div>
+              <div><b></b><i style="--w:58%"></i><u></u></div>
+              <div><b></b><i style="--w:76%"></i></div>
+              <div class="dir"><i></i></div>
+              <div><b></b><i style="--w:62%"></i></div>
+              <div><b></b><i style="--w:50%"></i><u></u></div>
+            </div>
+            <div class="bv-sess">
+              <div class="tabs">
+                <span class="on">web-01</span>
+                <span>db-02</span>
+                <span>fw-core</span>
+              </div>
+              <div class="bv-term">
+                <i class="ok" style="--w:44%"></i>
+                <i style="--w:78%"></i>
+                <i style="--w:64%"></i>
+                <i style="--w:86%"></i>
+                <i style="--w:52%"></i>
+                <i class="ok" style="--w:38%"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="sh" data-i18n="hlx.nowh">Where we are now</h3>
+          <p data-i18n="bvx.nowp">The prototype works: RDP and SSH tabs, saved connections, a shared list for your team and secure sign-in. SSH has been fully tested. Now we are testing the rest in a real environment, with RDP servers, a domain and a network share used by several computers.</p>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bvx.t1h">RDP and SSH in tabs</strong><span data-i18n="bvx.t1p">Reconnect with one click, settings, system tray and four languages, in the Harborlight look.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bvx.t2h">Tabs in their own window</strong><span data-i18n="bvx.t2p">Drag a tab out and put it back. The connection stays open.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bvx.t3h">Saved connections</strong><span data-i18n="bvx.t3p">Folders, a filter, a wizard for new servers and a default account per folder.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="bvx.t4h">Working together and signing in safely</strong><span data-i18n="bvx.t4p">A shared list with a blue dot for colleagues, and sign-in through 1Password, a passkey or a smartcard.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="bv.t2h">Testing in a real environment</strong><span data-i18n="bv.t2p">RDP servers, a domain and a network share with several computers.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="bv.t3h">Sharp screens and SSH passkeys</strong><span data-i18n="bv.t3p">RDP that follows your screen scaling, and FIDO2 keys for SSH.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.careh">What we pay attention to</h3>
+        <ul class="principles three">
+          <li>
+            <h3 data-i18n="bvx.c1h">No passwords in the list</h3>
+            <p data-i18n="bvx.c1p">The shared list holds servers, folders and which account to use, never passwords. Everyone signs in with their own admin account. Bridgeview does not keep a vault of its own.</p>
+          </li>
+          <li>
+            <h3 data-i18n="bvx.c2h">Sign in without typing a password</h3>
+            <p data-i18n="bvx.c2p">Bridgeview fetches your password from 1Password at the moment you connect, unlocked with Windows Hello. For RDP you can also skip the password entirely, with a passkey through Microsoft Entra ID, a smartcard or Windows Hello for Business.</p>
+          </li>
+          <li>
+            <h3 data-i18n="bvx.c3h">Your account stays safe on the server</h3>
+            <p data-i18n="bvx.c3p">With Remote Credential Guard or Restricted Admin mode, your account cannot be misused on a compromised server. If the protection you chose is not available, Bridgeview does not connect, instead of quietly connecting without it.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="bvx.nexth">Now and next</h3>
+        <div class="editions">
+          <article class="card">
+            <h3 data-i18n="bvx.e1h">In the prototype</h3>
+            <p class="sub" data-i18n="bvx.e1sub">Works today</p>
+            <ul>
+              <li data-i18n="bvx.e1a">RDP and SSH as tabs, or in their own window</li>
+              <li data-i18n="bvx.e1b">A dropped or locked session back with one click</li>
+              <li data-i18n="bvx.e1c">Folders with a filter, a wizard and a default account per folder</li>
+              <li data-i18n="bvx.e1d">A shared list, with a blue dot when a colleague is connected</li>
+              <li data-i18n="bvx.e1e">Your own admin account, through 1Password, a passkey or a smartcard</li>
+            </ul>
+          </article>
+          <article class="card pro">
+            <h3 data-i18n="bvx.e2h">Coming</h3>
+            <p class="sub" data-i18n="bvx.e2sub">Next steps</p>
+            <ul>
+              <li data-i18n="bvx.e2a">Sharp RDP sessions on high-DPI screens, also when you move a window to another screen</li>
+              <li data-i18n="bvx.e2b">Passkeys for SSH, with FIDO2 keys</li>
+              <li data-i18n="bvx.e2c">A clear message when the server ends a session</li>
+              <li data-i18n="bvx.e2d">SQL Server or PostgreSQL for larger teams</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <div class="hl-cta">
+          <p data-i18n="bvx.cta">Want to try Bridgeview with your team? Send us a message.</p>
+          <a class="btn" href="#contact" data-topic="Bridgeview" data-i18n="nav.cta">Stay in the loop</a>
+        </div>
+        <p class="disclaimer" data-i18n="bvx.disc">Bridgeview is an independent product by BedrockDock and is not affiliated with Microsoft or 1Password.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="layer s-contact" id="contact">
     <div class="wrap contact">
@@ -757,11 +886,12 @@ footer .brand span { color: #FF8A4D; }
       'hl.plat': 'Eerst voor Windows, daarna Mac en Linux.', 'hl.free': 'Gratis tot 25 hosts',
       'hl.more': 'Meer over Harborlight →',
       'bv.status': 'Werkend prototype', 'bv.sub': 'Verbindingsmanager voor Windows',
-      'bv.p': 'Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen naast elkaar en wissel ertussen zonder dat de verbinding wegvalt. Een vergrendelde of verbroken sessie is met één klik terug. Later deelt je team één lijst met verbindingen, met wachtwoorden uit 1Password in plaats van een eigen kluis.',
-      'bv.c1': 'RDP en SSH in tabbladen', 'bv.c2': 'Opnieuw verbinden met één klik', 'bv.c3': 'Nederlands, Engels, Duits en Frans',
-      'bv.t1h': 'Prototype', 'bv.t1p': 'RDP- en SSH-tabs, opnieuw verbinden, instellingen en systeemvak, in de stijl van Harborlight.',
-      'bv.t2h': 'Testen en losmaken', 'bv.t2p': 'RDP tegen echte servers, en tabs in een eigen venster.',
-      'bv.t3h': 'Voor teams', 'bv.t3p': 'Een gedeelde lijst met verbindingen, mappen en wachtwoorden uit 1Password.',
+      'bv.p': 'Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen, sleep een tab naar een eigen venster en haal een verbroken sessie met één klik terug. Je team deelt één lijst met verbindingen, en iedereen logt in met zijn eigen beheeraccount: met een wachtwoord uit 1Password, of helemaal zonder wachtwoord.',
+      'bv.c1': 'RDP en SSH in tabbladen', 'bv.c4': 'Eén lijst voor je team', 'bv.c3': 'Nederlands, Engels, Duits en Frans',
+      'bv.t1h': 'Prototype voor teams', 'bv.t1p': 'Tabs, opgeslagen verbindingen, een gedeelde lijst en veilig aanmelden.',
+      'bv.t2h': 'Testen in een echte omgeving', 'bv.t2p': 'RDP-servers, een domein en een netwerkshare met meerdere computers.',
+      'bv.t3h': 'Scherpe schermen en SSH-passkeys', 'bv.t3p': 'RDP dat de schaal van je scherm volgt, en FIDO2-sleutels voor SSH.',
+      'bv.more': 'Meer over Bridgeview →',
       'sw.status': 'Live op 25 oktober 2026', 'sw.sub': 'Moestuinplanner',
       'sw.p': 'Zie per maand wat je in je moestuin zaait, verpot, uitplant en oogst. Houd je eigen tuin bij met een tijdlijn per gewas en tuinier samen door iemand uit te nodigen met een link. Bij elk gewas zie je hoeveel licht, water en voeding het nodig heeft, en met welke buren het wel en niet goed gaat. De teeltgegevens komen uit Nederlandse en Belgische bronnen; wat nog niet bevestigd is, staat er duidelijk bij. En de planten zijn tekenfilmfiguurtjes die bewegen.',
       'sw.c1': 'Maandkalender', 'sw.c2': 'Tijdlijn per gewas', 'sw.c3': 'Samen tuinieren', 'sw.c4': 'Voor Nederland en België',
@@ -787,6 +917,23 @@ footer .brand span { color: #FF8A4D; }
       'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Binnenkort: AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Binnenkort: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
       'hlx.cta': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
       'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
+      'bvx.h2': 'Bridgeview: waar staan we nu?',
+      'bvx.lead': 'Bridgeview is een verbindingsmanager voor Windows die al je servers in één venster samenbrengt. RDP- en SSH-sessies openen als tabbladen, je wisselt ertussen zonder dat de verbinding wegvalt, en je sleept een tab naar een eigen venster, bijvoorbeeld op een tweede scherm. Je opgeslagen verbindingen staan in mappen met een filter, dus de juiste server is altijd een paar toetsaanslagen weg. Met een gedeelde lijst werkt je hele team vanuit dezelfde verbindingen, en een blauw bolletje laat zien wanneer een collega al in een sessie zit.',
+      'bvx.nowp': 'Het prototype werkt: RDP- en SSH-tabs, opgeslagen verbindingen, een gedeelde lijst voor je team en veilig aanmelden. SSH is volledig getest. Nu testen we de rest in een echte omgeving, met RDP-servers, een domein en een netwerkshare die door meerdere computers wordt gebruikt.',
+      'bvx.t1h': 'RDP en SSH in tabbladen', 'bvx.t1p': 'Opnieuw verbinden met één klik, instellingen, systeemvak en vier talen, in de stijl van Harborlight.',
+      'bvx.t2h': 'Tabs in een eigen venster', 'bvx.t2p': 'Sleep een tab los en zet hem weer terug. De verbinding blijft open.',
+      'bvx.t3h': 'Opgeslagen verbindingen', 'bvx.t3p': 'Mappen, een filter, een wizard voor nieuwe servers en een standaardaccount per map.',
+      'bvx.t4h': 'Samenwerken en veilig aanmelden', 'bvx.t4p': 'Een gedeelde lijst met een blauw bolletje voor collega’s, en aanmelden via 1Password, een passkey of een smartcard.',
+      'bvx.c1h': 'Geen wachtwoorden in de lijst', 'bvx.c1p': 'De gedeelde lijst bevat servers, mappen en welk account je gebruikt, nooit wachtwoorden. Iedereen logt in met zijn eigen beheeraccount. Bridgeview houdt geen eigen kluis bij.',
+      'bvx.c2h': 'Aanmelden zonder wachtwoord te typen', 'bvx.c2p': 'Bridgeview haalt je wachtwoord uit 1Password op het moment dat je verbindt, ontgrendeld met Windows Hello. Bij RDP kan het ook helemaal zonder wachtwoord, met een passkey via Microsoft Entra ID, een smartcard of Windows Hello for Business.',
+      'bvx.c3h': 'Je account blijft veilig op de server', 'bvx.c3p': 'Met Remote Credential Guard of Restricted Admin mode kan je account op een gecompromitteerde server niet misbruikt worden. Is de gekozen bescherming niet beschikbaar, dan verbindt Bridgeview niet, in plaats van stilletjes zonder te verbinden.',
+      'bvx.nexth': 'Nu en straks',
+      'bvx.e1h': 'In het prototype', 'bvx.e1sub': 'Werkt nu al',
+      'bvx.e1a': 'RDP en SSH als tabbladen, of in een eigen venster', 'bvx.e1b': 'Een verbroken of vergrendelde sessie met één klik terug', 'bvx.e1c': 'Mappen met een filter, een wizard en een standaardaccount per map', 'bvx.e1d': 'Een gedeelde lijst, met een blauw bolletje als een collega verbonden is', 'bvx.e1e': 'Je eigen beheeraccount, via 1Password, een passkey of een smartcard',
+      'bvx.e2h': 'Binnenkort', 'bvx.e2sub': 'Volgende stappen',
+      'bvx.e2a': 'Scherpe RDP-sessies op schermen met hoge DPI, ook als je een venster naar een ander scherm verplaatst', 'bvx.e2b': 'Passkeys voor SSH, met FIDO2-sleutels', 'bvx.e2c': 'Een duidelijke melding als de server een sessie beëindigt', 'bvx.e2d': 'SQL Server of PostgreSQL voor grotere teams',
+      'bvx.cta': 'Wil je Bridgeview met je team proberen? Stuur ons een bericht.',
+      'bvx.disc': 'Bridgeview is een onafhankelijk product van BedrockDock en is niet verbonden aan Microsoft of 1Password.',
       'ap.h2': 'Zo bouwen we een app of tool', 'ap.lead': 'Vier afspraken die we met onszelf maken, bij alles wat we bouwen.',
       'ap.1h': 'Eerst doorrekenen', 'ap.1p': 'Het rekenmodel komt voor het ontwerp. We toetsen het aan echte metingen voordat iemand het ziet.',
       'ap.2h': 'Weinig invoer', 'ap.2p': 'Klikken in plaats van lange formulieren. We vragen alleen wat de app of tool echt nodig heeft om zijn werk te doen.',
@@ -830,11 +977,12 @@ footer .brand span { color: #FF8A4D; }
       'hl.plat': 'Windows first, then Mac and Linux.', 'hl.free': 'Free up to 25 hosts',
       'hl.more': 'More about Harborlight →',
       'bv.status': 'Working prototype', 'bv.sub': 'Connection manager for Windows',
-      'bv.p': 'All your servers in one window. Open RDP and SSH sessions as tabs side by side and switch between them without losing the connection. A locked or dropped session is back with one click. Later, your team shares one list of connections, with passwords coming from 1Password instead of a vault of our own.',
-      'bv.c1': 'RDP and SSH in tabs', 'bv.c2': 'Reconnect with one click', 'bv.c3': 'English, Dutch, German and French',
-      'bv.t1h': 'Prototype', 'bv.t1p': 'RDP and SSH tabs, reconnect, settings and system tray, in the Harborlight look.',
-      'bv.t2h': 'Testing and detaching', 'bv.t2p': 'RDP against real servers, and tabs in their own window.',
-      'bv.t3h': 'For teams', 'bv.t3p': 'A shared connection list, folders and passwords from 1Password.',
+      'bv.p': 'All your servers in one window. Open RDP and SSH sessions as tabs, drag a tab into its own window and get a dropped session back with one click. Your team shares one list of connections, and everyone signs in with their own admin account: with a password from 1Password, or without a password at all.',
+      'bv.c1': 'RDP and SSH in tabs', 'bv.c4': 'One list for your team', 'bv.c3': 'English, Dutch, German and French',
+      'bv.t1h': 'Prototype for teams', 'bv.t1p': 'Tabs, saved connections, a shared list and secure sign-in.',
+      'bv.t2h': 'Testing in a real environment', 'bv.t2p': 'RDP servers, a domain and a network share with several computers.',
+      'bv.t3h': 'Sharp screens and SSH passkeys', 'bv.t3p': 'RDP that follows your screen scaling, and FIDO2 keys for SSH.',
+      'bv.more': 'More about Bridgeview →',
       'sw.status': 'Live on 25 October 2026', 'sw.sub': 'Vegetable garden planner',
       'sw.p': 'See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. For every crop you see how much light, water and feeding it needs, and which neighbours it does or does not get along with. The growing data comes from Dutch and Belgian sources; anything not yet confirmed is clearly marked. And the plants are cartoon characters that move.',
       'sw.c1': 'Monthly calendar', 'sw.c2': 'Timeline per crop', 'sw.c3': 'Garden together', 'sw.c4': 'For the Netherlands and Belgium',
@@ -860,6 +1008,23 @@ footer .brand span { color: #FF8A4D; }
       'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Coming soon: AI explanation with alerts, using your own AI', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Coming soon: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
       'hlx.cta': 'Want to try Harborlight as soon as it is released? Send us a message.',
       'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
+      'bvx.h2': 'Bridgeview: where we are now',
+      'bvx.lead': 'Bridgeview is a connection manager for Windows that brings all your servers together in one window. RDP and SSH sessions open as tabs, you switch between them without the connection dropping, and you can drag a tab into its own window, for example on a second screen. Your saved connections are in folders with a filter, so the right server is always a few keystrokes away. With a shared list, your whole team works from the same connections, and a blue dot shows when a colleague is already in a session.',
+      'bvx.nowp': 'The prototype works: RDP and SSH tabs, saved connections, a shared list for your team and secure sign-in. SSH has been fully tested. Now we are testing the rest in a real environment, with RDP servers, a domain and a network share used by several computers.',
+      'bvx.t1h': 'RDP and SSH in tabs', 'bvx.t1p': 'Reconnect with one click, settings, system tray and four languages, in the Harborlight look.',
+      'bvx.t2h': 'Tabs in their own window', 'bvx.t2p': 'Drag a tab out and put it back. The connection stays open.',
+      'bvx.t3h': 'Saved connections', 'bvx.t3p': 'Folders, a filter, a wizard for new servers and a default account per folder.',
+      'bvx.t4h': 'Working together and signing in safely', 'bvx.t4p': 'A shared list with a blue dot for colleagues, and sign-in through 1Password, a passkey or a smartcard.',
+      'bvx.c1h': 'No passwords in the list', 'bvx.c1p': 'The shared list holds servers, folders and which account to use, never passwords. Everyone signs in with their own admin account. Bridgeview does not keep a vault of its own.',
+      'bvx.c2h': 'Sign in without typing a password', 'bvx.c2p': 'Bridgeview fetches your password from 1Password at the moment you connect, unlocked with Windows Hello. For RDP you can also skip the password entirely, with a passkey through Microsoft Entra ID, a smartcard or Windows Hello for Business.',
+      'bvx.c3h': 'Your account stays safe on the server', 'bvx.c3p': 'With Remote Credential Guard or Restricted Admin mode, your account cannot be misused on a compromised server. If the protection you chose is not available, Bridgeview does not connect, instead of quietly connecting without it.',
+      'bvx.nexth': 'Now and next',
+      'bvx.e1h': 'In the prototype', 'bvx.e1sub': 'Works today',
+      'bvx.e1a': 'RDP and SSH as tabs, or in their own window', 'bvx.e1b': 'A dropped or locked session back with one click', 'bvx.e1c': 'Folders with a filter, a wizard and a default account per folder', 'bvx.e1d': 'A shared list, with a blue dot when a colleague is connected', 'bvx.e1e': 'Your own admin account, through 1Password, a passkey or a smartcard',
+      'bvx.e2h': 'Coming', 'bvx.e2sub': 'Next steps',
+      'bvx.e2a': 'Sharp RDP sessions on high-DPI screens, also when you move a window to another screen', 'bvx.e2b': 'Passkeys for SSH, with FIDO2 keys', 'bvx.e2c': 'A clear message when the server ends a session', 'bvx.e2d': 'SQL Server or PostgreSQL for larger teams',
+      'bvx.cta': 'Want to try Bridgeview with your team? Send us a message.',
+      'bvx.disc': 'Bridgeview is an independent product by BedrockDock and is not affiliated with Microsoft or 1Password.',
       'ap.h2': 'How we build an app or tool', 'ap.lead': 'Four rules we set ourselves, for everything we build.',
       'ap.1h': 'Calculate first', 'ap.1p': 'The calculation model comes before the design. We test it against real measurements before anyone sees it.',
       'ap.2h': 'Little input', 'ap.2p': 'Clicks instead of long forms. We only ask for what the app or tool really needs to do its job.',
