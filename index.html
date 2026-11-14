@@ -380,7 +380,7 @@ footer .brand span { color: #FF8A4D; }
       <ul>
         <li><a href="#it" data-i18n="nav.tools">For IT</a></li>
         <li><a href="#thuis" data-i18n="nav.apps">For home</a></li>
-        <li><a href="#harborlight">Harborlight</a></li>
+        <li><a href="harborlight.html">Harborlight</a></li>
         <li><a href="#bridgeview">Bridgeview</a></li>
         <li><a href="#aanpak" data-i18n="nav.approach">Approach</a></li>
       </ul>
@@ -482,7 +482,7 @@ footer .brand span { color: #FF8A4D; }
             <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="hlx.t6h">Ready for release</strong><span data-i18n="hlx.t6p">Installer, code signing and automatic updates.</span></li>
             <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="hlx.t3h">Mac and Linux</strong><span data-i18n="hlx.t3p">After the Windows version.</span></li>
           </ol>
-          <a class="more" href="#harborlight" data-i18n="hl.more">More about Harborlight →</a>
+          <a class="more" href="harborlight.html" data-i18n="hl.more">More about Harborlight →</a>
           <div class="viz" aria-hidden="true">
             <div class="alerts">
               <div class="hot"><b></b><i style="--w:78%"></i></div>
@@ -640,6 +640,7 @@ footer .brand span { color: #FF8A4D; }
             <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t1h">Design</strong><span data-i18n="hlx.t1p">Look, features and data handling.</span></li>
             <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t2h">First version for Windows</strong><span data-i18n="hlx.t2p">Alert panel, pop-ups, snooze, settings and four languages.</span></li>
             <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t5h">Upcoming problems and licenses</strong><span data-i18n="hlx.t5p">A look ahead at the next 7 days, and free up to 25 hosts.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Done</span><strong data-i18n="hlx.t7h">Claude and Zabbix 8.0</strong><span data-i18n="hlx.t7p">Ask, Explain with AI and Claude Desktop, tested against Zabbix 8.0.</span></li>
             <li class="now"><span class="tag" data-i18n="hlx.t2tag">Now</span><strong data-i18n="hlx.t6h">Ready for release</strong><span data-i18n="hlx.t6p">Installer, code signing and automatic updates.</span></li>
             <li><span class="tag" data-i18n="hlx.t3tag">Next</span><strong data-i18n="hlx.t3h">Mac and Linux</strong><span data-i18n="hlx.t3p">After the Windows version.</span></li>
           </ol>
@@ -659,7 +660,7 @@ footer .brand span { color: #FF8A4D; }
           </li>
           <li>
             <h3 data-i18n="hlx.c3h">Your AI, your data</h3>
-            <p data-i18n="hlx.c3p">In the Pro version, Harborlight will give a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.</p>
+            <p data-i18n="hlx.c3p">In the Pro version you ask Claude about your monitoring: in Claude Desktop on your own subscription, or in Harborlight with your own API key. We provide no AI service and receive nothing, and Claude can only read.</p>
           </li>
         </ul>
       </div>
@@ -683,8 +684,8 @@ footer .brand span { color: #FF8A4D; }
             <ul>
               <li data-i18n="hlx.e2a">Everything in Free, without the 25-host limit</li>
               <li data-i18n="hlx.e2c">Upcoming: problems expected in the next 7 days</li>
-              <li data-i18n="hlx.e2b">Coming soon: AI explanation with alerts, using your own AI</li>
-              <li data-i18n="hlx.e2d">Coming soon: sign-in with Entra ID</li>
+              <li data-i18n="hlx.e2b">Ask Claude and "Explain with AI", with your own Claude account or key</li>
+              <li data-i18n="hlx.e2d">Later: sign-in with Entra ID</li>
               <li data-i18n="hlx.e2e">Try it free for 30 days</li>
             </ul>
           </article>
@@ -694,7 +695,10 @@ footer .brand span { color: #FF8A4D; }
       <div class="hl-block">
         <div class="hl-cta">
           <p data-i18n="hlx.cta">Want to try Harborlight as soon as it is released? Send us a message.</p>
-          <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="nav.cta">Stay in the loop</a>
+          <div style="display:flex;flex-wrap:wrap;gap:14px">
+            <a class="btn ghost" href="harborlight.html" data-i18n="hlx.page">The full story, with screenshots</a>
+            <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="nav.cta">Stay in the loop</a>
+          </div>
         </div>
         <p class="disclaimer" data-i18n="hlx.disc">Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.</p>
       </div>
@@ -904,18 +908,20 @@ footer .brand span { color: #FF8A4D; }
       'hlx.nowp': 'De eerste versie werkt en we gebruiken hem elke dag. Hij is er in het Nederlands, Engels, Duits en Frans. Nu maken we hem klaar voor de release, zodat je hem veilig kunt installeren en bijwerken.',
       'hlx.t1tag': 'Klaar', 'hlx.t1h': 'Ontwerp', 'hlx.t1p': 'Uiterlijk, functies en omgang met je gegevens.',
       'hlx.t2tag': 'Nu', 'hlx.t2h': 'Eerste versie voor Windows', 'hlx.t2p': 'Meldingenpaneel, pop-ups, snooze, instellingen en vier talen.',
+      'hlx.t7h': 'Claude en Zabbix 8.0', 'hlx.t7p': 'Ask, Explain with AI en Claude Desktop, getest tegen Zabbix 8.0.',
+      'hlx.page': 'Het hele verhaal, met screenshots',
       'hlx.t5h': 'Aankomende problemen en licenties', 'hlx.t5p': 'Een blik op de komende 7 dagen, en gratis tot 25 hosts.',
       'hlx.t6h': 'Klaar voor de release', 'hlx.t6p': 'Installer, code-signing en automatische updates.',
       'hlx.t3tag': 'Daarna', 'hlx.t3h': 'Mac en Linux', 'hlx.t3p': 'Na de Windows-versie.',
       'hlx.careh': 'Waar we op letten',
       'hlx.c1h': 'Standaard alleen lezen', 'hlx.c1p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Een probleem bevestigen vanuit de app kan pas als je dat zelf aanzet. Je instellingen en uitzonderingen staan lokaal op je eigen computer.',
       'hlx.c2h': 'Werkt in afgesloten netwerken', 'hlx.c2p': 'De licentiesleutel wordt offline op je eigen computer gecontroleerd. Harborlight hoeft ons niet te bereiken om te blijven werken.',
-      'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de Pro-versie gaat Harborlight bij een melding een korte uitleg geven van wat er aan de hand is. Daarvoor koppel je je eigen AI, zoals Claude, OpenAI, Azure OpenAI of een lokaal model. Je data hoeft je eigen omgeving dus niet te verlaten.',
+      'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de Pro-versie vraag je Claude naar je monitoring: in Claude Desktop op je eigen abonnement, of in Harborlight met je eigen API-sleutel. Wij leveren geen AI-dienst en ontvangen niets, en Claude kan alleen lezen.',
       'hlx.nexth': 'Gratis en Pro',
       'hlx.e1h': 'Gratis', 'hlx.e1sub': 'Tot 25 hosts',
       'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Pop-up bij nieuwe problemen en een snooze-knop', 'hlx.e1d': 'Problemen bevestigen in Zabbix, als je dat aanzet',
       'hlx.e2sub': 'Met licentie',
-      'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Binnenkort: AI-uitleg bij meldingen, met je eigen AI', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Binnenkort: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
+      'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Claude vragen en "Explain with AI", met je eigen Claude-account of sleutel', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Later: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
       'hlx.cta': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
       'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
       'bvx.h2': 'Bridgeview: waar staan we nu?',
@@ -995,18 +1001,20 @@ footer .brand span { color: #FF8A4D; }
       'hlx.nowp': 'The first version works and we use it every day. It is available in English, Dutch, German and French. Now we are getting it ready for release, so you can install and update it safely.',
       'hlx.t1tag': 'Done', 'hlx.t1h': 'Design', 'hlx.t1p': 'Look, features and data handling.',
       'hlx.t2tag': 'Now', 'hlx.t2h': 'First version for Windows', 'hlx.t2p': 'Alert panel, pop-ups, snooze, settings and four languages.',
+      'hlx.t7h': 'Claude and Zabbix 8.0', 'hlx.t7p': 'Ask, Explain with AI and Claude Desktop, tested against Zabbix 8.0.',
+      'hlx.page': 'The full story, with screenshots',
       'hlx.t5h': 'Upcoming problems and licenses', 'hlx.t5p': 'A look ahead at the next 7 days, and free up to 25 hosts.',
       'hlx.t6h': 'Ready for release', 'hlx.t6p': 'Installer, code signing and automatic updates.',
       'hlx.t3tag': 'Next', 'hlx.t3h': 'Mac and Linux', 'hlx.t3p': 'After the Windows version.',
       'hlx.careh': 'What we pay attention to',
       'hlx.c1h': 'Read-only by default', 'hlx.c1p': 'Harborlight reads from Zabbix and changes nothing there. Acknowledging a problem from the app only works once you switch it on yourself. Your settings and exceptions are stored locally on your own computer.',
       'hlx.c2h': 'Works in closed networks', 'hlx.c2p': 'The license key is checked offline on your own computer. Harborlight does not need to reach us to keep working.',
-      'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the Pro version, Harborlight will give a short explanation of what is going on with an alert. For that you connect your own AI, such as Claude, OpenAI, Azure OpenAI or a local model. Your data does not have to leave your own environment.',
+      'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the Pro version you ask Claude about your monitoring: in Claude Desktop on your own subscription, or in Harborlight with your own API key. We provide no AI service and receive nothing, and Claude can only read.',
       'hlx.nexth': 'Free and Pro',
       'hlx.e1h': 'Free', 'hlx.e1sub': 'Up to 25 hosts',
       'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Pop-up for new problems and a snooze button', 'hlx.e1d': 'Acknowledge problems in Zabbix, if you switch it on',
       'hlx.e2sub': 'With a license',
-      'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Coming soon: AI explanation with alerts, using your own AI', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Coming soon: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
+      'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Ask Claude and "Explain with AI", with your own Claude account or key', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Later: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
       'hlx.cta': 'Want to try Harborlight as soon as it is released? Send us a message.',
       'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
       'bvx.h2': 'Bridgeview: where we are now',
@@ -1103,6 +1111,14 @@ footer .brand span { color: #FF8A4D; }
     window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     hintState = 'ct.ok'; apply(); hint.style.color = '';
   });
+
+  try {
+    var topic = new URLSearchParams(location.search).get('topic');
+    if (topic) {
+      var tsel = form.elements['type'];
+      for (var j = 0; j < tsel.options.length; j++) { if (tsel.options[j].text === topic) tsel.selectedIndex = j; }
+    }
+  } catch (e) {}
 
   var kiem = document.getElementById('kiempje');
   kiem.addEventListener('click', function () {

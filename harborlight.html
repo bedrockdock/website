@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#161D23">
+<title>Harborlight – notifier for Zabbix | BedrockDock</title>
+<meta name="description" content="Harborlight is a desktop app that brings your Zabbix alerts together in one calm panel, with a pop-up for every new problem, a look ahead at the coming week and Claude for your questions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --l0: #161D23;
+  --l1: #1B242B;
+  --l2: #212C34;
+  --l3: #28353E;
+  --l4: #2F3E48;
+  --line: #3A4A55;
+  --text: #E8ECEE;
+  --muted: #9FACB4;
+  --stone: #6B7983;
+  --stone-dark: #4A5760;
+  --accent: #E8590C;
+  --accent-text: #FF7A33;
+  --hl-teal: #2FA4B5;
+  --display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --wrap: 1180px;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--l0);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.1875rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { width: min(var(--wrap), 100% - 48px); margin-inline: auto; }
+:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.025em; line-height: 1.08; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.25rem); font-weight: 700; max-width: 18ch; }
+p { margin: 0; }
+.lead { color: var(--muted); max-width: 46ch; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: rgba(22, 29, 35, .86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(58, 74, 85, .55);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--display); font-size: 1.4rem; letter-spacing: -0.03em; }
+.brand b { font-weight: 700; }
+.brand span { font-weight: 500; color: var(--accent-text); }
+.nav ul { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-family: var(--display); font-size: .95rem; font-weight: 500; }
+.nav ul a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav ul a:hover { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--display); font-weight: 700; font-size: 1rem;
+  padding: 15px 26px; border-radius: 10px; text-decoration: none; cursor: pointer; border: 0;
+  background: var(--accent); color: #161D23;
+  transition: background .2s, transform .2s;
+}
+.btn:hover { background: #FF6B1F; transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
+.btn.ghost:hover { border-color: var(--stone); background: rgba(255,255,255,.04); transform: none; }
+.nav .btn { padding: 10px 18px; font-size: .92rem; }
+
+.lang { display: inline-flex; border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; }
+.lang button {
+  font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .02em;
+  color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang button:hover { color: var(--text); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #161D23; }
+
+/* ---------- Hero ---------- */
+.hero { padding: clamp(40px, 7vw, 88px) 0 clamp(72px, 10vw, 120px); background: var(--l0); overflow: hidden; }
+.crumb { font-family: var(--display); font-size: .95rem; font-weight: 500; color: var(--muted); text-decoration: none; display: inline-flex; gap: 8px; margin-bottom: 28px; }
+.crumb:hover { color: var(--text); }
+.hero-top { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
+.prod-head { display: flex; align-items: center; gap: 20px; }
+.app-icon { width: 72px; height: 72px; flex: none; }
+.hero h1 { font-size: clamp(2.7rem, 6.4vw, 5.2rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+.sub { font-family: var(--display); font-weight: 500; font-size: 1.1rem; color: var(--accent-text); }
+.hero .claim { font-family: var(--display); font-weight: 500; font-size: clamp(1.5rem, 2.8vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.2; margin-top: 32px; max-width: 26ch; }
+.hero .lead { margin-top: 20px; font-size: 1.25rem; max-width: 54ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.status { align-self: flex-start; justify-self: start; font-family: var(--display); font-size: .85rem; font-weight: 500; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-text); white-space: nowrap; }
+
+.stage { position: relative; margin-top: clamp(48px, 7vw, 80px); }
+.shot { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.45); background: var(--l1); }
+.shot img { width: 100%; height: auto; }
+.stage .shot { width: min(100%, 980px); }
+.stage .toast {
+  position: absolute; right: 0; bottom: clamp(-40px, -3vw, -16px); width: clamp(240px, 34%, 380px);
+  border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06);
+}
+.stage .toast img { width: 100%; height: auto; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 36px 0 0; padding: 0; }
+.chips li { font-family: var(--display); font-size: .88rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: var(--l2); border: 1px solid var(--line); color: var(--text); }
+
+/* ---------- Sections ---------- */
+section { position: relative; }
+.layer { padding: clamp(72px, 10vw, 128px) 0; }
+.s1 { background: var(--l1); }
+.s2 { background: var(--l2); }
+.s3 { background: var(--l3); }
+.s4 { background: var(--l4); }
+.head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: clamp(40px, 6vw, 72px); }
+.head .lead { justify-self: end; }
+.eyebrow { font-family: var(--display); font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 16px; }
+
+/* Waarom: verhaal */
+.story { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.story .body { display: grid; gap: 20px; }
+.story .body p { color: var(--muted); max-width: 58ch; }
+.story .body p strong { color: var(--text); font-weight: 500; }
+.before-after { display: grid; gap: 12px; list-style: none; margin: 12px 0 0; padding: 0; }
+.before-after li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: baseline; color: var(--muted); font-size: 1.06rem; }
+.before-after li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 89, 12, .2); transform: translateY(-2px); justify-self: center; }
+
+/* Hoe het werkt: features met screenshot */
+.feature { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.feature + .feature { margin-top: clamp(72px, 10vw, 128px); }
+.feature.flip { grid-template-columns: 1.2fr .8fr; }
+.feature.flip > .txt { order: 2; }
+.feature .txt { display: grid; gap: 18px; align-content: start; }
+.feature .num { font-family: var(--display); font-weight: 700; font-size: .95rem; color: var(--accent-text); letter-spacing: .04em; }
+.feature h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; max-width: 18ch; }
+.feature p { color: var(--muted); max-width: 48ch; }
+.feature ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: grid; gap: 8px; font-size: 1.06rem; }
+.feature li::marker { color: var(--accent-text); }
+figure { margin: 0; }
+figcaption { margin-top: 14px; font-family: var(--display); font-size: .9rem; color: var(--stone); }
+.desk {
+  border-radius: 14px; border: 1px solid var(--line); padding: clamp(28px, 6vw, 72px) clamp(20px, 5vw, 56px);
+  background: radial-gradient(120% 120% at 100% 100%, #2B5560 0%, #1F3A44 45%, var(--l1) 100%);
+  display: grid; justify-items: end; align-content: end; min-height: 320px;
+}
+.desk .toast { width: min(100%, 380px); border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.desk .toast img { width: 100%; height: auto; }
+.zoom { display: block; text-decoration: none; cursor: zoom-in; }
+
+/* Principes */
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.principles li { border-top: 3px solid var(--stone-dark); padding-top: 22px; }
+.principles li:first-child { border-top-color: var(--accent); }
+.principles h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 10px; }
+.principles p { color: var(--muted); font-size: 1.06rem; }
+
+/* Gratis en Pro */
+.card {
+  position: relative; overflow: hidden;
+  background: var(--l3); border: 1px solid var(--line); border-radius: 18px;
+  padding: clamp(28px, 4vw, 44px);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.card h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; }
+.editions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.editions .card.pro { border-color: var(--accent); }
+.editions ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: grid; gap: 8px; }
+.editions li::marker { color: var(--accent-text); }
+.note { margin-top: 24px; color: var(--muted); font-size: 1rem; max-width: 70ch; }
+
+/* Waar we staan */
+.now-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.now-grid > div > p { color: var(--muted); max-width: 46ch; }
+.track { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.track li { display: grid; grid-template-columns: 76px 1fr; gap: 4px 18px; align-items: baseline; background: var(--l3); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
+.track li.now { border-color: var(--accent); }
+.track .tag { grid-row: span 2; font-family: var(--display); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--stone); }
+.track li.done .tag { color: var(--muted); }
+.track li.now .tag { color: var(--accent-text); }
+.track strong { font-family: var(--display); font-size: 1.15rem; }
+.track span:last-child { color: var(--muted); font-size: 1rem; }
+
+.hl-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(28px, 4vw, 40px); border-radius: 18px; background: var(--l3); border: 1px solid var(--line); }
+.hl-cta p { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.45rem); font-weight: 500; max-width: 40ch; line-height: 1.35; }
+.disclaimer { margin-top: 20px; color: var(--muted); font-size: .95rem; }
+
+/* Footer = bedrock */
+footer { background: #34444F; padding: 44px 0 48px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+footer p { color: #C2CCD2; font-size: 1rem; }
+footer .brand { font-size: 1.25rem; }
+footer .brand span { color: #FF8A4D; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .head, .story, .feature, .editions, .now-grid, .hero-top { grid-template-columns: 1fr; }
+  .head .lead { justify-self: start; }
+  .feature.flip > .txt { order: 0; }
+  .principles { grid-template-columns: 1fr 1fr; }
+  .nav ul { display: none; }
+  .stage .toast { position: relative; right: auto; bottom: auto; width: min(100%, 360px); margin: -24px 12px 0 auto; }
+}
+@media (max-width: 560px) { .nav .btn { display: none; } }
+@media (max-width: 520px) {
+  body { font-size: 1.125rem; }
+  .principles { grid-template-columns: 1fr; }
+  .app-icon { width: 56px; height: 56px; }
+  .track li { grid-template-columns: 1fr; }
+  .track .tag { grid-row: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" data-i18n-aria="aria.home" aria-label="BedrockDock, home">
+      <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="0" y="80" width="120" height="36" rx="6" fill="#6B7983"/>
+        <rect x="12" y="42" width="96" height="34" rx="6" fill="#9FACB4"/>
+        <rect x="28" y="4" width="64" height="34" rx="6" fill="#E8590C"/>
+      </svg>
+      <span style="color:inherit"><b>Bedrock</b><span>Dock</span></span>
+    </a>
+    <nav aria-label="Harborlight" >
+      <ul>
+        <li><a href="#why" data-i18n="nav.why">Why</a></li>
+        <li><a href="#how" data-i18n="nav.how">How it works</a></li>
+        <li><a href="#editions" data-i18n="nav.editions">Free and Pro</a></li>
+        <li><a href="#status" data-i18n="nav.status">Where we are</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="btn" href="index.html?topic=Harborlight#contact" data-i18n="cta">Stay in the loop</a>
+      <div class="lang" role="group" aria-label="Taal / Language">
+        <button type="button" data-lang="nl" aria-pressed="false">NL</button>
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <a class="crumb" href="index.html#it" data-i18n="crumb">← All apps and tools</a>
+      <div class="hero-top">
+        <div>
+          <div class="prod-head">
+            <svg class="app-icon" viewBox="-3.8 -2.9 47.6 47.6" aria-hidden="true">
+              <rect x="-3.8" y="-2.9" width="47.6" height="47.6" rx="10.5" fill="#0B3C49"/>
+              <polygon points="16,14 24,14 27,34 13,34" fill="#2FA4B5"/>
+              <rect x="15" y="20" width="10" height="3" fill="#0B3C49"/>
+              <rect x="14" y="27" width="12" height="3" fill="#0B3C49"/>
+              <rect x="16" y="8" width="8" height="6" rx="1" fill="#F2A31B"/>
+              <polygon points="15,8 20,2 25,8" fill="#2FA4B5"/>
+              <path d="M5,37 q3.5,-3 7,0 t7,0 t7,0 t7,0" fill="none" stroke="#2FA4B5" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h1>Harborlight</h1>
+              <p class="sub" data-i18n="sub">Notifier for Zabbix</p>
+            </div>
+          </div>
+        </div>
+        <span class="status" data-i18n="status">In development</span>
+      </div>
+
+      <p class="claim" data-i18n="claim">See what is wrong in your network, without keeping Zabbix open all day.</p>
+      <p class="lead" data-i18n="lead">Harborlight is a desktop app that brings your Zabbix alerts together in one calm panel. A new problem gets a short pop-up, quiet moments get a snooze button, and Harborlight shows which problems are on their way in the coming week.</p>
+      <div class="actions">
+        <a class="btn" href="#how" data-i18n="hero.cta1">See how it works</a>
+        <a class="btn ghost" href="index.html?topic=Harborlight#contact" data-i18n="hero.cta2">Try it when it is ready</a>
+      </div>
+
+      <div class="stage">
+        <a class="shot zoom" href="img/harborlight/panel-dark.png">
+          <img src="img/harborlight/panel-dark.png" width="1104" height="872" alt="The Harborlight panel in the dark theme: seven open problems with a coloured label per severity, tabs for the host groups Network, Office and Production, and a problem in maintenance shown in grey." data-i18n-alt="alt.hero">
+        </a>
+        <div class="toast">
+          <img src="img/harborlight/popup.png" width="360" height="146" alt="Pop-up at the bottom right of the screen: Disaster on sql-01, MSSQL service is not running." data-i18n-alt="alt.popup">
+        </div>
+      </div>
+
+      <ul class="chips">
+        <li data-i18n="chip1">Windows first, then Mac and Linux</li>
+        <li data-i18n="chip2">Zabbix 7.0 to 8.0</li>
+        <li data-i18n="chip3">Free up to 25 hosts</li>
+        <li data-i18n="chip4">English, Dutch, German and French</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WAAROM -->
+  <section class="layer s1" id="why">
+    <div class="wrap story">
+      <div>
+        <p class="eyebrow" data-i18n="why.eyebrow">Why we are building it</p>
+        <h2 data-i18n="why.h2">Zabbix knows everything. You just don't see it in time.</h2>
+      </div>
+      <div class="body">
+        <p data-i18n="why.p1">Zabbix is a strong monitoring system, but it lives in a browser tab. And that tab is never the one you are looking at. E-mail alerts end up in a folder, Windows notifications disappear into the action center, and on a busy day you only find out about a problem when someone calls.</p>
+        <p data-i18n="why.p2">We first built a simple tool that turned Zabbix alerts into Windows notifications. It helped, but it also made the noise worse: every alert looked the same and nothing was grouped. Harborlight is what came next.</p>
+        <p><strong data-i18n="why.p3">One panel on your desktop that shows what is really going on, and only taps you on the shoulder when something new happens.</strong></p>
+        <ul class="before-after">
+          <li data-i18n="why.l1">You see at a glance how many problems are open and how serious they are.</li>
+          <li data-i18n="why.l2">A new problem gets a pop-up, without taking over your keyboard.</li>
+          <li data-i18n="why.l3">You know what is coming before the trigger fires.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOE HET WERKT -->
+  <section class="layer s2" id="how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+          <h2 data-i18n="how.h2">A working day with Harborlight</h2>
+        </div>
+        <p class="lead" data-i18n="how.lead">All screenshots come from the current build, connected to our own Zabbix test environment with demo hosts.</p>
+      </div>
+
+      <article class="feature">
+        <div class="txt">
+          <span class="num">01</span>
+          <h3 data-i18n="f1.h">Everything in one calm panel</h3>
+          <p data-i18n="f1.p">Open Harborlight and you see straight away how many problems are open, sorted by day, with a colour per severity. Each host group gets its own tab, and you search by host name.</p>
+          <ul>
+            <li data-i18n="f1.a">Counters per severity at the top</li>
+            <li data-i18n="f1.b">Hosts in maintenance in grey, without pop-up or sound</li>
+            <li data-i18n="f1.c">Light or dark, whatever you prefer</li>
+            <li data-i18n="f1.d">Lives in the system tray, with a counter on the icon</li>
+          </ul>
+        </div>
+        <figure>
+          <a class="shot zoom" href="img/harborlight/panel-light.png">
+            <img src="img/harborlight/panel-light.png" width="1104" height="872" loading="lazy" alt="The Harborlight panel in the light theme with seven problems, tabs per host group and counters per severity." data-i18n-alt="alt.f1">
+          </a>
+          <figcaption data-i18n="f1.cap">The panel in the light theme. At the top you switch between Problems, Upcoming and Ask.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature flip">
+        <div class="txt">
+          <span class="num">02</span>
+          <h3 data-i18n="f2.h">A tap on the shoulder, only when it matters</h3>
+          <p data-i18n="f2.p">When a new problem starts, a small pop-up appears at the bottom right of your screen, with an optional sound. Click it and Harborlight opens that exact problem. It never steals focus, so you can keep typing.</p>
+          <ul>
+            <li data-i18n="f2.a">Snooze for 15 minutes up to "until I turn it off", also after a restart</li>
+            <li data-i18n="f2.b">At most three pop-ups at once; more becomes one summary</li>
+            <li data-i18n="f2.c">A message when the connection with Zabbix drops, and when it is back</li>
+            <li data-i18n="f2.d">Choose the minimum severity, per host group or per host</li>
+          </ul>
+        </div>
+        <figure>
+          <div class="desk">
+            <div class="toast">
+              <img src="img/harborlight/popup.png" width="360" height="146" loading="lazy" alt="Pop-up: Disaster on sql-01, MSSQL: Service MSSQLSERVER is not running. Just now, click to open." data-i18n-alt="alt.f2">
+            </div>
+          </div>
+          <figcaption data-i18n="f2.cap">The pop-up counts down and stays put while your mouse is on it.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="txt">
+          <span class="num">03</span>
+          <h3 data-i18n="f3.h">All the details in one click</h3>
+          <p data-i18n="f3.p">Click a problem and it unfolds: when it started, the description from the trigger, the latest values, tags and comments. Need more? "Open in Zabbix" takes you straight to the right page.</p>
+          <ul>
+            <li data-i18n="f3.a">Acknowledge in Zabbix with a comment, only if you switch it on</li>
+            <li data-i18n="f3.b">See who acknowledged a problem</li>
+            <li data-i18n="f3.c">"Explain with AI" asks Claude what is going on (Pro)</li>
+          </ul>
+        </div>
+        <figure>
+          <a class="shot zoom" href="img/harborlight/details.png">
+            <img src="img/harborlight/details.png" width="1104" height="872" loading="lazy" alt="An opened problem on sql-01 with start time, description, latest value, tags and the buttons Acknowledge, Explain with AI and Open in Zabbix." data-i18n-alt="alt.f3">
+          </a>
+          <figcaption data-i18n="f3.cap">A Disaster on the database server, opened in the panel.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature flip">
+        <div class="txt">
+          <span class="num">04</span>
+          <h3 data-i18n="f4.h">See problems coming</h3>
+          <p data-i18n="f4.p">Under Upcoming, Harborlight looks at the trend of the past week for your triggers and calculates which ones are likely to fire within 7 days. A disk that fills up a little every day shows up here days before Zabbix raises the alarm.</p>
+          <ul>
+            <li data-i18n="f4.a">A chart with the measurements, the trend line and the threshold</li>
+            <li data-i18n="f4.b">Only trends that fit well; a prediction, never a certainty</li>
+            <li data-i18n="f4.c">Works on your existing triggers, without extra setup in Zabbix</li>
+          </ul>
+        </div>
+        <figure>
+          <a class="shot zoom" href="img/harborlight/upcoming.png">
+            <img src="img/harborlight/upcoming.png" width="1104" height="872" loading="lazy" alt="Upcoming: the data volume of sql-01 is now 85.2 percent full and grows 2.1 percent per day. The chart shows it will pass the 95 percent threshold in about 4 days." data-i18n-alt="alt.f4">
+          </a>
+          <figcaption data-i18n="f4.cap">The data volume of sql-01 reaches its 95% threshold in about 4 days.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="txt">
+          <span class="num">05</span>
+          <h3 data-i18n="f5.h">Ask Claude about your monitoring</h3>
+          <p data-i18n="f5.p">With a Pro license you can ask questions in plain language: "Why is app-01 slow?" or "Which disks are filling up?". Harborlight looks up the data in Zabbix for Claude and shows which data it used.</p>
+          <ul>
+            <li data-i18n="f5.a">In Claude Desktop, on your own Claude subscription, without an API key: one button to connect</li>
+            <li data-i18n="f5.b">Or in Harborlight itself under Ask, with your own Anthropic API key</li>
+            <li data-i18n="f5.c">Claude can only read; it cannot change anything in Zabbix</li>
+            <li data-i18n="f5.d">Your Zabbix server does not have to be reachable from the internet</li>
+          </ul>
+        </div>
+        <figure>
+          <a class="shot zoom" href="img/harborlight/settings-ai.png">
+            <img src="img/harborlight/settings-ai.png" width="1104" height="872" loading="lazy" alt="Settings, AI section: connect to Claude Desktop with your own Claude account, or use the AI assistant in Harborlight with an Anthropic API key and a choice of model." data-i18n-alt="alt.f5">
+          </a>
+          <figcaption data-i18n="f5.cap">You choose: Claude Desktop with your subscription, or Ask in Harborlight with your own key. Both are off until you switch them on.</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature flip">
+        <div class="txt">
+          <span class="num">06</span>
+          <h3 data-i18n="f6.h">Set up once, then leave it</h3>
+          <p data-i18n="f6.p">Connect with an API token or a username and password, pick the host groups you want to see and you are done. Everything else is optional.</p>
+          <ul>
+            <li data-i18n="f6.a">Exceptions per host and per host group</li>
+            <li data-i18n="f6.b">Sound, start with Windows, problems grouped by day</li>
+            <li data-i18n="f6.c">Export your settings and import them on another computer</li>
+            <li data-i18n="f6.d">Token and password stored encrypted on your own computer</li>
+          </ul>
+        </div>
+        <figure>
+          <a class="shot zoom" href="img/harborlight/settings-behavior.png">
+            <img src="img/harborlight/settings-behavior.png" width="1104" height="872" loading="lazy" alt="Settings, Behavior and appearance: pop-up duration, sound and volume, start with Windows, acknowledging problems, language, theme and default snooze duration." data-i18n-alt="alt.f6">
+          </a>
+          <figcaption data-i18n="f6.cap">Behavior and appearance: language, theme, sound and the default snooze duration.</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- PRINCIPES -->
+  <section class="layer s1" id="care">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow" data-i18n="care.eyebrow">What we pay attention to</p>
+          <h2 data-i18n="care.h2">Your monitoring stays yours</h2>
+        </div>
+        <p class="lead" data-i18n="care.lead">Monitoring data says a lot about your network. That is why Harborlight does as little with it as possible.</p>
+      </div>
+      <ul class="principles">
+        <li>
+          <h3 data-i18n="c1.h">Read-only by default</h3>
+          <p data-i18n="c1.p">Harborlight reads from Zabbix and changes nothing there. Acknowledging a problem only works once you switch it on yourself. A ready-made Zabbix role gives it exactly the rights it needs.</p>
+        </li>
+        <li>
+          <h3 data-i18n="c2.h">Works in closed networks</h3>
+          <p data-i18n="c2.p">The license key is checked offline on your own computer. Harborlight does not need to reach us to keep working.</p>
+        </li>
+        <li>
+          <h3 data-i18n="c3.h">Your AI, your data</h3>
+          <p data-i18n="c3.p">We provide no AI service and receive nothing. You connect your own Claude account or key, and you see which data goes to Anthropic before you switch it on.</p>
+        </li>
+        <li>
+          <h3 data-i18n="c4.h">Settings stay local</h3>
+          <p data-i18n="c4.p">Your host groups, exceptions and dismissed alerts are stored on your own computer, not in Zabbix and not with us.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- GRATIS EN PRO -->
+  <section class="layer s2" id="editions">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow" data-i18n="ed.eyebrow">Free and Pro</p>
+          <h2 data-i18n="ed.h2">Start for free, grow when you need it</h2>
+        </div>
+        <p class="lead" data-i18n="ed.lead">The free version is complete for small environments. Pro is for larger networks and for looking ahead.</p>
+      </div>
+      <div class="editions">
+        <article class="card">
+          <h3 data-i18n="e1.h">Free</h3>
+          <p class="sub" data-i18n="e1.sub">Up to 25 hosts</p>
+          <ul>
+            <li data-i18n="e1.a">Alert panel with tabs per host group</li>
+            <li data-i18n="e1.b">Severity filters and exceptions per host and host group</li>
+            <li data-i18n="e1.c">Pop-up for new problems, sound and a snooze button</li>
+            <li data-i18n="e1.d">Details, Open in Zabbix and acknowledging, if you switch it on</li>
+            <li data-i18n="e1.e">Light and dark theme, four languages</li>
+          </ul>
+        </article>
+        <article class="card pro">
+          <h3>Pro</h3>
+          <p class="sub" data-i18n="e2.sub">With a license</p>
+          <ul>
+            <li data-i18n="e2.a">Everything in Free, without the 25-host limit</li>
+            <li data-i18n="e2.b">Upcoming: problems expected in the next 7 days</li>
+            <li data-i18n="e2.c">Ask and "Explain with AI", with your own Anthropic API key</li>
+            <li data-i18n="e2.d">Connect to Claude Desktop, on your own Claude subscription</li>
+            <li data-i18n="e2.e">Later: sign-in with Entra ID</li>
+            <li data-i18n="e2.f">Try it free for 30 days</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note" data-i18n="ed.note">The 25 hosts count within the host groups you choose to show.</p>
+    </div>
+  </section>
+
+  <!-- WAAR WE STAAN -->
+  <section class="layer s3" id="status">
+    <div class="wrap">
+      <div class="now-grid">
+        <div>
+          <p class="eyebrow" data-i18n="st.eyebrow">Where we are now</p>
+          <h2 data-i18n="st.h2">Working, almost ready to install</h2>
+          <p style="margin-top:24px" data-i18n="st.p">The Windows version works and is tested against Zabbix 7.0 and 8.0. Now we are making it ready for release: an installer, code signing and automatic updates, so you can install and update it safely.</p>
+        </div>
+        <ol class="track">
+          <li class="done"><span class="tag" data-i18n="tag.done">Done</span><strong data-i18n="t1.h">Design</strong><span data-i18n="t1.p">Look, features and data handling.</span></li>
+          <li class="done"><span class="tag" data-i18n="tag.done">Done</span><strong data-i18n="t2.h">First version for Windows</strong><span data-i18n="t2.p">Alert panel, pop-ups, snooze, settings and four languages.</span></li>
+          <li class="done"><span class="tag" data-i18n="tag.done">Done</span><strong data-i18n="t3.h">Upcoming problems and licenses</strong><span data-i18n="t3.p">A look ahead at the next 7 days, and free up to 25 hosts.</span></li>
+          <li class="done"><span class="tag" data-i18n="tag.done">Done</span><strong data-i18n="t4.h">Claude and Zabbix 8.0</strong><span data-i18n="t4.p">Ask, Explain with AI and Claude Desktop, tested against Zabbix 8.0.</span></li>
+          <li class="now"><span class="tag" data-i18n="tag.now">Now</span><strong data-i18n="t5.h">Ready for release</strong><span data-i18n="t5.p">Installer, code signing and automatic updates.</span></li>
+          <li><span class="tag" data-i18n="tag.next">Next</span><strong data-i18n="t6.h">Mac and Linux</strong><span data-i18n="t6.p">After the Windows version.</span></li>
+        </ol>
+      </div>
+
+      <div class="hl-cta" style="margin-top:clamp(56px,8vw,96px)">
+        <p data-i18n="cta.p">Want to try Harborlight as soon as it is released? Send us a message.</p>
+        <a class="btn" href="index.html?topic=Harborlight#contact" data-i18n="cta">Stay in the loop</a>
+      </div>
+      <p class="disclaimer" data-i18n="disc">Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC. Zabbix is a trademark of Zabbix LLC.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html" data-i18n-aria="aria.home" aria-label="BedrockDock, home">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="0" y="80" width="120" height="36" rx="6" fill="#8896A0"/>
+        <rect x="12" y="42" width="96" height="34" rx="6" fill="#C2CCD2"/>
+        <rect x="28" y="4" width="64" height="34" rx="6" fill="#FF8A4D"/>
+      </svg>
+      <span style="color:inherit"><b>Bedrock</b><span>Dock</span></span>
+    </a>
+    <p>Built on solid ground. © 2026 BedrockDock</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Engels staat in de HTML zelf; hier alleen de Nederlandse vertaling.
+  var NL = {
+    'title': 'Harborlight – notifier for Zabbix | BedrockDock',
+    'desc': 'Harborlight is een desktop-app die je Zabbix-meldingen in één rustig paneel bij elkaar brengt, met een pop-up bij elk nieuw probleem, een blik op de komende week en Claude voor je vragen.',
+    'aria.home': 'BedrockDock, naar de homepage',
+    'nav.why': 'Waarom', 'nav.how': 'Zo werkt het', 'nav.editions': 'Gratis en Pro', 'nav.status': 'Waar we staan',
+    'cta': 'Blijf op de hoogte',
+    'crumb': '← Alle apps en tools',
+    'sub': 'Notifier for Zabbix',
+    'status': 'In ontwikkeling',
+    'claim': 'Zie wat er mis is in je netwerk, zonder de hele dag Zabbix open te hebben.',
+    'lead': 'Harborlight is een desktop-app die je Zabbix-meldingen in één rustig paneel bij elkaar brengt. Een nieuw probleem krijgt een korte pop-up, voor rustige momenten is er een snooze-knop, en Harborlight laat zien welke problemen er de komende week aan zitten te komen.',
+    'hero.cta1': 'Bekijk hoe het werkt', 'hero.cta2': 'Probeer hem zodra hij klaar is',
+    'alt.hero': 'Het Harborlight-paneel in het donkere thema: zeven open problemen met een gekleurd label per severity, tabs voor de hostgroepen Network, Office en Production, en een probleem in onderhoud in grijs.',
+    'alt.popup': 'Pop-up rechtsonder in beeld: Disaster op sql-01, de MSSQL-service draait niet.',
+    'chip1': 'Eerst Windows, daarna Mac en Linux', 'chip2': 'Zabbix 7.0 tot en met 8.0', 'chip3': 'Gratis tot 25 hosts', 'chip4': 'Nederlands, Engels, Duits en Frans',
+
+    'why.eyebrow': 'Waarom we hem bouwen',
+    'why.h2': 'Zabbix weet alles. Jij ziet het alleen niet op tijd.',
+    'why.p1': 'Zabbix is een sterk monitoringsysteem, maar het woont in een browsertab. En dat is nooit de tab waar je naar kijkt. Meldingen per e-mail belanden in een map, Windows-meldingen verdwijnen in het meldingencentrum, en op een drukke dag hoor je pas van een probleem als iemand belt.',
+    'why.p2': 'Eerst bouwden we een simpele tool die Zabbix-meldingen omzette in Windows-meldingen. Dat hielp, maar maakte de ruis ook groter: elke melding zag er hetzelfde uit en niets werd gegroepeerd. Harborlight is de volgende stap.',
+    'why.p3': 'Eén paneel op je bureaublad dat laat zien wat er echt speelt, en je alleen op de schouder tikt als er iets nieuws gebeurt.',
+    'why.l1': 'Je ziet in één oogopslag hoeveel problemen er openstaan en hoe ernstig ze zijn.',
+    'why.l2': 'Een nieuw probleem krijgt een pop-up, zonder dat je toetsenbord wordt overgenomen.',
+    'why.l3': 'Je weet wat eraan komt voordat de trigger afgaat.',
+
+    'how.eyebrow': 'Zo werkt het',
+    'how.h2': 'Een werkdag met Harborlight',
+    'how.lead': 'Alle screenshots komen uit de huidige versie, gekoppeld aan onze eigen Zabbix-testomgeving met demo-hosts. De app zelf is er ook in het Nederlands.',
+    'f1.h': 'Alles in één rustig paneel',
+    'f1.p': 'Open Harborlight en je ziet meteen hoeveel problemen er openstaan, per dag gesorteerd, met een kleur per severity. Elke hostgroep krijgt een eigen tab, en je zoekt op hostnaam.',
+    'f1.a': 'Tellers per severity bovenin', 'f1.b': 'Hosts in onderhoud in grijs, zonder pop-up of geluid', 'f1.c': 'Licht of donker, wat jij prettig vindt', 'f1.d': 'Woont in het systeemvak, met een teller op het icoon',
+    'alt.f1': 'Het Harborlight-paneel in het lichte thema met zeven problemen, tabs per hostgroep en tellers per severity.',
+    'f1.cap': 'Het paneel in het lichte thema. Bovenin wissel je tussen Problems, Upcoming en Ask.',
+    'f2.h': 'Een tik op de schouder, alleen als het ertoe doet',
+    'f2.p': 'Begint er een nieuw probleem, dan verschijnt rechtsonder een kleine pop-up, als je wilt met geluid. Klik erop en Harborlight opent precies dat probleem. Hij pakt nooit de focus, dus je kunt gewoon doortypen.',
+    'f2.a': 'Snooze van 15 minuten tot "tot ik hem uitzet", ook na herstarten', 'f2.b': 'Hooguit drie pop-ups tegelijk; meer wordt één samenvatting', 'f2.c': 'Een melding als de verbinding met Zabbix wegvalt, en weer als hij terug is', 'f2.d': 'Kies de minimale severity, per hostgroep of per host',
+    'alt.f2': 'Pop-up: Disaster op sql-01, MSSQL: Service MSSQLSERVER is not running. Zojuist, klik om te openen.',
+    'f2.cap': 'De pop-up telt af en blijft staan zolang je muis erop staat.',
+    'f3.h': 'Alle details in één klik',
+    'f3.p': 'Klik op een probleem en het klapt open: wanneer het begon, de omschrijving van de trigger, de laatste waarden, tags en opmerkingen. Meer nodig? "Open in Zabbix" brengt je direct naar de juiste pagina.',
+    'f3.a': 'Bevestigen in Zabbix met een opmerking, alleen als je dat aanzet', 'f3.b': 'Zie wie een probleem heeft bevestigd', 'f3.c': '"Explain with AI" vraagt Claude wat er aan de hand is (Pro)',
+    'alt.f3': 'Een opengeklapt probleem op sql-01 met starttijd, omschrijving, laatste waarde, tags en de knoppen Acknowledge, Explain with AI en Open in Zabbix.',
+    'f3.cap': 'Een Disaster op de databaseserver, opengeklapt in het paneel.',
+    'f4.h': 'Zie problemen aankomen',
+    'f4.p': 'Onder Upcoming kijkt Harborlight naar de trend van de afgelopen week bij je triggers en rekent uit welke waarschijnlijk binnen 7 dagen afgaan. Een schijf die elke dag een beetje voller wordt, zie je hier dagen voordat Zabbix alarm slaat.',
+    'f4.a': 'Een grafiek met de metingen, de trendlijn en de grens', 'f4.b': 'Alleen trends die goed passen; een voorspelling, nooit een zekerheid', 'f4.c': 'Werkt op je bestaande triggers, zonder extra instellingen in Zabbix',
+    'alt.f4': 'Upcoming: het datavolume van sql-01 is nu 85,2 procent vol en groeit 2,1 procent per dag. De grafiek laat zien dat het over ongeveer 4 dagen de grens van 95 procent passeert.',
+    'f4.cap': 'Het datavolume van sql-01 bereikt over ongeveer 4 dagen de grens van 95%.',
+    'f5.h': 'Vraag Claude naar je monitoring',
+    'f5.p': 'Met een Pro-licentie stel je vragen in gewone taal: "Waarom is app-01 traag?" of "Welke schijven lopen vol?". Harborlight zoekt de gegevens voor Claude op in Zabbix en laat zien welke gegevens het gebruikte.',
+    'f5.a': 'In Claude Desktop, op je eigen Claude-abonnement, zonder API-sleutel: koppelen met één knop', 'f5.b': 'Of in Harborlight zelf onder Ask, met je eigen Anthropic API-sleutel', 'f5.c': 'Claude kan alleen lezen; hij kan niets veranderen in Zabbix', 'f5.d': 'Je Zabbix-server hoeft niet vanaf internet bereikbaar te zijn',
+    'alt.f5': 'Instellingen, onderdeel AI: koppelen met Claude Desktop op je eigen Claude-account, of de AI-assistent in Harborlight gebruiken met een Anthropic API-sleutel en een keuze uit modellen.',
+    'f5.cap': 'Jij kiest: Claude Desktop met je abonnement, of Ask in Harborlight met je eigen sleutel. Beide staan uit tot je ze zelf aanzet.',
+    'f6.h': 'Eén keer instellen, daarna laten staan',
+    'f6.p': 'Verbind met een API-token of een gebruikersnaam en wachtwoord, kies de hostgroepen die je wilt zien en je bent klaar. Al het andere is optioneel.',
+    'f6.a': 'Uitzonderingen per host en per hostgroep', 'f6.b': 'Geluid, opstarten met Windows, problemen per dag gegroepeerd', 'f6.c': 'Exporteer je instellingen en importeer ze op een andere computer', 'f6.d': 'Token en wachtwoord versleuteld opgeslagen op je eigen computer',
+    'alt.f6': 'Instellingen, onderdeel Gedrag en weergave: hoe lang de pop-up blijft staan, geluid en volume, opstarten met Windows, problemen bevestigen, taal, thema en standaardduur van snooze.',
+    'f6.cap': 'Gedrag en weergave: taal, thema, geluid en de standaardduur van snooze.',
+
+    'care.eyebrow': 'Waar we op letten',
+    'care.h2': 'Je monitoring blijft van jou',
+    'care.lead': 'Monitoringgegevens zeggen veel over je netwerk. Daarom doet Harborlight er zo weinig mogelijk mee.',
+    'c1.h': 'Standaard alleen lezen', 'c1.p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Een probleem bevestigen kan pas als je dat zelf aanzet. Een kant-en-klare Zabbix-rol geeft precies de rechten die nodig zijn.',
+    'c2.h': 'Werkt in afgesloten netwerken', 'c2.p': 'De licentiesleutel wordt offline op je eigen computer gecontroleerd. Harborlight hoeft ons niet te bereiken om te blijven werken.',
+    'c3.h': 'Jouw AI, jouw data', 'c3.p': 'Wij leveren geen AI-dienst en ontvangen niets. Je koppelt je eigen Claude-account of sleutel, en je ziet welke gegevens naar Anthropic gaan voordat je het aanzet.',
+    'c4.h': 'Instellingen blijven lokaal', 'c4.p': 'Je hostgroepen, uitzonderingen en weggeklikte meldingen staan op je eigen computer, niet in Zabbix en niet bij ons.',
+
+    'ed.eyebrow': 'Gratis en Pro',
+    'ed.h2': 'Begin gratis, groei als het nodig is',
+    'ed.lead': 'De gratis versie is compleet voor kleine omgevingen. Pro is voor grotere netwerken en om vooruit te kijken.',
+    'e1.h': 'Gratis', 'e1.sub': 'Tot 25 hosts',
+    'e1.a': 'Meldingenpaneel met tabs per hostgroep', 'e1.b': 'Filters op severity en uitzonderingen per host en hostgroep', 'e1.c': 'Pop-up bij nieuwe problemen, geluid en een snooze-knop', 'e1.d': 'Details, Open in Zabbix en bevestigen, als je dat aanzet', 'e1.e': 'Licht en donker thema, vier talen',
+    'e2.sub': 'Met licentie',
+    'e2.a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'e2.b': 'Upcoming: problemen die binnen 7 dagen verwacht worden', 'e2.c': 'Ask en "Explain with AI", met je eigen Anthropic API-sleutel', 'e2.d': 'Koppelen met Claude Desktop, op je eigen Claude-abonnement', 'e2.e': 'Later: aanmelden met Entra ID', 'e2.f': '30 dagen gratis uitproberen',
+    'ed.note': 'De 25 hosts tellen binnen de hostgroepen die je kiest om te tonen.',
+
+    'st.eyebrow': 'Waar we nu staan',
+    'st.h2': 'Hij werkt, bijna klaar om te installeren',
+    'st.p': 'De Windows-versie werkt en is getest tegen Zabbix 7.0 en 8.0. Nu maken we hem klaar voor de release: een installer, code-signing en automatische updates, zodat je hem veilig kunt installeren en bijwerken.',
+    'tag.done': 'Klaar', 'tag.now': 'Nu', 'tag.next': 'Daarna',
+    't1.h': 'Ontwerp', 't1.p': 'Uiterlijk, functies en omgang met je gegevens.',
+    't2.h': 'Eerste versie voor Windows', 't2.p': 'Meldingenpaneel, pop-ups, snooze, instellingen en vier talen.',
+    't3.h': 'Aankomende problemen en licenties', 't3.p': 'Een blik op de komende 7 dagen, en gratis tot 25 hosts.',
+    't4.h': 'Claude en Zabbix 8.0', 't4.p': 'Ask, Explain with AI en Claude Desktop, getest tegen Zabbix 8.0.',
+    't5.h': 'Klaar voor de release', 't5.p': 'Installer, code-signing en automatische updates.',
+    't6.h': 'Mac en Linux', 't6.p': 'Na de Windows-versie.',
+    'cta.p': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
+    'disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC. Zabbix is een handelsmerk van Zabbix LLC.'
+  };
+
+  // Engelse teksten één keer uit de HTML bewaren, zodat terugschakelen werkt.
+  var EN = { 'title': document.title, 'desc': document.querySelector('meta[name="description"]').getAttribute('content') };
+  document.querySelectorAll('[data-i18n]').forEach(function (el) { EN[el.getAttribute('data-i18n')] = el.textContent; });
+  document.querySelectorAll('[data-i18n-alt]').forEach(function (el) { EN[el.getAttribute('data-i18n-alt')] = el.getAttribute('alt'); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { EN[el.getAttribute('data-i18n-aria')] = el.getAttribute('aria-label'); });
+
+  var lang = 'en';
+  try { var saved = localStorage.getItem('bd-lang'); if (saved === 'nl' || saved === 'en') lang = saved; } catch (e) {}
+
+  function t(k) { return (lang === 'nl' && NL[k]) || EN[k]; }
+
+  function apply() {
+    document.documentElement.lang = lang;
+    document.title = t('title');
+    document.querySelector('meta[name="description"]').setAttribute('content', t('desc'));
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { var v = t(el.getAttribute('data-i18n')); if (v) el.textContent = v; });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) { var v = t(el.getAttribute('data-i18n-alt')); if (v) el.setAttribute('alt', v); });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { var v = t(el.getAttribute('data-i18n-aria')); if (v) el.setAttribute('aria-label', v); });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      lang = b.getAttribute('data-lang');
+      try { localStorage.setItem('bd-lang', lang); } catch (e) {}
+      apply();
+    });
+  });
+
+  apply();
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d6e8fa0dc9674dd8b993070d1430c759"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
