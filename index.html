@@ -134,6 +134,11 @@ p { margin: 0; }
   30% { opacity: 1; }
   100% { transform: translateY(0); opacity: 1; }
 }
+.drop.now { animation-delay: 0s; }
+.lift { animation: lift .35s ease-in both; transform-box: fill-box; }
+@keyframes lift { to { transform: translateY(-150px); opacity: 0; } }
+.layer-labels text { transition: opacity .3s; }
+.layer-labels.out text { opacity: 0; }
 .waterline { display: block; width: 100%; height: 64px; margin-top: clamp(32px, 5vw, 64px); }
 
 /* ---------- Strata sections ---------- */
@@ -449,7 +454,7 @@ footer .brand span { color: #FF8A4D; }
       </div>
 
       <div class="hero-art">
-        <svg viewBox="0 0 480 440" role="img" data-i18n-aria="hero.alt" aria-label="Three stacked layers: calculation model, design and product, above the water of a quay">
+        <svg viewBox="0 0 480 440" role="img" data-i18n-aria="hero.alt" aria-label="Containers landing on a quay, one product at a time: Harborlight and Bridgeview for IT management, HuisLast and Sowly for home">
           <defs>
             <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#E8590C" stop-opacity=".22"/>
@@ -460,22 +465,22 @@ footer .brand span { color: #FF8A4D; }
           <rect x="10" y="318" width="460" height="10" rx="3" fill="#3A4A55"/>
           <rect x="30" y="230" width="420" height="84" rx="12" fill="#4A5760"/>
           <rect x="70" y="142" width="340" height="84" rx="12" fill="#6B7983"/>
-          <g class="drop">
+          <g class="drop" id="crate">
             <rect x="130" y="54" width="220" height="84" rx="12" fill="#E8590C"/>
             <g stroke="#B94306" stroke-width="3" stroke-linecap="round" opacity=".7">
-              <line x1="168" y1="66" x2="168" y2="126"/><line x1="206" y1="66" x2="206" y2="126"/>
-              <line x1="274" y1="66" x2="274" y2="126"/><line x1="312" y1="66" x2="312" y2="126"/>
+              <line x1="148" y1="66" x2="148" y2="126"/><line x1="332" y1="66" x2="332" y2="126"/>
             </g>
+            <text id="crateName" x="240" y="106" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="-.5" fill="#161D23">Harborlight</text>
           </g>
-          <g font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="20" fill="#E8ECEE">
-            <text x="62" y="278" data-i18n="hero.l1">Calculation model</text>
-            <text x="102" y="190" fill="#161D23" data-i18n="hero.l2">Design</text>
+          <g class="layer-labels" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="20" fill="#E8ECEE">
+            <text id="layerWho" x="62" y="278" data-i18n="hero.l1">For IT management</text>
+            <text id="layerWhat" x="102" y="190" fill="#161D23" data-i18n="hero.l2">Notifier for Zabbix</text>
           </g>
           <path d="M0 350 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#E8590C" stroke-width="4" stroke-linecap="round"/>
           <path d="M0 376 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B7983" stroke-width="4" stroke-linecap="round"/>
           <path d="M0 402 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3A4A55" stroke-width="4" stroke-linecap="round"/>
         </svg>
-        <p style="margin-top:6px;text-align:center;font-family:var(--display);font-size:.95rem;color:var(--muted)" data-i18n="hero.cap">Everything we build sits on top of a model that holds up.</p>
+        <p style="margin-top:6px;text-align:center;font-family:var(--display);font-size:.95rem;color:var(--muted)" data-i18n="hero.cap">Four products, one solid foundation.</p>
       </div>
     </div>
 
@@ -903,13 +908,14 @@ footer .brand span { color: #FF8A4D; }
       'title': 'BedrockDock – eigen apps en tools, op vaste grond gebouwd',
       'desc': 'BedrockDock ontwikkelt eigen tools voor IT-beheer (Harborlight en Bridgeview) en apps voor thuis (HuisLast en Sowly).',
       'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
-      'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en product, boven het water van een kade',
+      'hero.alt': 'Containers die één voor één op een kade landen: Harborlight en Bridgeview voor IT-beheer, HuisLast en Sowly voor thuis',
       'nav.apps': 'Voor thuis', 'nav.tools': 'Voor IT', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
       'hero.h1': 'Tools voor IT-beheerders. Apps voor thuis. Eenvoudig in gebruik, degelijk gebouwd.',
       'hero.lead': 'BedrockDock ontwikkelt zelf apps en tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.',
       'hero.cta1': 'Bekijk wat we maken', 'hero.cta2': 'Zo bouwen we',
-      'hero.l1': 'Rekenmodel', 'hero.l2': 'Ontwerp',
-      'hero.cap': 'Alles wat we maken ligt bovenop een rekenmodel dat klopt.',
+      'hero.l1': 'Voor IT-beheer', 'hero.l2': 'Meldingen uit Zabbix',
+      'hero.home': 'Voor thuis', 'hero.bv': 'Verbindingsbeheer', 'hero.hu': 'Duurzaamheidscheck', 'hero.sw': 'Moestuinplanner',
+      'hero.cap': 'Vier producten, één stevig fundament.',
       'tools.h2': 'Wat we maken',
       'grp.apps': 'Voor thuis', 'grp.appsp': 'Werkt in je browser, ook op je telefoon.',
       'grp.tools': 'Voor IT-beheer', 'grp.toolsp': 'Desktop-apps voor wie servers en netwerken beheert.',
@@ -996,13 +1002,14 @@ footer .brand span { color: #FF8A4D; }
       'title': 'BedrockDock – our own apps and tools, built on solid ground',
       'desc': 'BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly).',
       'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
-      'hero.alt': 'Three stacked layers: calculation model, design and product, above the water of a quay',
+      'hero.alt': 'Containers landing on a quay, one product at a time: Harborlight and Bridgeview for IT management, HuisLast and Sowly for home',
       'nav.apps': 'For home', 'nav.tools': 'For IT', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
       'hero.h1': 'Tools for IT admins. Apps for home. Simple to use, solidly built.',
       'hero.lead': 'BedrockDock builds apps and tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.',
       'hero.cta1': 'See what we build', 'hero.cta2': 'How we build',
-      'hero.l1': 'Calculation model', 'hero.l2': 'Design',
-      'hero.cap': 'Everything we build sits on top of a model that holds up.',
+      'hero.l1': 'For IT management', 'hero.l2': 'Notifier for Zabbix',
+      'hero.home': 'For home', 'hero.bv': 'Connection manager', 'hero.hu': 'Home sustainability check', 'hero.sw': 'Vegetable garden planner',
+      'hero.cap': 'Four products, one solid foundation.',
       'tools.h2': 'What we build',
       'grp.apps': 'For home', 'grp.appsp': 'Works in your browser, on your phone too.',
       'grp.tools': 'For IT management', 'grp.toolsp': 'Desktop apps for people who manage servers and networks.',
@@ -1158,6 +1165,39 @@ footer .brand span { color: #FF8A4D; }
       for (var j = 0; j < tsel.options.length; j++) { if (tsel.options[j].text === topic) tsel.selectedIndex = j; }
     }
   } catch (e) {}
+
+  // Hero: elke paar seconden landt er een ander product op de kade.
+  var crate = document.getElementById('crate');
+  var crateName = document.getElementById('crateName');
+  var labels = document.querySelector('.layer-labels');
+  var who = document.getElementById('layerWho');
+  var what = document.getElementById('layerWhat');
+  var PRODUCTS = [
+    { name: 'Harborlight', what: 'hero.l2', who: 'hero.l1' },
+    { name: 'Bridgeview', what: 'hero.bv', who: 'hero.l1' },
+    { name: 'HuisLast', what: 'hero.hu', who: 'hero.home' },
+    { name: 'Sowly', what: 'hero.sw', who: 'hero.home' }
+  ];
+  var current = 0;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still) {
+    setInterval(function () {
+      if (document.hidden) return;
+      current = (current + 1) % PRODUCTS.length;
+      var p = PRODUCTS[current];
+      crate.setAttribute('class', 'lift');
+      labels.classList.add('out');
+      setTimeout(function () {
+        crateName.textContent = p.name;
+        what.textContent = t(p.what);
+        who.textContent = t(p.who);
+        what.setAttribute('data-i18n', p.what);
+        who.setAttribute('data-i18n', p.who);
+        crate.setAttribute('class', 'drop now');
+        labels.classList.remove('out');
+      }, 380);
+    }, 4200);
+  }
 
   var kiem = document.getElementById('kiempje');
   kiem.addEventListener('click', function () {
