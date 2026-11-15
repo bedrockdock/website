@@ -7,6 +7,45 @@
 <meta name="theme-color" content="#161D23">
 <title>BedrockDock – our own apps and tools, built on solid ground</title>
 <meta name="description" content="BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly).">
+<link rel="canonical" href="https://bedrockdock.com/">
+<link rel="alternate" hreflang="en" href="https://bedrockdock.com/">
+<link rel="alternate" hreflang="nl" href="https://bedrockdock.com/nl/">
+<link rel="alternate" hreflang="x-default" href="https://bedrockdock.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect y='80' width='120' height='36' rx='6' fill='%236B7983'/%3E%3Crect x='12' y='42' width='96' height='34' rx='6' fill='%239FACB4'/%3E%3Crect x='28' y='4' width='64' height='34' rx='6' fill='%23E8590C'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BedrockDock">
+<meta property="og:url" content="https://bedrockdock.com/">
+<meta property="og:title" content="BedrockDock – our own apps and tools, built on solid ground">
+<meta property="og:description" content="Tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly).">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:image" content="https://bedrockdock.com/img/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bedrockdock.com/#org",
+      "name": "BedrockDock",
+      "url": "https://bedrockdock.com/",
+      "email": "info@bedrockdock.com",
+      "description": "BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bedrockdock.com/#site",
+      "name": "BedrockDock",
+      "url": "https://bedrockdock.com/",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://bedrockdock.com/#org" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -84,7 +123,7 @@ p { margin: 0; }
 /* ---------- Hero ---------- */
 .hero { position: relative; padding: clamp(56px, 9vw, 120px) 0 0; overflow: hidden; background: var(--l0); }
 .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 5vw, 72px); align-items: center; }
-.hero h1 { font-size: clamp(2.7rem, 6.4vw, 5.6rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
 .hero .lead { margin-top: 28px; font-size: 1.3rem; }
 .hero .actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; }
 .hero-art { position: relative; }
@@ -387,7 +426,7 @@ footer .brand span { color: #FF8A4D; }
     </nav>
     <div class="nav-right">
       <a class="btn" href="#contact" data-i18n="nav.cta">Stay in the loop</a>
-      <div class="lang" role="group" aria-label="Taal / Language">
+      <div class="lang" role="group" aria-label="Taal / Language" data-alt="nl/">
         <button type="button" data-lang="nl" aria-pressed="false">NL</button>
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
       </div>
@@ -401,7 +440,7 @@ footer .brand span { color: #FF8A4D; }
   <section class="hero">
     <div class="wrap">
       <div>
-        <h1 data-i18n="hero.h1">Our own apps and tools, built on solid ground.</h1>
+        <h1 data-i18n="hero.h1">Tools for IT admins. Apps for home. Each one does one thing well.</h1>
         <p class="lead" data-i18n="hero.lead">BedrockDock builds apps and tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.</p>
         <div class="actions">
           <a class="btn" href="#werk" data-i18n="hero.cta1">See what we build</a>
@@ -568,6 +607,7 @@ footer .brand span { color: #FF8A4D; }
               <li data-i18n="sw.c3">Garden together</li>
               <li data-i18n="sw.c4">For the Netherlands and Belgium</li>
             </ul>
+            <a class="btn" href="https://www.sowly.eu" style="align-self:flex-start" data-i18n="sw.cta">Plan your garden in Sowly</a>
           </div>
           <figure class="garden" style="margin:0">
             <div class="kiempje" id="kiempje" role="img" data-i18n-aria="sw.alt" aria-label="Sprout, the Sowly mascot">
@@ -697,7 +737,7 @@ footer .brand span { color: #FF8A4D; }
           <p data-i18n="hlx.cta">Want to try Harborlight as soon as it is released? Send us a message.</p>
           <div style="display:flex;flex-wrap:wrap;gap:14px">
             <a class="btn ghost" href="harborlight.html" data-i18n="hlx.page">The full story, with screenshots</a>
-            <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="nav.cta">Stay in the loop</a>
+            <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="hlx.notify">Tell me when it is out</a>
           </div>
         </div>
         <p class="disclaimer" data-i18n="hlx.disc">Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.</p>
@@ -807,7 +847,7 @@ footer .brand span { color: #FF8A4D; }
       <div class="hl-block">
         <div class="hl-cta">
           <p data-i18n="bvx.cta">Want to try Bridgeview with your team? Send us a message.</p>
-          <a class="btn" href="#contact" data-topic="Bridgeview" data-i18n="nav.cta">Stay in the loop</a>
+          <a class="btn" href="#contact" data-topic="Bridgeview" data-i18n="bvx.join">Join the Bridgeview test</a>
         </div>
         <p class="disclaimer" data-i18n="bvx.disc">Bridgeview is an independent product by BedrockDock and is not affiliated with Microsoft or 1Password.</p>
       </div>
@@ -869,7 +909,7 @@ footer .brand span { color: #FF8A4D; }
       'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
       'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en product, boven het water van een kade',
       'nav.apps': 'Voor thuis', 'nav.tools': 'Voor IT', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
-      'hero.h1': 'Eigen apps en tools, op vaste grond gebouwd.',
+      'hero.h1': 'Tools voor IT-beheerders. Apps voor thuis. Elk doet één ding goed.',
       'hero.lead': 'BedrockDock ontwikkelt zelf apps en tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.',
       'hero.cta1': 'Bekijk wat we maken', 'hero.cta2': 'Zo bouwen we',
       'hero.l1': 'Rekenmodel', 'hero.l2': 'Ontwerp',
@@ -923,6 +963,7 @@ footer .brand span { color: #FF8A4D; }
       'hlx.e2sub': 'Met licentie',
       'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Claude vragen en "Explain with AI", met je eigen Claude-account of sleutel', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Later: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
       'hlx.cta': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
+      'hlx.notify': 'Laat me weten als hij uit is', 'bvx.join': 'Doe mee met de Bridgeview-test', 'sw.cta': 'Plan je moestuin in Sowly',
       'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
       'bvx.h2': 'Bridgeview: waar staan we nu?',
       'bvx.lead': 'Bridgeview is een verbindingsmanager voor Windows die al je servers in één venster samenbrengt. RDP- en SSH-sessies openen als tabbladen, je wisselt ertussen zonder dat de verbinding wegvalt, en je sleept een tab naar een eigen venster, bijvoorbeeld op een tweede scherm. Je opgeslagen verbindingen staan in mappen met een filter, dus de juiste server is altijd een paar toetsaanslagen weg. Met een gedeelde lijst werkt je hele team vanuit dezelfde verbindingen, en een blauw bolletje laat zien wanneer een collega al in een sessie zit.',
@@ -962,7 +1003,7 @@ footer .brand span { color: #FF8A4D; }
       'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
       'hero.alt': 'Three stacked layers: calculation model, design and product, above the water of a quay',
       'nav.apps': 'For home', 'nav.tools': 'For IT', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
-      'hero.h1': 'Our own apps and tools, built on solid ground.',
+      'hero.h1': 'Tools for IT admins. Apps for home. Each one does one thing well.',
       'hero.lead': 'BedrockDock builds apps and tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.',
       'hero.cta1': 'See what we build', 'hero.cta2': 'How we build',
       'hero.l1': 'Calculation model', 'hero.l2': 'Design',
@@ -1016,6 +1057,7 @@ footer .brand span { color: #FF8A4D; }
       'hlx.e2sub': 'With a license',
       'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Ask Claude and "Explain with AI", with your own Claude account or key', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Later: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
       'hlx.cta': 'Want to try Harborlight as soon as it is released? Send us a message.',
+      'hlx.notify': 'Tell me when it is out', 'bvx.join': 'Join the Bridgeview test', 'sw.cta': 'Plan your garden in Sowly',
       'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
       'bvx.h2': 'Bridgeview: where we are now',
       'bvx.lead': 'Bridgeview is a connection manager for Windows that brings all your servers together in one window. RDP and SSH sessions open as tabs, you switch between them without the connection dropping, and you can drag a tab into its own window, for example on a second screen. Your saved connections are in folders with a filter, so the right server is always a few keystrokes away. With a shared list, your whole team works from the same connections, and a blue dot shows when a colleague is already in a session.',
@@ -1034,9 +1076,9 @@ footer .brand span { color: #FF8A4D; }
       'bvx.e2a': 'Sharp RDP sessions on high-DPI screens, also when you move a window to another screen', 'bvx.e2b': 'Passkeys for SSH, with FIDO2 keys', 'bvx.e2c': 'A clear message when the server ends a session', 'bvx.e2e': 'Your tabs from last time back when you start Bridgeview', 'bvx.e2d': 'SQL Server or PostgreSQL for larger teams',
       'bvx.cta': 'Want to try Bridgeview with your team? Send us a message.',
       'bvx.disc': 'Bridgeview is an independent product by BedrockDock and is not affiliated with Microsoft or 1Password.',
-      'ap.h2': 'How we build an app or tool', 'ap.lead': 'We don't work for companies (yet). We make tools we think add something, and build them the way we want to use them ourselves.',
+      'ap.h2': 'How we build an app or tool', 'ap.lead': 'We don\'t work for companies (yet). We make tools we think add something, and build them the way we want to use them ourselves.',
       'ap.1h': 'A problem of our own', 'ap.1p': 'Every tool starts with something we run into ourselves.',
-      'ap.2h': 'Should it exist?', 'ap.2p': 'Before we start, we check whether it is already out there. If something good exists, we don't build it again.',
+      'ap.2h': 'Should it exist?', 'ap.2p': 'Before we start, we check whether it is already out there. If something good exists, we don\'t build it again.',
       'ap.3h': 'Use it ourselves first', 'ap.3p': 'We use our tools every day, long before anyone else sees them. That is how we find out what is still not right.',
       'ap.4h': 'One thing, done well', 'ap.4p': 'Each app or tool answers one question. Whatever does not belong to it, we leave out on purpose.',
       'ct.h2': 'Stay in the loop.',
@@ -1051,8 +1093,11 @@ footer .brand span { color: #FF8A4D; }
     }
   };
 
-  var lang = 'en';
-  try { var saved = localStorage.getItem('bd-lang'); if (saved === 'nl' || saved === 'en') lang = saved; } catch (e) {}
+  // Elke taal heeft een eigen URL (/ en /nl/). De knop gaat naar de andere versie.
+  var lang = document.documentElement.lang === 'nl' ? 'nl' : 'en';
+  var alt = document.querySelector('.lang').getAttribute('data-alt');
+  function goAlt() { location.href = alt + location.search + location.hash; }
+  try { var saved = localStorage.getItem('bd-lang'); if ((saved === 'nl' || saved === 'en') && saved !== lang) { location.replace(alt + location.search + location.hash); return; } } catch (e) {}
 
   var form = document.getElementById('contactForm');
   var hint = document.getElementById('formHint');
@@ -1080,9 +1125,9 @@ footer .brand span { color: #FF8A4D; }
 
   document.querySelectorAll('.lang button').forEach(function (b) {
     b.addEventListener('click', function () {
-      lang = b.getAttribute('data-lang');
-      try { localStorage.setItem('bd-lang', lang); } catch (e) {}
-      apply();
+      var to = b.getAttribute('data-lang');
+      try { localStorage.setItem('bd-lang', to); } catch (e) {}
+      if (to !== lang) goAlt();
     });
   });
 

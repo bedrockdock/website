@@ -1,0 +1,1180 @@
+<!doctype html>
+<!-- Gemaakt door tools/build-nl.js uit ../index.html. Niet hier aanpassen. -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#161D23">
+<title>BedrockDock – eigen apps en tools, op vaste grond gebouwd</title>
+<meta name="description" content="BedrockDock ontwikkelt eigen tools voor IT-beheer (Harborlight en Bridgeview) en apps voor thuis (HuisLast en Sowly).">
+<link rel="canonical" href="https://bedrockdock.com/nl/">
+<link rel="alternate" hreflang="en" href="https://bedrockdock.com/">
+<link rel="alternate" hreflang="nl" href="https://bedrockdock.com/nl/">
+<link rel="alternate" hreflang="x-default" href="https://bedrockdock.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect y='80' width='120' height='36' rx='6' fill='%236B7983'/%3E%3Crect x='12' y='42' width='96' height='34' rx='6' fill='%239FACB4'/%3E%3Crect x='28' y='4' width='64' height='34' rx='6' fill='%23E8590C'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BedrockDock">
+<meta property="og:url" content="https://bedrockdock.com/nl/">
+<meta property="og:title" content="BedrockDock – eigen apps en tools, op vaste grond gebouwd">
+<meta property="og:description" content="BedrockDock ontwikkelt eigen tools voor IT-beheer (Harborlight en Bridgeview) en apps voor thuis (HuisLast en Sowly).">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://bedrockdock.com/img/og-home-nl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bedrockdock.com/#org",
+      "name": "BedrockDock",
+      "url": "https://bedrockdock.com/",
+      "email": "info@bedrockdock.com",
+      "description": "BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bedrockdock.com/#site",
+      "name": "BedrockDock",
+      "url": "https://bedrockdock.com/",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://bedrockdock.com/#org" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --l0: #161D23;
+  --l1: #1B242B;
+  --l2: #212C34;
+  --l3: #28353E;
+  --l4: #2F3E48;
+  --line: #3A4A55;
+  --text: #E8ECEE;
+  --muted: #9FACB4;
+  --stone: #6B7983;
+  --stone-dark: #4A5760;
+  --accent: #E8590C;
+  --accent-text: #FF7A33;
+  --display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --wrap: 1180px;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--l0);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.1875rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { width: min(var(--wrap), 100% - 48px); margin-inline: auto; }
+:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.025em; line-height: 1.08; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.25rem); font-weight: 700; max-width: 18ch; }
+p { margin: 0; }
+.lead { color: var(--muted); max-width: 46ch; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: rgba(22, 29, 35, .86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(58, 74, 85, .55);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--display); font-size: 1.4rem; letter-spacing: -0.03em; }
+.brand b { font-weight: 700; }
+.brand span { font-weight: 500; color: var(--accent-text); }
+.nav ul { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-family: var(--display); font-size: .95rem; font-weight: 500; }
+.nav ul a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav ul a:hover { color: var(--text); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--display); font-weight: 700; font-size: 1rem;
+  padding: 15px 26px; border-radius: 10px; text-decoration: none; cursor: pointer; border: 0;
+  background: var(--accent); color: #161D23;
+  transition: background .2s, transform .2s;
+}
+.btn:hover { background: #FF6B1F; transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
+.btn.ghost:hover { border-color: var(--stone); background: rgba(255,255,255,.04); transform: none; }
+.nav .btn { padding: 10px 18px; font-size: .92rem; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; padding: clamp(56px, 9vw, 120px) 0 0; overflow: hidden; background: var(--l0); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+.hero .lead { margin-top: 28px; font-size: 1.3rem; }
+.hero .actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-art { position: relative; }
+.hero-art svg { width: 100%; height: auto; overflow: visible; }
+.drop { animation: drop 1.15s cubic-bezier(.22, 1, .36, 1) .35s both; transform-box: fill-box; }
+@keyframes drop {
+  0% { transform: translateY(-150px); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.waterline { display: block; width: 100%; height: 64px; margin-top: clamp(32px, 5vw, 64px); }
+
+/* ---------- Strata sections ---------- */
+section { position: relative; }
+.layer { padding: clamp(72px, 10vw, 128px) 0; }
+.s-diensten { background: var(--l1); }
+.s-werkwijze { background: var(--l2); }
+.s-werk { background: var(--l3); }
+.s-contact { background: var(--l4); }
+
+.head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: clamp(40px, 6vw, 72px); }
+.head .lead { justify-self: end; }
+
+/* Diensten: accordion */
+.rows { border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px;
+  padding: 30px 4px;
+  font-family: var(--display); font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.4rem); letter-spacing: -0.025em;
+  transition: color .2s, padding .25s;
+}
+summary::-webkit-details-marker { display: none; }
+summary:hover { color: var(--accent-text); padding-left: 14px; }
+.plus {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); position: relative; flex: none;
+  transition: transform .3s, background .2s, border-color .2s;
+}
+.plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; background: currentColor; transform: translate(-50%, -50%); }
+.plus::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .3s; }
+details[open] .plus { background: var(--accent); border-color: var(--accent); color: #161D23; transform: rotate(180deg); }
+details[open] .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+.detail { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; padding: 0 4px 40px; }
+.detail p { color: var(--muted); max-width: 52ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; list-style: none; margin: 0; padding: 0; justify-self: end; max-width: 420px; }
+.chips li { font-family: var(--display); font-size: .88rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: var(--l3); border: 1px solid var(--line); color: var(--text); }
+.s-diensten .chips li { background: var(--l2); }
+
+/* Werkwijze: echte volgorde */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; counter-reset: step; list-style: none; padding: 0; margin: 0; }
+.steps li { position: relative; padding: 0 28px 0 0; counter-increment: step; }
+.steps li::before {
+  content: counter(step);
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 12px;
+  font-family: var(--display); font-weight: 700; font-size: 1.2rem;
+  background: var(--l1); border: 1.5px solid var(--line); color: var(--text);
+  position: relative; z-index: 1;
+}
+.steps li:last-child::before { background: var(--accent); border-color: var(--accent); color: #161D23; }
+.steps li::after { content: ""; position: absolute; top: 25px; left: 52px; right: 0; height: 2px; background: var(--line); }
+.steps li:last-child::after { display: none; }
+.steps h3 { font-size: 1.5rem; margin: 26px 0 10px; font-weight: 700; }
+.steps p { color: var(--muted); font-size: 1.06rem; }
+
+/* Eigen werk */
+.work { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; }
+.work .card.big .viz { flex: 1; display: flex; align-items: flex-end; }
+.work .card.big .meter { flex: 1; height: 100%; min-height: 90px; max-height: 220px; }
+.card {
+  position: relative; overflow: hidden;
+  background: var(--l2); border: 1px solid var(--line); border-radius: 18px;
+  padding: clamp(28px, 4vw, 44px);
+  display: flex; flex-direction: column; gap: 18px; min-height: 380px;
+}
+.card.big { background: linear-gradient(160deg, #2B3944 0%, var(--l2) 70%); }
+.status { align-self: flex-start; font-family: var(--display); font-size: .85rem; font-weight: 500; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent-text); }
+.card h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; }
+.card p { color: var(--muted); max-width: 44ch; }
+.card .viz { margin-top: auto; padding-top: 12px; }
+.meter { display: flex; align-items: flex-end; gap: 6px; height: 90px; }
+.meter i { flex: 1; background: var(--stone-dark); border-radius: 4px 4px 0 0; display: block; }
+.meter i.hl { background: var(--accent); }
+.gauge { display: grid; gap: 10px; }
+.gauge div { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 12px; font-family: var(--display); font-size: .9rem; color: var(--muted); }
+.gauge span { display: block; height: 8px; border-radius: 4px; background: var(--stone-dark); position: relative; overflow: hidden; }
+.gauge span::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--accent); border-radius: 4px; }
+.note { margin-top: 28px; color: var(--muted); font-size: 1rem; max-width: 60ch; }
+
+/* Principes */
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.principles li { border-top: 3px solid var(--stone-dark); padding-top: 22px; }
+.principles li:first-child { border-top-color: var(--accent); }
+.principles h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+.principles p { color: var(--muted); font-size: 1.06rem; }
+@media (max-width: 900px) { .principles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .principles { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.contact h2 { max-width: 12ch; }
+.contact .lead { margin-top: 24px; }
+form { display: grid; gap: 18px; }
+label { display: grid; gap: 8px; font-family: var(--display); font-weight: 500; font-size: .95rem; }
+input, textarea, select {
+  font: inherit; font-family: var(--body); font-size: 1.1rem; color: var(--text);
+  background: var(--l1); border: 1.5px solid var(--line); border-radius: 10px; padding: 14px 16px; width: 100%;
+  transition: border-color .2s;
+}
+input:hover, textarea:hover, select:hover { border-color: var(--stone); }
+textarea { min-height: 140px; resize: vertical; }
+.hint { font-size: .95rem; color: var(--muted); }
+
+/* Taalschakelaar */
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.lang { display: inline-flex; border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; }
+.lang button {
+  font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .02em;
+  color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang button:hover { color: var(--text); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #161D23; }
+
+/* Harborlight: meldingen */
+.alerts { display: grid; gap: 10px; }
+.alerts div { display: grid; grid-template-columns: 14px 1fr; align-items: center; gap: 14px; background: var(--l1); border: 1px solid var(--line); border-radius: 10px; padding: 13px 16px; }
+.alerts b { width: 12px; height: 12px; border-radius: 50%; background: var(--stone); display: block; }
+.alerts i { height: 8px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.alerts div.hot { border-color: var(--accent); }
+.alerts div.hot b { background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 89, 12, .25), 0 0 18px 4px rgba(232, 89, 12, .45); }
+.alerts div.hot i { background: #8C5A3C; }
+.tabs-viz { background: var(--l1); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.tabs-viz .tb { display: flex; gap: 4px; padding: 8px 8px 0; background: var(--l3); }
+.tabs-viz .tb span { width: 64px; height: 22px; border-radius: 6px 6px 0 0; background: var(--stone-dark); display: block; }
+.tabs-viz .tb span.on { background: var(--l1); border-top: 2px solid var(--accent); }
+.tabs-viz .scr { display: grid; gap: 8px; padding: 14px 16px; }
+.tabs-viz .scr i { height: 8px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.sub { font-family: var(--display); font-weight: 500; font-size: 1rem; color: var(--accent-text); margin-top: -10px; }
+.more { font-family: var(--display); font-weight: 500; font-size: 1rem; color: var(--accent-text); text-decoration: none; }
+.more:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Harborlight: detailsectie */
+.hl-block { margin-top: clamp(56px, 8vw, 96px); }
+.hl-block > h3, .hl-now h3.sh { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; margin-bottom: 24px; }
+.hl-now { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.hl-now > div > p { color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
+.panel { background: var(--l1); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+.panel .bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--l0); }
+.panel .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--stone-dark); display: block; }
+.panel .tabs { display: flex; gap: 4px; padding: 12px 14px 0; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: .88rem; font-weight: 500; }
+.panel .tabs span { padding: 8px 12px; color: var(--muted); border-bottom: 2px solid transparent; }
+.panel .tabs span.on { color: var(--text); border-bottom-color: var(--accent); }
+.panel .rows2 { display: grid; gap: 10px; padding: 16px; }
+.panel .rows2 div { display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 14px; background: var(--l2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.panel .rows2 b { width: 12px; height: 12px; border-radius: 50%; background: var(--stone); display: block; }
+.panel .rows2 .hot { border-color: var(--accent); }
+.panel .rows2 .hot b { background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 89, 12, .25); }
+.panel .rows2 i { height: 8px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.panel .rows2 em { width: 38px; height: 8px; border-radius: 4px; background: var(--l4); display: block; }
+.panel .foot { display: flex; justify-content: flex-end; padding: 0 16px 16px; }
+.panel .foot span { font-family: var(--display); font-size: .85rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.track { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.track li { display: grid; grid-template-columns: 76px 1fr; gap: 4px 18px; align-items: baseline; background: var(--l2); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
+.track li.now { border-color: var(--accent); }
+.track .tag { grid-row: span 2; font-family: var(--display); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--stone); }
+.track li.done .tag { color: var(--muted); }
+.track li.now .tag { color: var(--accent-text); }
+.track strong { font-family: var(--display); font-size: 1.15rem; }
+.track span:last-child { color: var(--muted); font-size: 1rem; }
+.card .track { gap: 8px; }
+.card .track li { background: var(--l1); padding: 12px 18px; }
+.card .track strong { font-size: 1rem; }
+.card .track span:last-child { font-size: .95rem; }
+.principles.two { grid-template-columns: repeat(2, 1fr); }
+.principles.three { grid-template-columns: repeat(3, 1fr); }
+.editions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.editions .card { min-height: 0; gap: 14px; }
+.editions .card.pro { border-color: var(--accent); }
+.editions ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: grid; gap: 8px; }
+.editions li::marker { color: var(--accent-text); }
+.hl-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(28px, 4vw, 40px); border-radius: 18px; background: var(--l2); border: 1px solid var(--line); }
+.hl-cta p { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.45rem); font-weight: 500; max-width: 40ch; line-height: 1.35; }
+.disclaimer { margin-top: 20px; color: var(--muted); font-size: .95rem; }
+
+/* Bridgeview: detailsectie */
+.s-bv { background: var(--l2); }
+.s-bv .card, .s-bv .hl-cta, .s-bv .track li { background: var(--l3); }
+.bv-split { display: grid; grid-template-columns: 38% 1fr; min-height: 250px; }
+.bv-tree { display: grid; gap: 8px; align-content: start; padding: 14px; border-right: 1px solid var(--line); background: var(--l0); }
+.bv-tree div { display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; }
+.bv-tree div.dir { grid-template-columns: 1fr; padding: 4px 2px 0; }
+.bv-tree div.dir i { width: 54%; background: var(--l4); }
+.bv-tree div.on { background: var(--l2); }
+.bv-tree b { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.bv-tree div.on b { background: var(--accent); box-shadow: 0 0 0 4px rgba(232, 89, 12, .22); }
+.bv-tree i { height: 7px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.bv-tree u { width: 9px; height: 9px; border-radius: 50%; background: #4C8DF6; box-shadow: 0 0 0 4px rgba(76, 141, 246, .22); display: block; }
+.bv-sess { display: flex; flex-direction: column; min-width: 0; }
+.bv-sess .tabs { overflow: hidden; white-space: nowrap; }
+.bv-term { display: grid; gap: 9px; align-content: start; padding: 16px; flex: 1; }
+.bv-term i { height: 7px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.bv-term i.ok { background: #3F7F6A; }
+
+/* Sowly: brede kaart met mascotte Kiempje */
+.prod-head { display: flex; align-items: center; gap: 16px; }
+.app-icon { width: 56px; height: 56px; flex: none; }
+.group { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; }
+.group-lead { color: var(--muted); margin: 8px 0 28px; max-width: 52ch; }
+.group.second { margin-top: clamp(56px, 8vw, 96px); }
+.work.pair { grid-template-columns: 1fr 1fr; }
+.sowly .txt { display: flex; flex-direction: column; gap: 18px; }
+.sowly .status.live { background: var(--accent); border-color: var(--accent); color: #161D23; font-weight: 700; }
+.garden { margin-top: auto !important; background: #E7F4E8; border-radius: 16px; display: grid; place-items: center; padding: 28px 24px 18px; }
+.kiempje {
+  width: min(200px, 60%); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  --k-line: #2B2119; --k-soil: #7A5238; --k-leaf: #57B84F; --k-leaf2: #2F8F46; --k-leaf3: #8FD35C; --k-radish: #E0486E;
+}
+.kiempje svg { width: 100%; height: auto; overflow: visible; }
+.kiempje path, .kiempje circle, .kiempje ellipse { stroke: var(--k-line); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.kiempje .vein { fill: none; stroke-width: 1.5; opacity: .45; }
+.kiempje .mz { transform-box: fill-box; transform-origin: 50% 100%; }
+.kiempje .mbody { animation: mhop 4.4s ease-in-out infinite; }
+.kiempje .mhead { transform-origin: 60px 52px; animation: mtop 2.2s ease-in-out infinite; }
+.kiempje .mleafL { transform-origin: 60px 40px; animation: mwigL 2.2s ease-in-out infinite; }
+.kiempje .mleafR { transform-origin: 60px 40px; animation: mwigR 2.2s ease-in-out infinite .25s; }
+.kiempje .marmL { transform-origin: 36px 82px; animation: mwave 4.4s ease-in-out infinite; }
+.kiempje .marmR { transform-origin: 84px 82px; animation: mwaveR 4.4s ease-in-out infinite; }
+.kiempje .mwink { transform-origin: 68px 68px; animation: mwink 6.5s infinite; }
+.kiempje .mpupil { animation: mlook 7s ease-in-out infinite; }
+.kiempje .mheart { opacity: 0; transform-origin: 92px 40px; animation: mheart 4.4s ease-out infinite; }
+.kiempje .mshadow { transform-origin: 60px 112px; animation: mshad 4.4s ease-in-out infinite; }
+.kiempje.jump .mbody { animation: mjump .8s cubic-bezier(.3, 1.4, .5, 1); }
+.kiempje.jump .mheart { animation: mheart2 .9s ease-out; }
+@keyframes mhop { 0%, 52%, 100% { transform: translateY(0) scale(1, 1); } 58% { transform: translateY(1px) scale(1.07, .92); } 68% { transform: translateY(-9px) scale(.95, 1.07); } 78% { transform: translateY(0) scale(1.08, .9); } 86% { transform: translateY(0) scale(.98, 1.03); } }
+@keyframes mshad { 0%, 52%, 100% { transform: scale(1); opacity: .28; } 68% { transform: scale(.75); opacity: .16; } 78% { transform: scale(1.08); opacity: .3; } }
+@keyframes mtop { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes mwigL { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(6deg); } }
+@keyframes mwigR { 0%, 100% { transform: rotate(6deg); } 50% { transform: rotate(-7deg); } }
+@keyframes mwave { 0%, 60%, 100% { transform: rotate(0); } 66% { transform: rotate(18deg); } 72% { transform: rotate(-8deg); } 78% { transform: rotate(14deg); } 84% { transform: rotate(0); } }
+@keyframes mwaveR { 0%, 12%, 100% { transform: rotate(0); } 18% { transform: rotate(-30deg); } 24% { transform: rotate(-8deg); } 30% { transform: rotate(-30deg); } 36% { transform: rotate(-8deg); } 42% { transform: rotate(-26deg); } 50% { transform: rotate(0); } }
+@keyframes mwink { 0%, 86%, 100% { transform: scaleY(1); } 90% { transform: scaleY(.1); } 94% { transform: scaleY(1); } }
+@keyframes mlook { 0%, 18%, 100% { transform: translate(0, 0); } 26%, 46% { transform: translate(1.6px, -.6px); } 56%, 76% { transform: translate(-1.6px, .4px); } }
+@keyframes mheart { 0%, 70% { opacity: 0; transform: translateY(8px) scale(.4); } 80% { opacity: 1; transform: translateY(-2px) scale(1); } 100% { opacity: 0; transform: translateY(-16px) scale(.9); } }
+@keyframes mheart2 { 0% { opacity: 0; transform: translateY(8px) scale(.4); } 25% { opacity: 1; transform: scale(1.1); } 100% { opacity: 0; transform: translateY(-22px) scale(.9); } }
+@keyframes mjump { 0% { transform: scale(1); } 18% { transform: translateY(2px) scale(1.12, .84); } 45% { transform: translateY(-18px) scale(.9, 1.14); } 70% { transform: translateY(0) scale(1.1, .88); } 100% { transform: scale(1); } }
+.garden figcaption { margin-top: 10px; font-family: var(--display); font-size: .9rem; font-weight: 500; color: #47664C; }
+
+/* Footer = bedrock */
+footer { background: #34444F; padding: 44px 0 48px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+footer p { color: #C2CCD2; font-size: 1rem; }
+footer .brand { font-size: 1.25rem; }
+footer .brand span { color: #FF8A4D; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero .wrap, .head, .detail, .work, .contact, .hl-now, .editions, .principles.two, .principles.three, .work.pair { grid-template-columns: 1fr; }
+  .head .lead, .chips { justify-self: start; }
+  .hero-art { max-width: 460px; order: 2; }
+  .nav ul { display: none; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 44px 24px; }
+  .steps li::after { display: none; }
+  .card { min-height: 0; }
+}
+@media (max-width: 560px) { .nav .btn { display: none; } }
+@media (max-width: 520px) {
+  body { font-size: 1.125rem; }
+  .steps { grid-template-columns: 1fr; }
+  .gauge div { grid-template-columns: 72px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .drop { animation: none; }
+  .kiempje *, .kiempje.jump * { animation: none !important; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" data-i18n-aria="aria.top" aria-label="BedrockDock, naar boven">
+      <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="0" y="80" width="120" height="36" rx="6" fill="#6B7983"/>
+        <rect x="12" y="42" width="96" height="34" rx="6" fill="#9FACB4"/>
+        <rect x="28" y="4" width="64" height="34" rx="6" fill="#E8590C"/>
+      </svg>
+      <span style="color:inherit"><b>Bedrock</b><span>Dock</span></span>
+    </a>
+    <nav aria-label="Hoofdmenu" data-i18n-aria="aria.menu">
+      <ul>
+        <li><a href="#it" data-i18n="nav.tools">Voor IT</a></li>
+        <li><a href="#thuis" data-i18n="nav.apps">Voor thuis</a></li>
+        <li><a href="harborlight.html">Harborlight</a></li>
+        <li><a href="#bridgeview">Bridgeview</a></li>
+        <li><a href="#aanpak" data-i18n="nav.approach">Aanpak</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="btn" href="#contact" data-i18n="nav.cta">Blijf op de hoogte</a>
+      <div class="lang" role="group" aria-label="Taal / Language" data-alt="../">
+        <button type="button" data-lang="nl" aria-pressed="true">NL</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 data-i18n="hero.h1">Tools voor IT-beheerders. Apps voor thuis. Elk doet één ding goed.</h1>
+        <p class="lead" data-i18n="hero.lead">BedrockDock ontwikkelt zelf apps en tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.</p>
+        <div class="actions">
+          <a class="btn" href="#werk" data-i18n="hero.cta1">Bekijk wat we maken</a>
+          <a class="btn ghost" href="#aanpak" data-i18n="hero.cta2">Zo bouwen we</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <svg viewBox="0 0 480 440" role="img" data-i18n-aria="hero.alt" aria-label="Drie gestapelde lagen: rekenmodel, ontwerp en product, boven het water van een kade">
+          <defs>
+            <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#E8590C" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#E8590C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="240" cy="240" rx="230" ry="150" fill="url(#glow)"/>
+          <rect x="10" y="318" width="460" height="10" rx="3" fill="#3A4A55"/>
+          <rect x="30" y="230" width="420" height="84" rx="12" fill="#4A5760"/>
+          <rect x="70" y="142" width="340" height="84" rx="12" fill="#6B7983"/>
+          <g class="drop">
+            <rect x="130" y="54" width="220" height="84" rx="12" fill="#E8590C"/>
+            <g stroke="#B94306" stroke-width="3" stroke-linecap="round" opacity=".7">
+              <line x1="168" y1="66" x2="168" y2="126"/><line x1="206" y1="66" x2="206" y2="126"/>
+              <line x1="274" y1="66" x2="274" y2="126"/><line x1="312" y1="66" x2="312" y2="126"/>
+            </g>
+          </g>
+          <g font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="20" fill="#E8ECEE">
+            <text x="62" y="278" data-i18n="hero.l1">Rekenmodel</text>
+            <text x="102" y="190" fill="#161D23" data-i18n="hero.l2">Ontwerp</text>
+          </g>
+          <path d="M0 350 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#E8590C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M0 376 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B7983" stroke-width="4" stroke-linecap="round"/>
+          <path d="M0 402 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3A4A55" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <p style="margin-top:6px;text-align:center;font-family:var(--display);font-size:.95rem;color:var(--muted)" data-i18n="hero.cap">Alles wat we maken ligt bovenop een rekenmodel dat klopt.</p>
+      </div>
+    </div>
+
+    <svg class="waterline" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 64 V30 q25 -22 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 V64 Z" fill="#1B242B"/>
+    </svg>
+  </section>
+
+  <!-- WAT WE MAKEN: VOOR THUIS EN VOOR IT-BEHEER -->
+  <section class="layer s-diensten" id="werk" style="margin-top:-2px;padding-top:clamp(32px,5vw,56px)">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="tools.h2">Wat we maken</h2>
+        <p class="lead" data-i18n="tools.lead">Twee tools voor IT-beheer en twee apps voor thuis. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.</p>
+      </div>
+
+      <h3 class="group" id="it" data-i18n="grp.tools">Voor IT-beheer</h3>
+      <p class="group-lead" data-i18n="grp.toolsp">Desktop-apps voor wie servers en netwerken beheert.</p>
+      <div class="work pair">
+        <article class="card">
+          <span class="status" data-i18n="status">In ontwikkeling</span>
+          <div class="prod-head">
+            <svg class="app-icon" viewBox="-3.8 -2.9 47.6 47.6" aria-hidden="true">
+              <rect x="-3.8" y="-2.9" width="47.6" height="47.6" rx="10.5" fill="#0B3C49"/>
+              <polygon points="16,14 24,14 27,34 13,34" fill="#2FA4B5"/>
+              <rect x="15" y="20" width="10" height="3" fill="#0B3C49"/>
+              <rect x="14" y="27" width="12" height="3" fill="#0B3C49"/>
+              <rect x="16" y="8" width="8" height="6" rx="1" fill="#F2A31B"/>
+              <polygon points="15,8 20,2 25,8" fill="#2FA4B5"/>
+              <path d="M5,37 q3.5,-3 7,0 t7,0 t7,0 t7,0" fill="none" stroke="#2FA4B5" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Harborlight</h3>
+          </div>
+          <p class="sub" data-i18n="hl.sub">Notifier for Zabbix</p>
+          <p data-i18n="hl.p">Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity, een pop-up bij nieuwe problemen en een snooze-knop. Hij laat ook zien welke problemen eraan zitten te komen.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="hl.plat">Eerst voor Windows, daarna Mac en Linux.</li>
+            <li data-i18n="hl.free">Gratis tot 25 hosts</li>
+            <li data-i18n="bv.c3">Nederlands, Engels, Duits en Frans</li>
+          </ul>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="hlx.t2h">Eerste versie voor Windows</strong><span data-i18n="hlx.t2p">Meldingenpaneel, pop-ups, snooze, instellingen en vier talen.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Nu</span><strong data-i18n="hlx.t6h">Klaar voor de release</strong><span data-i18n="hlx.t6p">Installer, code-signing en automatische updates.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Daarna</span><strong data-i18n="hlx.t3h">Mac en Linux</strong><span data-i18n="hlx.t3p">Na de Windows-versie.</span></li>
+          </ol>
+          <a class="more" href="harborlight.html" data-i18n="hl.more">Meer over Harborlight →</a>
+          <div class="viz" aria-hidden="true">
+            <div class="alerts">
+              <div class="hot"><b></b><i style="--w:78%"></i></div>
+              <div><b></b><i style="--w:56%"></i></div>
+              <div><b></b><i style="--w:66%"></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status" data-i18n="bv.status">Werkend prototype</span>
+          <div class="prod-head">
+            <svg class="app-icon" viewBox="-3.26 -3.26 46.52 46.52" aria-hidden="true">
+              <rect x="-3.26" y="-3.26" width="46.52" height="46.52" rx="10.2" fill="#0B3C49"/>
+              <path d="M3,5 L37,5 L35.31,14 L4.69,14 Z" fill="#2FA4B5"/>
+              <path d="M4.69,14 L35.31,14 L34,21 L6,21 Z" fill="#13808E"/>
+              <circle cx="31.2" cy="10.2" r="2.2" fill="#F2A31B"/>
+              <path d="M9,17.6 q2,-1.4 4,0 t4,0 t4,0 t4,0 t4,0" fill="none" stroke="#8FDCE5" stroke-width="1" stroke-linecap="round"/>
+              <path d="M3,5 L37,5 L34,21 L6,21 Z M14.33,5 L15.33,21 M25.67,5 L24.67,21" fill="none" stroke="#C9E0E4" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M20,21.5 V39.5 M11,30.5 H29 M13.64,24.14 L26.36,36.86 M26.36,24.14 L13.64,36.86" fill="none" stroke="#F2A31B" stroke-width="1.7" stroke-linecap="round"/>
+              <circle cx="20" cy="30.5" r="6.5" fill="none" stroke="#F2A31B" stroke-width="2.2"/>
+              <circle cx="20" cy="30.5" r="2" fill="#F2A31B"/>
+            </svg>
+            <h3>Bridgeview</h3>
+          </div>
+          <p class="sub" data-i18n="bv.sub">Verbindingsmanager voor Windows</p>
+          <p data-i18n="bv.p">Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen, sleep een tab naar een eigen venster en haal een verbroken sessie met één klik terug. Je team deelt één lijst met verbindingen, en iedereen logt in met zijn eigen beheeraccount: met een wachtwoord uit 1Password, of helemaal zonder wachtwoord.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="bv.c1">RDP en SSH in tabbladen</li>
+            <li data-i18n="bv.c4">Eén lijst voor je team</li>
+            <li data-i18n="bv.c3">Nederlands, Engels, Duits en Frans</li>
+          </ul>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="bv.t1h">Prototype voor teams</strong><span data-i18n="bv.t1p">Tabs, opgeslagen verbindingen, een gedeelde lijst en veilig aanmelden.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Nu</span><strong data-i18n="bv.t2h">Testen in een echte omgeving</strong><span data-i18n="bv.t2p">RDP-servers, een domein en een netwerkshare met meerdere computers.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Daarna</span><strong data-i18n="bv.t3h">Scherpe schermen en SSH-passkeys</strong><span data-i18n="bv.t3p">RDP dat de schaal van je scherm volgt, en FIDO2-sleutels voor SSH.</span></li>
+          </ol>
+          <a class="more" href="#bridgeview" data-i18n="bv.more">Meer over Bridgeview →</a>
+          <div class="viz" aria-hidden="true">
+            <div class="tabs-viz">
+              <div class="tb"><span class="on"></span><span></span><span></span></div>
+              <div class="scr"><i style="--w:72%"></i><i style="--w:54%"></i><i style="--w:63%"></i></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="group second" id="thuis" data-i18n="grp.apps">Voor thuis</h3>
+      <p class="group-lead" data-i18n="grp.appsp">Werkt in je browser, ook op je telefoon.</p>
+      <div class="work pair">
+        <article class="card big">
+          <span class="status" data-i18n="wlho.status">Live in nov/dec 2026</span>
+          <h3>HuisLast</h3>
+          <p data-i18n="wlho.p">Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.</p>
+          <ul class="chips" style="justify-self:start">
+            <li data-i18n="wlho.c1">Warmtepomp, hybride of airco</li>
+            <li data-i18n="wlho.c2">Isolatie</li>
+            <li data-i18n="wlho.c3">Zonnepanelen en thuisbatterij</li>
+            <li data-i18n="wlho.c4">Gasloos wonen</li>
+          </ul>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t1h">Rekenmodel</strong><span data-i18n="wlho.t1p">Gecontroleerd bij CBS, RVO en Milieu Centraal.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t2h">App en betaald rapport</strong><span data-i18n="wlho.t2p">Inclusief betalen met iDEAL.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Nu</span><strong data-i18n="wlho.t3h">Hosting en mail</strong><span data-i18n="wlho.t3p">Alles klaarzetten voor de livegang.</span></li>
+            <li><span class="tag" data-i18n="wlho.t4tag">Nov/dec</span><strong data-i18n="wlho.t4h">Livegang</strong><span data-i18n="wlho.t4p">HuisLast gaat live.</span></li>
+          </ol>
+          <div class="viz" aria-hidden="true">
+            <div class="meter">
+              <i style="height:18%"></i><i style="height:26%"></i><i style="height:34%"></i><i style="height:42%"></i><i style="height:50%"></i><i style="height:57%"></i><i style="height:64%"></i><i class="hl" style="height:72%"></i><i class="hl" style="height:80%"></i><i class="hl" style="height:88%"></i><i class="hl" style="height:96%"></i>
+            </div>
+          </div>
+        </article>
+
+        <article class="card sowly">
+          <div class="txt">
+            <span class="status live" data-i18n="sw.status">Live op 25 oktober 2026</span>
+            <h3>Sowly</h3>
+            <p class="sub" data-i18n="sw.sub">Moestuinplanner</p>
+            <p data-i18n="sw.p">Zie per maand wat je in je moestuin zaait, verpot, uitplant en oogst. Houd je eigen tuin bij met een tijdlijn per gewas en tuinier samen door iemand uit te nodigen met een link. Bij elk gewas zie je hoeveel licht, water en voeding het nodig heeft, en met welke buren het wel en niet goed gaat. De teeltgegevens komen uit Nederlandse en Belgische bronnen; wat nog niet bevestigd is, staat er duidelijk bij. En de planten zijn tekenfilmfiguurtjes die bewegen.</p>
+            <ul class="chips" style="justify-self:start">
+              <li data-i18n="sw.c1">Maandkalender</li>
+              <li data-i18n="sw.c2">Tijdlijn per gewas</li>
+              <li data-i18n="sw.c3">Samen tuinieren</li>
+              <li data-i18n="sw.c4">Voor Nederland en België</li>
+            </ul>
+            <a class="btn" href="https://www.sowly.eu" style="align-self:flex-start" data-i18n="sw.cta">Plan je moestuin in Sowly</a>
+          </div>
+          <figure class="garden" style="margin:0">
+            <div class="kiempje" id="kiempje" role="img" data-i18n-aria="sw.alt" aria-label="Kiempje, de mascotte van Sowly">
+              <svg viewBox="0 0 120 124" aria-hidden="true"><ellipse class="mshadow" cx="60" cy="114" rx="30" ry="6" style="fill:#000;stroke:none;opacity:.28"/><g class="mbody mz"><path class="marmL" d="M38 84 C26 86 20 78 22 70 C30 70 36 74 40 80Z" style="fill:var(--k-leaf)"/><path class="marmR" d="M82 84 C94 86 100 78 98 70 C90 70 84 74 80 80Z" style="fill:var(--k-leaf)"/><path d="M26 112 C22 92 34 60 60 60 C86 60 98 92 94 112 C80 118 40 118 26 112Z" style="fill:var(--k-leaf3)"/><path d="M30 106 C40 112 80 112 90 106" style="fill:none;stroke:var(--k-soil);stroke-width:7"/><path d="M24 114 C34 106 86 106 96 114 C86 120 34 120 24 114Z" style="fill:var(--k-soil)"/><g class="mhead"><path d="M60 62 C60 52 59 46 60 38" style="fill:none;stroke-width:4"/><path class="mleafL" d="M60 42 C46 44 32 36 30 22 C46 20 58 28 60 42Z" style="fill:var(--k-leaf)"/><path class="mleafR" d="M60 42 C74 40 90 32 92 18 C76 16 62 26 60 42Z" style="fill:var(--k-leaf2)"/><path class="vein" d="M58 40 C50 34 42 28 36 24"/><path class="vein" d="M62 40 C70 32 80 26 88 20"/></g><circle cx="48" cy="80" r="9" style="fill:#fff"/><circle cx="72" cy="80" r="9" style="fill:#fff"/><g class="mpupil"><circle cx="50" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="51.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/><g class="mwink"><circle cx="74" cy="81" r="4.6" style="fill:var(--k-line);stroke:none"/><circle cx="75.6" cy="79.2" r="1.5" style="fill:#fff;stroke:none"/></g></g><ellipse cx="38" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><ellipse cx="82" cy="93" rx="5" ry="3.2" style="fill:#F4958C;stroke:none;opacity:.8"/><path d="M52 93 Q60 102 68 93Z" style="fill:#B3392F;stroke-width:2.2"/></g><path class="mheart" d="M92 42 C86 36 80 42 92 52 C104 42 98 36 92 42Z" style="fill:var(--k-radish);stroke-width:2"/></svg>
+            </div>
+            <figcaption data-i18n="sw.cap">Dit is Kiempje. Tik er maar eens op.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AANPAK -->
+  <section class="layer s-werkwijze" id="aanpak">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="ap.h2">Zo bouwen we een app of tool</h2>
+        <p class="lead" data-i18n="ap.lead">We werken (nog) niet voor bedrijven. We maken tools waarvan we vinden dat ze iets toevoegen, en bouwen ze zoals we ze zelf willen gebruiken.</p>
+      </div>
+      <ul class="principles">
+        <li>
+          <h3 data-i18n="ap.1h">Een eigen probleem</h3>
+          <p data-i18n="ap.1p">Elke tool begint bij iets waar we zelf tegenaan lopen.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ap.2h">Moet het bestaan?</h3>
+          <p data-i18n="ap.2p">Voordat we beginnen, kijken we of het er al is. Bestaat er al iets goeds, dan bouwen we het niet nog een keer.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ap.3h">Zelf eerst gebruiken</h3>
+          <p data-i18n="ap.3p">We gebruiken onze tools elke dag, lang voordat iemand anders ze ziet. Zo merken we zelf wat nog niet klopt.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ap.4h">Eén ding goed</h3>
+          <p data-i18n="ap.4p">Elke app of tool lost één vraag op. Wat daar niet bij hoort, laten we bewust weg.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HARBORLIGHT -->
+  <section class="layer s-werk" id="harborlight">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="hlx.h2">Harborlight: waar staan we nu?</h2>
+        <p class="lead" data-i18n="hlx.lead">Harborlight is een desktop-app die je Zabbix-meldingen overzichtelijk bij elkaar brengt. Je krijgt een eigen meldingenpaneel met tabs per hostgroep, filters op severity, per-host uitzonderingen, een pop-up bij elk nieuw probleem en een snooze-knop voor als je even geen meldingen wilt. Harborlight kijkt ook vooruit: je ziet welke problemen de komende week waarschijnlijk optreden. Geen ruis van losse Windows-notificaties, maar één rustig overzicht van wat er écht speelt.</p>
+      </div>
+
+      <div class="hl-now">
+        <div class="panel" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="tabs">
+            <span class="on" data-i18n="hlx.tab1">Productie</span>
+            <span data-i18n="hlx.tab2">Netwerk</span>
+            <span data-i18n="hlx.tab3">Kantoor</span>
+          </div>
+          <div class="rows2">
+            <div class="hot"><b></b><i style="--w:82%"></i><em></em></div>
+            <div><b></b><i style="--w:60%"></i><em></em></div>
+            <div><b></b><i style="--w:70%"></i><em></em></div>
+            <div><b></b><i style="--w:48%"></i><em></em></div>
+          </div>
+          <div class="foot"><span data-i18n="hlx.snooze">Snooze 1 u</span></div>
+        </div>
+
+        <div>
+          <h3 class="sh" data-i18n="hlx.nowh">Waar we nu staan</h3>
+          <p data-i18n="hlx.nowp">De eerste versie werkt en we gebruiken hem elke dag. Hij is er in het Nederlands, Engels, Duits en Frans. Nu maken we hem klaar voor de release, zodat je hem veilig kunt installeren en bijwerken.</p>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="hlx.t1h">Ontwerp</strong><span data-i18n="hlx.t1p">Uiterlijk, functies en omgang met je gegevens.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="hlx.t2h">Eerste versie voor Windows</strong><span data-i18n="hlx.t2p">Meldingenpaneel, pop-ups, snooze, instellingen en vier talen.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="hlx.t5h">Aankomende problemen en licenties</strong><span data-i18n="hlx.t5p">Een blik op de komende 7 dagen, en gratis tot 25 hosts.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="hlx.t7h">Claude en Zabbix 8.0</strong><span data-i18n="hlx.t7p">Ask, Explain with AI en Claude Desktop, getest tegen Zabbix 8.0.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Nu</span><strong data-i18n="hlx.t6h">Klaar voor de release</strong><span data-i18n="hlx.t6p">Installer, code-signing en automatische updates.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Daarna</span><strong data-i18n="hlx.t3h">Mac en Linux</strong><span data-i18n="hlx.t3p">Na de Windows-versie.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.careh">Waar we op letten</h3>
+        <ul class="principles three">
+          <li>
+            <h3 data-i18n="hlx.c1h">Standaard alleen lezen</h3>
+            <p data-i18n="hlx.c1p">Harborlight leest uit Zabbix en wijzigt daar niets. Een probleem bevestigen vanuit de app kan pas als je dat zelf aanzet. Je instellingen en uitzonderingen staan lokaal op je eigen computer.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hlx.c2h">Werkt in afgesloten netwerken</h3>
+            <p data-i18n="hlx.c2p">De licentiesleutel wordt offline op je eigen computer gecontroleerd. Harborlight hoeft ons niet te bereiken om te blijven werken.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hlx.c3h">Jouw AI, jouw data</h3>
+            <p data-i18n="hlx.c3p">In de Pro-versie vraag je Claude naar je monitoring: in Claude Desktop op je eigen abonnement, of in Harborlight met je eigen API-sleutel. Wij leveren geen AI-dienst en ontvangen niets, en Claude kan alleen lezen.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.nexth">Gratis en Pro</h3>
+        <div class="editions">
+          <article class="card">
+            <h3 data-i18n="hlx.e1h">Gratis</h3>
+            <p class="sub" data-i18n="hlx.e1sub">Tot 25 hosts</p>
+            <ul>
+              <li data-i18n="hlx.e1a">Meldingenpaneel met tabs per hostgroep</li>
+              <li data-i18n="hlx.e1b">Filters op severity en per-host uitzonderingen</li>
+              <li data-i18n="hlx.e1c">Pop-up bij nieuwe problemen en een snooze-knop</li>
+              <li data-i18n="hlx.e1d">Problemen bevestigen in Zabbix, als je dat aanzet</li>
+            </ul>
+          </article>
+          <article class="card pro">
+            <h3>Pro</h3>
+            <p class="sub" data-i18n="hlx.e2sub">Met licentie</p>
+            <ul>
+              <li data-i18n="hlx.e2a">Alles uit Gratis, zonder de grens van 25 hosts</li>
+              <li data-i18n="hlx.e2c">Upcoming: problemen die de komende 7 dagen verwacht worden</li>
+              <li data-i18n="hlx.e2b">Claude vragen en "Explain with AI", met je eigen Claude-account of sleutel</li>
+              <li data-i18n="hlx.e2d">Later: inloggen via Entra ID</li>
+              <li data-i18n="hlx.e2e">30 dagen gratis uit te proberen</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <div class="hl-cta">
+          <p data-i18n="hlx.cta">Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px">
+            <a class="btn ghost" href="harborlight.html" data-i18n="hlx.page">Het hele verhaal, met screenshots</a>
+            <a class="btn" href="#contact" data-topic="Harborlight" data-i18n="hlx.notify">Laat me weten als hij uit is</a>
+          </div>
+        </div>
+        <p class="disclaimer" data-i18n="hlx.disc">Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIDGEVIEW -->
+  <section class="layer s-bv" id="bridgeview">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="bvx.h2">Bridgeview: waar staan we nu?</h2>
+        <p class="lead" data-i18n="bvx.lead">Bridgeview is een verbindingsmanager voor Windows die al je servers in één venster samenbrengt. RDP- en SSH-sessies openen als tabbladen, je wisselt ertussen zonder dat de verbinding wegvalt, en je sleept een tab naar een eigen venster, bijvoorbeeld op een tweede scherm. Je opgeslagen verbindingen staan in mappen met een filter, dus de juiste server is altijd een paar toetsaanslagen weg. Met een gedeelde lijst werkt je hele team vanuit dezelfde verbindingen, en een blauw bolletje laat zien wanneer een collega al in een sessie zit.</p>
+      </div>
+
+      <div class="hl-now">
+        <div class="panel" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="bv-split">
+            <div class="bv-tree">
+              <div class="dir"><i></i></div>
+              <div class="on"><b></b><i style="--w:70%"></i></div>
+              <div><b></b><i style="--w:58%"></i><u></u></div>
+              <div><b></b><i style="--w:76%"></i></div>
+              <div class="dir"><i></i></div>
+              <div><b></b><i style="--w:62%"></i></div>
+              <div><b></b><i style="--w:50%"></i><u></u></div>
+            </div>
+            <div class="bv-sess">
+              <div class="tabs">
+                <span class="on">web-01</span>
+                <span>db-02</span>
+                <span>fw-core</span>
+              </div>
+              <div class="bv-term">
+                <i class="ok" style="--w:44%"></i>
+                <i style="--w:78%"></i>
+                <i style="--w:64%"></i>
+                <i style="--w:86%"></i>
+                <i style="--w:52%"></i>
+                <i class="ok" style="--w:38%"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="sh" data-i18n="hlx.nowh">Waar we nu staan</h3>
+          <p data-i18n="bvx.nowp">Het prototype werkt: RDP- en SSH-tabs, opgeslagen verbindingen, een gedeelde lijst voor je team en veilig aanmelden. SSH is volledig getest. Nu testen we de rest in een echte omgeving, met RDP-servers, een domein en een netwerkshare die door meerdere computers wordt gebruikt.</p>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="bvx.t1h">RDP en SSH in tabbladen</strong><span data-i18n="bvx.t1p">Opnieuw verbinden met één klik, instellingen, systeemvak en vier talen, in de stijl van Harborlight.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="bvx.t2h">Tabs in een eigen venster</strong><span data-i18n="bvx.t2p">Sleep een tab los en zet hem weer terug. De verbinding blijft open.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="bvx.t3h">Opgeslagen verbindingen</strong><span data-i18n="bvx.t3p">Mappen, een filter, een wizard voor nieuwe servers en een standaardaccount per map.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="bvx.t4h">Samenwerken en veilig aanmelden</strong><span data-i18n="bvx.t4p">Een gedeelde lijst met een blauw bolletje voor collega’s, en aanmelden via 1Password, een passkey of een smartcard.</span></li>
+            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Nu</span><strong data-i18n="bv.t2h">Testen in een echte omgeving</strong><span data-i18n="bv.t2p">RDP-servers, een domein en een netwerkshare met meerdere computers.</span></li>
+            <li><span class="tag" data-i18n="hlx.t3tag">Daarna</span><strong data-i18n="bv.t3h">Scherpe schermen en SSH-passkeys</strong><span data-i18n="bv.t3p">RDP dat de schaal van je scherm volgt, en FIDO2-sleutels voor SSH.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.careh">Waar we op letten</h3>
+        <ul class="principles three">
+          <li>
+            <h3 data-i18n="bvx.c1h">Geen wachtwoorden in de lijst</h3>
+            <p data-i18n="bvx.c1p">De gedeelde lijst bevat servers, mappen en welk account je gebruikt, nooit wachtwoorden. Iedereen logt in met zijn eigen beheeraccount. Bridgeview houdt geen eigen kluis bij.</p>
+          </li>
+          <li>
+            <h3 data-i18n="bvx.c2h">Aanmelden zonder wachtwoord te typen</h3>
+            <p data-i18n="bvx.c2p">Bridgeview haalt je wachtwoord uit 1Password op het moment dat je verbindt, ontgrendeld met Windows Hello. Bij RDP kan het ook helemaal zonder wachtwoord, met een passkey via Microsoft Entra ID, een smartcard of Windows Hello for Business.</p>
+          </li>
+          <li>
+            <h3 data-i18n="bvx.c3h">Je account blijft veilig op de server</h3>
+            <p data-i18n="bvx.c3p">Met Remote Credential Guard of Restricted Admin mode kan je account op een gecompromitteerde server niet misbruikt worden. Is de gekozen bescherming niet beschikbaar, dan verbindt Bridgeview niet, in plaats van stilletjes zonder te verbinden.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="bvx.nexth">Nu en straks</h3>
+        <div class="editions">
+          <article class="card">
+            <h3 data-i18n="bvx.e1h">In het prototype</h3>
+            <p class="sub" data-i18n="bvx.e1sub">Werkt nu al</p>
+            <ul>
+              <li data-i18n="bvx.e1a">RDP en SSH als tabbladen, of in een eigen venster</li>
+              <li data-i18n="bvx.e1b">Een verbroken of vergrendelde sessie terug met één klik of Ctrl+Shift+R, ook vanuit de sessie zelf</li>
+              <li data-i18n="bvx.e1c">Mappen met een filter, een wizard en een standaardaccount per map</li>
+              <li data-i18n="bvx.e1d">Een gedeelde lijst, met een blauw bolletje als een collega verbonden is</li>
+              <li data-i18n="bvx.e1e">Je eigen beheeraccount, via 1Password, een passkey of een smartcard</li>
+            </ul>
+          </article>
+          <article class="card pro">
+            <h3 data-i18n="bvx.e2h">Binnenkort</h3>
+            <p class="sub" data-i18n="bvx.e2sub">Volgende stappen</p>
+            <ul>
+              <li data-i18n="bvx.e2a">Scherpe RDP-sessies op schermen met hoge DPI, ook als je een venster naar een ander scherm verplaatst</li>
+              <li data-i18n="bvx.e2b">Passkeys voor SSH, met FIDO2-sleutels</li>
+              <li data-i18n="bvx.e2c">Een duidelijke melding als de server een sessie beëindigt</li>
+              <li data-i18n="bvx.e2e">Je tabbladen van de vorige keer terug als je Bridgeview start</li>
+              <li data-i18n="bvx.e2d">SQL Server of PostgreSQL voor grotere teams</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <div class="hl-cta">
+          <p data-i18n="bvx.cta">Wil je Bridgeview met je team proberen? Stuur ons een bericht.</p>
+          <a class="btn" href="#contact" data-topic="Bridgeview" data-i18n="bvx.join">Doe mee met de Bridgeview-test</a>
+        </div>
+        <p class="disclaimer" data-i18n="bvx.disc">Bridgeview is een onafhankelijk product van BedrockDock en is niet verbonden aan Microsoft of 1Password.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="layer s-contact" id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2 data-i18n="ct.h2">Blijf op de hoogte.</h2>
+        <p class="lead" data-i18n="ct.lead">Laat weten welke app of tool je interesseert, of welke vraag jij graag beantwoord zou zien. Dan hoor je het als er iets te proberen valt.</p>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <label><span data-i18n="ct.name">Je naam</span>
+          <input type="text" name="naam" autocomplete="name" required>
+        </label>
+        <label><span data-i18n="ct.topic">Waar ben je naar benieuwd?</span>
+          <select name="type">
+            <option>HuisLast</option>
+            <option>Harborlight</option>
+            <option>Bridgeview</option>
+            <option>Sowly</option>
+            <option data-i18n="ct.o3">Meer dan één</option>
+            <option data-i18n="ct.o4">Ik heb een idee voor een app of tool</option>
+          </select>
+        </label>
+        <label><span data-i18n="ct.msg">Bericht</span>
+          <textarea name="bericht" required></textarea>
+        </label>
+        <button class="btn" type="submit" data-i18n="ct.send">Open e-mail met je bericht</button>
+        <p class="hint" id="formHint" role="status" data-i18n="ct.hint">Dit opent je eigen e-mailprogramma met alles al ingevuld.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" data-i18n-aria="aria.top" aria-label="BedrockDock, naar boven">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="0" y="80" width="120" height="36" rx="6" fill="#8896A0"/>
+        <rect x="12" y="42" width="96" height="34" rx="6" fill="#C2CCD2"/>
+        <rect x="28" y="4" width="64" height="34" rx="6" fill="#FF8A4D"/>
+      </svg>
+      <span style="color:inherit"><b>Bedrock</b><span>Dock</span></span>
+    </a>
+    <p>Built on solid ground. © 2026 BedrockDock</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    nl: {
+      'title': 'BedrockDock – eigen apps en tools, op vaste grond gebouwd',
+      'desc': 'BedrockDock ontwikkelt eigen tools voor IT-beheer (Harborlight en Bridgeview) en apps voor thuis (HuisLast en Sowly).',
+      'aria.top': 'BedrockDock, naar boven', 'aria.menu': 'Hoofdmenu',
+      'hero.alt': 'Drie gestapelde lagen: rekenmodel, ontwerp en product, boven het water van een kade',
+      'nav.apps': 'Voor thuis', 'nav.tools': 'Voor IT', 'nav.approach': 'Aanpak', 'nav.cta': 'Blijf op de hoogte',
+      'hero.h1': 'Tools voor IT-beheerders. Apps voor thuis. Elk doet één ding goed.',
+      'hero.lead': 'BedrockDock ontwikkelt zelf apps en tools: ze nemen een lastige keuze of een lastig moment uit handen en geven een uitkomst die klopt.',
+      'hero.cta1': 'Bekijk wat we maken', 'hero.cta2': 'Zo bouwen we',
+      'hero.l1': 'Rekenmodel', 'hero.l2': 'Ontwerp',
+      'hero.cap': 'Alles wat we maken ligt bovenop een rekenmodel dat klopt.',
+      'tools.h2': 'Wat we maken',
+      'grp.apps': 'Voor thuis', 'grp.appsp': 'Werkt in je browser, ook op je telefoon.',
+      'grp.tools': 'Voor IT-beheer', 'grp.toolsp': 'Desktop-apps voor wie servers en netwerken beheert.',
+      'tools.lead': 'Twee tools voor IT-beheer en twee apps voor thuis. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
+      'status': 'In ontwikkeling',
+      'wlho.status': 'Live in nov/dec 2026',
+      'wlho.p': 'Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.',
+      'wlho.t1h': 'Rekenmodel', 'wlho.t1p': 'Gecontroleerd bij CBS, RVO en Milieu Centraal.',
+      'wlho.t2h': 'App en betaald rapport', 'wlho.t2p': 'Inclusief betalen met iDEAL.',
+      'wlho.t3h': 'Hosting en mail', 'wlho.t3p': 'Alles klaarzetten voor de livegang.',
+      'wlho.t4tag': 'Nov/dec', 'wlho.t4h': 'Livegang', 'wlho.t4p': 'HuisLast gaat live.',
+      'wlho.c1': 'Warmtepomp, hybride of airco', 'wlho.c2': 'Isolatie', 'wlho.c3': 'Zonnepanelen en thuisbatterij', 'wlho.c4': 'Gasloos wonen',
+      'hl.sub': 'Notifier for Zabbix',
+      'hl.p': 'Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity, een pop-up bij nieuwe problemen en een snooze-knop. Hij laat ook zien welke problemen eraan zitten te komen.',
+      'hl.plat': 'Eerst voor Windows, daarna Mac en Linux.', 'hl.free': 'Gratis tot 25 hosts',
+      'hl.more': 'Meer over Harborlight →',
+      'bv.status': 'Werkend prototype', 'bv.sub': 'Verbindingsmanager voor Windows',
+      'bv.p': 'Al je servers in één venster. Open RDP- en SSH-sessies als tabbladen, sleep een tab naar een eigen venster en haal een verbroken sessie met één klik terug. Je team deelt één lijst met verbindingen, en iedereen logt in met zijn eigen beheeraccount: met een wachtwoord uit 1Password, of helemaal zonder wachtwoord.',
+      'bv.c1': 'RDP en SSH in tabbladen', 'bv.c4': 'Eén lijst voor je team', 'bv.c3': 'Nederlands, Engels, Duits en Frans',
+      'bv.t1h': 'Prototype voor teams', 'bv.t1p': 'Tabs, opgeslagen verbindingen, een gedeelde lijst en veilig aanmelden.',
+      'bv.t2h': 'Testen in een echte omgeving', 'bv.t2p': 'RDP-servers, een domein en een netwerkshare met meerdere computers.',
+      'bv.t3h': 'Scherpe schermen en SSH-passkeys', 'bv.t3p': 'RDP dat de schaal van je scherm volgt, en FIDO2-sleutels voor SSH.',
+      'bv.more': 'Meer over Bridgeview →',
+      'sw.status': 'Live op 25 oktober 2026', 'sw.sub': 'Moestuinplanner',
+      'sw.p': 'Zie per maand wat je in je moestuin zaait, verpot, uitplant en oogst. Houd je eigen tuin bij met een tijdlijn per gewas en tuinier samen door iemand uit te nodigen met een link. Bij elk gewas zie je hoeveel licht, water en voeding het nodig heeft, en met welke buren het wel en niet goed gaat. De teeltgegevens komen uit Nederlandse en Belgische bronnen; wat nog niet bevestigd is, staat er duidelijk bij. En de planten zijn tekenfilmfiguurtjes die bewegen.',
+      'sw.c1': 'Maandkalender', 'sw.c2': 'Tijdlijn per gewas', 'sw.c3': 'Samen tuinieren', 'sw.c4': 'Voor Nederland en België',
+      'sw.alt': 'Kiempje, de mascotte van Sowly', 'sw.cap': 'Dit is Kiempje. Tik er maar eens op.',
+      'hlx.h2': 'Harborlight: waar staan we nu?',
+      'hlx.lead': 'Harborlight is een desktop-app die je Zabbix-meldingen overzichtelijk bij elkaar brengt. Je krijgt een eigen meldingenpaneel met tabs per hostgroep, filters op severity, per-host uitzonderingen, een pop-up bij elk nieuw probleem en een snooze-knop voor als je even geen meldingen wilt. Harborlight kijkt ook vooruit: je ziet welke problemen de komende week waarschijnlijk optreden. Geen ruis van losse Windows-notificaties, maar één rustig overzicht van wat er écht speelt.',
+      'hlx.tab1': 'Productie', 'hlx.tab2': 'Netwerk', 'hlx.tab3': 'Kantoor', 'hlx.snooze': 'Snooze 1 u',
+      'hlx.nowh': 'Waar we nu staan',
+      'hlx.nowp': 'De eerste versie werkt en we gebruiken hem elke dag. Hij is er in het Nederlands, Engels, Duits en Frans. Nu maken we hem klaar voor de release, zodat je hem veilig kunt installeren en bijwerken.',
+      'hlx.t1tag': 'Klaar', 'hlx.t1h': 'Ontwerp', 'hlx.t1p': 'Uiterlijk, functies en omgang met je gegevens.',
+      'hlx.t2tag': 'Nu', 'hlx.t2h': 'Eerste versie voor Windows', 'hlx.t2p': 'Meldingenpaneel, pop-ups, snooze, instellingen en vier talen.',
+      'hlx.t7h': 'Claude en Zabbix 8.0', 'hlx.t7p': 'Ask, Explain with AI en Claude Desktop, getest tegen Zabbix 8.0.',
+      'hlx.page': 'Het hele verhaal, met screenshots',
+      'hlx.t5h': 'Aankomende problemen en licenties', 'hlx.t5p': 'Een blik op de komende 7 dagen, en gratis tot 25 hosts.',
+      'hlx.t6h': 'Klaar voor de release', 'hlx.t6p': 'Installer, code-signing en automatische updates.',
+      'hlx.t3tag': 'Daarna', 'hlx.t3h': 'Mac en Linux', 'hlx.t3p': 'Na de Windows-versie.',
+      'hlx.careh': 'Waar we op letten',
+      'hlx.c1h': 'Standaard alleen lezen', 'hlx.c1p': 'Harborlight leest uit Zabbix en wijzigt daar niets. Een probleem bevestigen vanuit de app kan pas als je dat zelf aanzet. Je instellingen en uitzonderingen staan lokaal op je eigen computer.',
+      'hlx.c2h': 'Werkt in afgesloten netwerken', 'hlx.c2p': 'De licentiesleutel wordt offline op je eigen computer gecontroleerd. Harborlight hoeft ons niet te bereiken om te blijven werken.',
+      'hlx.c3h': 'Jouw AI, jouw data', 'hlx.c3p': 'In de Pro-versie vraag je Claude naar je monitoring: in Claude Desktop op je eigen abonnement, of in Harborlight met je eigen API-sleutel. Wij leveren geen AI-dienst en ontvangen niets, en Claude kan alleen lezen.',
+      'hlx.nexth': 'Gratis en Pro',
+      'hlx.e1h': 'Gratis', 'hlx.e1sub': 'Tot 25 hosts',
+      'hlx.e1a': 'Meldingenpaneel met tabs per hostgroep', 'hlx.e1b': 'Filters op severity en per-host uitzonderingen', 'hlx.e1c': 'Pop-up bij nieuwe problemen en een snooze-knop', 'hlx.e1d': 'Problemen bevestigen in Zabbix, als je dat aanzet',
+      'hlx.e2sub': 'Met licentie',
+      'hlx.e2a': 'Alles uit Gratis, zonder de grens van 25 hosts', 'hlx.e2b': 'Claude vragen en "Explain with AI", met je eigen Claude-account of sleutel', 'hlx.e2c': 'Upcoming: problemen die de komende 7 dagen verwacht worden', 'hlx.e2d': 'Later: inloggen via Entra ID', 'hlx.e2e': '30 dagen gratis uit te proberen',
+      'hlx.cta': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
+      'hlx.notify': 'Laat me weten als hij uit is', 'bvx.join': 'Doe mee met de Bridgeview-test', 'sw.cta': 'Plan je moestuin in Sowly',
+      'hlx.disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC.',
+      'bvx.h2': 'Bridgeview: waar staan we nu?',
+      'bvx.lead': 'Bridgeview is een verbindingsmanager voor Windows die al je servers in één venster samenbrengt. RDP- en SSH-sessies openen als tabbladen, je wisselt ertussen zonder dat de verbinding wegvalt, en je sleept een tab naar een eigen venster, bijvoorbeeld op een tweede scherm. Je opgeslagen verbindingen staan in mappen met een filter, dus de juiste server is altijd een paar toetsaanslagen weg. Met een gedeelde lijst werkt je hele team vanuit dezelfde verbindingen, en een blauw bolletje laat zien wanneer een collega al in een sessie zit.',
+      'bvx.nowp': 'Het prototype werkt: RDP- en SSH-tabs, opgeslagen verbindingen, een gedeelde lijst voor je team en veilig aanmelden. SSH is volledig getest. Nu testen we de rest in een echte omgeving, met RDP-servers, een domein en een netwerkshare die door meerdere computers wordt gebruikt.',
+      'bvx.t1h': 'RDP en SSH in tabbladen', 'bvx.t1p': 'Opnieuw verbinden met één klik, instellingen, systeemvak en vier talen, in de stijl van Harborlight.',
+      'bvx.t2h': 'Tabs in een eigen venster', 'bvx.t2p': 'Sleep een tab los en zet hem weer terug. De verbinding blijft open.',
+      'bvx.t3h': 'Opgeslagen verbindingen', 'bvx.t3p': 'Mappen, een filter, een wizard voor nieuwe servers en een standaardaccount per map.',
+      'bvx.t4h': 'Samenwerken en veilig aanmelden', 'bvx.t4p': 'Een gedeelde lijst met een blauw bolletje voor collega’s, en aanmelden via 1Password, een passkey of een smartcard.',
+      'bvx.c1h': 'Geen wachtwoorden in de lijst', 'bvx.c1p': 'De gedeelde lijst bevat servers, mappen en welk account je gebruikt, nooit wachtwoorden. Iedereen logt in met zijn eigen beheeraccount. Bridgeview houdt geen eigen kluis bij.',
+      'bvx.c2h': 'Aanmelden zonder wachtwoord te typen', 'bvx.c2p': 'Bridgeview haalt je wachtwoord uit 1Password op het moment dat je verbindt, ontgrendeld met Windows Hello. Bij RDP kan het ook helemaal zonder wachtwoord, met een passkey via Microsoft Entra ID, een smartcard of Windows Hello for Business.',
+      'bvx.c3h': 'Je account blijft veilig op de server', 'bvx.c3p': 'Met Remote Credential Guard of Restricted Admin mode kan je account op een gecompromitteerde server niet misbruikt worden. Is de gekozen bescherming niet beschikbaar, dan verbindt Bridgeview niet, in plaats van stilletjes zonder te verbinden.',
+      'bvx.nexth': 'Nu en straks',
+      'bvx.e1h': 'In het prototype', 'bvx.e1sub': 'Werkt nu al',
+      'bvx.e1a': 'RDP en SSH als tabbladen, of in een eigen venster', 'bvx.e1b': 'Een verbroken of vergrendelde sessie terug met één klik of Ctrl+Shift+R, ook vanuit de sessie zelf', 'bvx.e1c': 'Mappen met een filter, een wizard en een standaardaccount per map', 'bvx.e1d': 'Een gedeelde lijst, met een blauw bolletje als een collega verbonden is', 'bvx.e1e': 'Je eigen beheeraccount, via 1Password, een passkey of een smartcard',
+      'bvx.e2h': 'Binnenkort', 'bvx.e2sub': 'Volgende stappen',
+      'bvx.e2a': 'Scherpe RDP-sessies op schermen met hoge DPI, ook als je een venster naar een ander scherm verplaatst', 'bvx.e2b': 'Passkeys voor SSH, met FIDO2-sleutels', 'bvx.e2c': 'Een duidelijke melding als de server een sessie beëindigt', 'bvx.e2e': 'Je tabbladen van de vorige keer terug als je Bridgeview start', 'bvx.e2d': 'SQL Server of PostgreSQL voor grotere teams',
+      'bvx.cta': 'Wil je Bridgeview met je team proberen? Stuur ons een bericht.',
+      'bvx.disc': 'Bridgeview is een onafhankelijk product van BedrockDock en is niet verbonden aan Microsoft of 1Password.',
+      'ap.h2': 'Zo bouwen we een app of tool', 'ap.lead': 'We werken (nog) niet voor bedrijven. We maken tools waarvan we vinden dat ze iets toevoegen, en bouwen ze zoals we ze zelf willen gebruiken.',
+      'ap.1h': 'Een eigen probleem', 'ap.1p': 'Elke tool begint bij iets waar we zelf tegenaan lopen.',
+      'ap.2h': 'Moet het bestaan?', 'ap.2p': 'Voordat we beginnen, kijken we of het er al is. Bestaat er al iets goeds, dan bouwen we het niet nog een keer.',
+      'ap.3h': 'Zelf eerst gebruiken', 'ap.3p': 'We gebruiken onze tools elke dag, lang voordat iemand anders ze ziet. Zo merken we zelf wat nog niet klopt.',
+      'ap.4h': 'Eén ding goed', 'ap.4p': 'Elke app of tool lost één vraag op. Wat daar niet bij hoort, laten we bewust weg.',
+      'ct.h2': 'Blijf op de hoogte.',
+      'ct.lead': 'Laat weten welke app of tool je interesseert, of welke vraag jij graag beantwoord zou zien. Dan hoor je het als er iets te proberen valt.',
+      'ct.name': 'Je naam', 'ct.topic': 'Waar ben je naar benieuwd?', 'ct.msg': 'Bericht',
+      'ct.o3': 'Meer dan één', 'ct.o4': 'Ik heb een idee voor een app of tool',
+      'ct.send': 'Open e-mail met je bericht',
+      'ct.hint': 'Dit opent je eigen e-mailprogramma met alles al ingevuld.',
+      'ct.err': 'Vul je naam en een bericht in, dan kan de e-mail worden geopend.',
+      'ct.ok': 'Je e-mailprogramma wordt geopend. Staat er niets? Mail dan naar ',
+      'mail.subj': 'BedrockDock: ', 'mail.hi': 'Hallo,', 'mail.bye': 'Groet,'
+    },
+    en: {
+      'title': 'BedrockDock – our own apps and tools, built on solid ground',
+      'desc': 'BedrockDock builds its own tools for IT management (Harborlight and Bridgeview) and apps for home (HuisLast and Sowly).',
+      'aria.top': 'BedrockDock, back to top', 'aria.menu': 'Main menu',
+      'hero.alt': 'Three stacked layers: calculation model, design and product, above the water of a quay',
+      'nav.apps': 'For home', 'nav.tools': 'For IT', 'nav.approach': 'Approach', 'nav.cta': 'Stay in the loop',
+      'hero.h1': 'Tools for IT admins. Apps for home. Each one does one thing well.',
+      'hero.lead': 'BedrockDock builds apps and tools of its own: they take a hard choice or a hard moment off your hands and give an answer you can trust.',
+      'hero.cta1': 'See what we build', 'hero.cta2': 'How we build',
+      'hero.l1': 'Calculation model', 'hero.l2': 'Design',
+      'hero.cap': 'Everything we build sits on top of a model that holds up.',
+      'tools.h2': 'What we build',
+      'grp.apps': 'For home', 'grp.appsp': 'Works in your browser, on your phone too.',
+      'grp.tools': 'For IT management', 'grp.toolsp': 'Desktop apps for people who manage servers and networks.',
+      'tools.lead': 'Two tools for IT management and two apps for home. Each one starts with something people currently find too much hassle.',
+      'status': 'In development',
+      'wlho.status': 'Launching Nov/Dec 2026',
+      'wlho.p': 'An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.',
+      'wlho.t1h': 'Calculation model', 'wlho.t1p': 'Checked against CBS, RVO and Milieu Centraal.',
+      'wlho.t2h': 'App and paid report', 'wlho.t2p': 'Including payment through iDEAL.',
+      'wlho.t3h': 'Hosting and mail', 'wlho.t3p': 'Getting everything ready for launch.',
+      'wlho.t4tag': 'Nov/Dec', 'wlho.t4h': 'Launch', 'wlho.t4p': 'HuisLast goes live.',
+      'wlho.c1': 'Heat pump, hybrid or air conditioning', 'wlho.c2': 'Insulation', 'wlho.c3': 'Solar panels and home battery', 'wlho.c4': 'Going gas-free',
+      'hl.sub': 'Notifier for Zabbix',
+      'hl.p': 'A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters, a pop-up for new problems and a snooze button. It also shows which problems are on their way.',
+      'hl.plat': 'Windows first, then Mac and Linux.', 'hl.free': 'Free up to 25 hosts',
+      'hl.more': 'More about Harborlight →',
+      'bv.status': 'Working prototype', 'bv.sub': 'Connection manager for Windows',
+      'bv.p': 'All your servers in one window. Open RDP and SSH sessions as tabs, drag a tab into its own window and get a dropped session back with one click. Your team shares one list of connections, and everyone signs in with their own admin account: with a password from 1Password, or without a password at all.',
+      'bv.c1': 'RDP and SSH in tabs', 'bv.c4': 'One list for your team', 'bv.c3': 'English, Dutch, German and French',
+      'bv.t1h': 'Prototype for teams', 'bv.t1p': 'Tabs, saved connections, a shared list and secure sign-in.',
+      'bv.t2h': 'Testing in a real environment', 'bv.t2p': 'RDP servers, a domain and a network share with several computers.',
+      'bv.t3h': 'Sharp screens and SSH passkeys', 'bv.t3p': 'RDP that follows your screen scaling, and FIDO2 keys for SSH.',
+      'bv.more': 'More about Bridgeview →',
+      'sw.status': 'Live on 25 October 2026', 'sw.sub': 'Vegetable garden planner',
+      'sw.p': 'See each month what to sow, repot, plant out and harvest in your vegetable garden. Keep track of your own garden with a timeline per crop, and garden together by sending an invite link. For every crop you see how much light, water and feeding it needs, and which neighbours it does or does not get along with. The growing data comes from Dutch and Belgian sources; anything not yet confirmed is clearly marked. And the plants are cartoon characters that move.',
+      'sw.c1': 'Monthly calendar', 'sw.c2': 'Timeline per crop', 'sw.c3': 'Garden together', 'sw.c4': 'For the Netherlands and Belgium',
+      'sw.alt': 'Sprout, the Sowly mascot', 'sw.cap': 'Meet Sprout. Give it a tap.',
+      'hlx.h2': 'Harborlight: where we are now',
+      'hlx.lead': 'Harborlight is a desktop app that brings your Zabbix alerts together in one clear place. You get your own alert panel with tabs per host group, severity filters, per-host exceptions, a pop-up for each new problem and a snooze button for when you need a moment without alerts. Harborlight also looks ahead: it shows which problems are likely to occur in the coming week. No noise from separate Windows notifications, just one calm overview of what is really going on.',
+      'hlx.tab1': 'Production', 'hlx.tab2': 'Network', 'hlx.tab3': 'Office', 'hlx.snooze': 'Snooze 1 h',
+      'hlx.nowh': 'Where we are now',
+      'hlx.nowp': 'The first version works and we use it every day. It is available in English, Dutch, German and French. Now we are getting it ready for release, so you can install and update it safely.',
+      'hlx.t1tag': 'Done', 'hlx.t1h': 'Design', 'hlx.t1p': 'Look, features and data handling.',
+      'hlx.t2tag': 'Now', 'hlx.t2h': 'First version for Windows', 'hlx.t2p': 'Alert panel, pop-ups, snooze, settings and four languages.',
+      'hlx.t7h': 'Claude and Zabbix 8.0', 'hlx.t7p': 'Ask, Explain with AI and Claude Desktop, tested against Zabbix 8.0.',
+      'hlx.page': 'The full story, with screenshots',
+      'hlx.t5h': 'Upcoming problems and licenses', 'hlx.t5p': 'A look ahead at the next 7 days, and free up to 25 hosts.',
+      'hlx.t6h': 'Ready for release', 'hlx.t6p': 'Installer, code signing and automatic updates.',
+      'hlx.t3tag': 'Next', 'hlx.t3h': 'Mac and Linux', 'hlx.t3p': 'After the Windows version.',
+      'hlx.careh': 'What we pay attention to',
+      'hlx.c1h': 'Read-only by default', 'hlx.c1p': 'Harborlight reads from Zabbix and changes nothing there. Acknowledging a problem from the app only works once you switch it on yourself. Your settings and exceptions are stored locally on your own computer.',
+      'hlx.c2h': 'Works in closed networks', 'hlx.c2p': 'The license key is checked offline on your own computer. Harborlight does not need to reach us to keep working.',
+      'hlx.c3h': 'Your AI, your data', 'hlx.c3p': 'In the Pro version you ask Claude about your monitoring: in Claude Desktop on your own subscription, or in Harborlight with your own API key. We provide no AI service and receive nothing, and Claude can only read.',
+      'hlx.nexth': 'Free and Pro',
+      'hlx.e1h': 'Free', 'hlx.e1sub': 'Up to 25 hosts',
+      'hlx.e1a': 'Alert panel with tabs per host group', 'hlx.e1b': 'Severity filters and per-host exceptions', 'hlx.e1c': 'Pop-up for new problems and a snooze button', 'hlx.e1d': 'Acknowledge problems in Zabbix, if you switch it on',
+      'hlx.e2sub': 'With a license',
+      'hlx.e2a': 'Everything in Free, without the 25-host limit', 'hlx.e2b': 'Ask Claude and "Explain with AI", with your own Claude account or key', 'hlx.e2c': 'Upcoming: problems expected in the next 7 days', 'hlx.e2d': 'Later: sign-in with Entra ID', 'hlx.e2e': 'Try it free for 30 days',
+      'hlx.cta': 'Want to try Harborlight as soon as it is released? Send us a message.',
+      'hlx.notify': 'Tell me when it is out', 'bvx.join': 'Join the Bridgeview test', 'sw.cta': 'Plan your garden in Sowly',
+      'hlx.disc': 'Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC.',
+      'bvx.h2': 'Bridgeview: where we are now',
+      'bvx.lead': 'Bridgeview is a connection manager for Windows that brings all your servers together in one window. RDP and SSH sessions open as tabs, you switch between them without the connection dropping, and you can drag a tab into its own window, for example on a second screen. Your saved connections are in folders with a filter, so the right server is always a few keystrokes away. With a shared list, your whole team works from the same connections, and a blue dot shows when a colleague is already in a session.',
+      'bvx.nowp': 'The prototype works: RDP and SSH tabs, saved connections, a shared list for your team and secure sign-in. SSH has been fully tested. Now we are testing the rest in a real environment, with RDP servers, a domain and a network share used by several computers.',
+      'bvx.t1h': 'RDP and SSH in tabs', 'bvx.t1p': 'Reconnect with one click, settings, system tray and four languages, in the Harborlight look.',
+      'bvx.t2h': 'Tabs in their own window', 'bvx.t2p': 'Drag a tab out and put it back. The connection stays open.',
+      'bvx.t3h': 'Saved connections', 'bvx.t3p': 'Folders, a filter, a wizard for new servers and a default account per folder.',
+      'bvx.t4h': 'Working together and signing in safely', 'bvx.t4p': 'A shared list with a blue dot for colleagues, and sign-in through 1Password, a passkey or a smartcard.',
+      'bvx.c1h': 'No passwords in the list', 'bvx.c1p': 'The shared list holds servers, folders and which account to use, never passwords. Everyone signs in with their own admin account. Bridgeview does not keep a vault of its own.',
+      'bvx.c2h': 'Sign in without typing a password', 'bvx.c2p': 'Bridgeview fetches your password from 1Password at the moment you connect, unlocked with Windows Hello. For RDP you can also skip the password entirely, with a passkey through Microsoft Entra ID, a smartcard or Windows Hello for Business.',
+      'bvx.c3h': 'Your account stays safe on the server', 'bvx.c3p': 'With Remote Credential Guard or Restricted Admin mode, your account cannot be misused on a compromised server. If the protection you chose is not available, Bridgeview does not connect, instead of quietly connecting without it.',
+      'bvx.nexth': 'Now and next',
+      'bvx.e1h': 'In the prototype', 'bvx.e1sub': 'Works today',
+      'bvx.e1a': 'RDP and SSH as tabs, or in their own window', 'bvx.e1b': 'A dropped or locked session back with one click or Ctrl+Shift+R, also from inside the session', 'bvx.e1c': 'Folders with a filter, a wizard and a default account per folder', 'bvx.e1d': 'A shared list, with a blue dot when a colleague is connected', 'bvx.e1e': 'Your own admin account, through 1Password, a passkey or a smartcard',
+      'bvx.e2h': 'Coming', 'bvx.e2sub': 'Next steps',
+      'bvx.e2a': 'Sharp RDP sessions on high-DPI screens, also when you move a window to another screen', 'bvx.e2b': 'Passkeys for SSH, with FIDO2 keys', 'bvx.e2c': 'A clear message when the server ends a session', 'bvx.e2e': 'Your tabs from last time back when you start Bridgeview', 'bvx.e2d': 'SQL Server or PostgreSQL for larger teams',
+      'bvx.cta': 'Want to try Bridgeview with your team? Send us a message.',
+      'bvx.disc': 'Bridgeview is an independent product by BedrockDock and is not affiliated with Microsoft or 1Password.',
+      'ap.h2': 'How we build an app or tool', 'ap.lead': 'We don\'t work for companies (yet). We make tools we think add something, and build them the way we want to use them ourselves.',
+      'ap.1h': 'A problem of our own', 'ap.1p': 'Every tool starts with something we run into ourselves.',
+      'ap.2h': 'Should it exist?', 'ap.2p': 'Before we start, we check whether it is already out there. If something good exists, we don\'t build it again.',
+      'ap.3h': 'Use it ourselves first', 'ap.3p': 'We use our tools every day, long before anyone else sees them. That is how we find out what is still not right.',
+      'ap.4h': 'One thing, done well', 'ap.4p': 'Each app or tool answers one question. Whatever does not belong to it, we leave out on purpose.',
+      'ct.h2': 'Stay in the loop.',
+      'ct.lead': 'Tell us which app or tool interests you, or which question you would like answered. You will hear from us when there is something to try.',
+      'ct.name': 'Your name', 'ct.topic': 'What are you curious about?', 'ct.msg': 'Message',
+      'ct.o3': 'More than one', 'ct.o4': 'I have an idea for an app or tool',
+      'ct.send': 'Open email with your message',
+      'ct.hint': 'This opens your own email app with everything filled in.',
+      'ct.err': 'Fill in your name and a message so the email can be opened.',
+      'ct.ok': 'Your email app is opening. Nothing happened? Email ',
+      'mail.subj': 'BedrockDock: ', 'mail.hi': 'Hello,', 'mail.bye': 'Regards,'
+    }
+  };
+
+  // Elke taal heeft een eigen URL (/ en /nl/). De knop gaat naar de andere versie.
+  var lang = document.documentElement.lang === 'nl' ? 'nl' : 'en';
+  var alt = document.querySelector('.lang').getAttribute('data-alt');
+  function goAlt() { location.href = alt + location.search + location.hash; }
+  try { var saved = localStorage.getItem('bd-lang'); if ((saved === 'nl' || saved === 'en') && saved !== lang) { location.replace(alt + location.search + location.hash); return; } } catch (e) {}
+
+  var form = document.getElementById('contactForm');
+  var hint = document.getElementById('formHint');
+  var TO = 'info@bedrockdock.com';
+  var hintState = 'ct.hint';
+
+  function t(k) { return T[lang][k]; }
+
+  function apply() {
+    document.documentElement.lang = lang;
+    document.title = t('title');
+    var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t('desc'));
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n')); if (v) el.textContent = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n-aria')); if (v) el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    if (hintState === 'ct.ok') hint.textContent = t('ct.ok') + TO + '.';
+    else hint.textContent = t(hintState);
+  }
+
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var to = b.getAttribute('data-lang');
+      try { localStorage.setItem('bd-lang', to); } catch (e) {}
+      if (to !== lang) goAlt();
+    });
+  });
+
+  document.querySelectorAll('[data-topic]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sel = form.elements['type'];
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === a.getAttribute('data-topic')) sel.selectedIndex = i;
+      }
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = new FormData(form);
+    var naam = (d.get('naam') || '').toString().trim();
+    var bericht = (d.get('bericht') || '').toString().trim();
+    if (!naam || !bericht) {
+      hintState = 'ct.err'; apply(); hint.style.color = '#FF8A4D';
+      return;
+    }
+    var sel = form.elements['type'];
+    var topic = sel.options[sel.selectedIndex].text;
+    var subject = t('mail.subj') + topic;
+    var body = t('mail.hi') + '\n\n' + bericht + '\n\n' + t('mail.bye') + '\n' + naam;
+    window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    hintState = 'ct.ok'; apply(); hint.style.color = '';
+  });
+
+  try {
+    var topic = new URLSearchParams(location.search).get('topic');
+    if (topic) {
+      var tsel = form.elements['type'];
+      for (var j = 0; j < tsel.options.length; j++) { if (tsel.options[j].text === topic) tsel.selectedIndex = j; }
+    }
+  } catch (e) {}
+
+  var kiem = document.getElementById('kiempje');
+  kiem.addEventListener('click', function () {
+    kiem.classList.remove('jump'); void kiem.offsetWidth; kiem.classList.add('jump');
+    setTimeout(function () { kiem.classList.remove('jump'); }, 950);
+  });
+
+  apply();
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d6e8fa0dc9674dd8b993070d1430c759"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

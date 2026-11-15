@@ -7,6 +7,54 @@
 <meta name="theme-color" content="#161D23">
 <title>Harborlight – notifier for Zabbix | BedrockDock</title>
 <meta name="description" content="Harborlight is a desktop app that brings your Zabbix alerts together in one calm panel, with a pop-up for every new problem, a look ahead at the coming week and Claude for your questions.">
+<link rel="canonical" href="https://bedrockdock.com/harborlight.html">
+<link rel="alternate" hreflang="en" href="https://bedrockdock.com/harborlight.html">
+<link rel="alternate" hreflang="nl" href="https://bedrockdock.com/nl/harborlight.html">
+<link rel="alternate" hreflang="x-default" href="https://bedrockdock.com/harborlight.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3.8 -2.9 47.6 47.6'%3E%3Crect x='-3.8' y='-2.9' width='47.6' height='47.6' rx='10.5' fill='%230B3C49'/%3E%3Cpolygon points='16,14 24,14 27,34 13,34' fill='%232FA4B5'/%3E%3Crect x='15' y='20' width='10' height='3' fill='%230B3C49'/%3E%3Crect x='14' y='27' width='12' height='3' fill='%230B3C49'/%3E%3Crect x='16' y='8' width='8' height='6' rx='1' fill='%23F2A31B'/%3E%3Cpolygon points='15,8 20,2 25,8' fill='%232FA4B5'/%3E%3Cpath d='M5,37 q3.5,-3 7,0 t7,0 t7,0 t7,0' fill='none' stroke='%232FA4B5' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BedrockDock">
+<meta property="og:url" content="https://bedrockdock.com/harborlight.html">
+<meta property="og:title" content="Harborlight – notifier for Zabbix">
+<meta property="og:description" content="All your Zabbix alerts in one calm desktop panel, with a pop-up for every new problem and a look ahead at the coming week.">
+<meta property="og:image" content="https://bedrockdock.com/img/harborlight/panel-dark.png">
+<meta property="og:image:width" content="1104">
+<meta property="og:image:height" content="872">
+<meta property="og:image:alt" content="The Harborlight alert panel with open Zabbix problems, tabs per host group and a colour per severity.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Harborlight",
+      "url": "https://bedrockdock.com/harborlight.html",
+      "description": "A desktop app that brings your Zabbix alerts together in one calm panel, with a pop-up for every new problem, a snooze button and a look ahead at problems expected in the coming week.",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "IT monitoring",
+      "operatingSystem": "Windows",
+      "inLanguage": ["en", "nl", "de", "fr"],
+      "image": "https://bedrockdock.com/img/harborlight/panel-dark.png",
+      "screenshot": [
+        "https://bedrockdock.com/img/harborlight/panel-dark.png",
+        "https://bedrockdock.com/img/harborlight/details.png",
+        "https://bedrockdock.com/img/harborlight/upcoming.png"
+      ],
+      "publisher": { "@type": "Organization", "@id": "https://bedrockdock.com/#org", "name": "BedrockDock", "url": "https://bedrockdock.com/" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BedrockDock", "item": "https://bedrockdock.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Harborlight", "item": "https://bedrockdock.com/harborlight.html" }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -249,7 +297,7 @@ footer .brand span { color: #FF8A4D; }
     </nav>
     <div class="nav-right">
       <a class="btn" href="index.html?topic=Harborlight#contact" data-i18n="cta">Stay in the loop</a>
-      <div class="lang" role="group" aria-label="Taal / Language">
+      <div class="lang" role="group" aria-label="Taal / Language" data-alt="nl/harborlight.html">
         <button type="button" data-lang="nl" aria-pressed="false">NL</button>
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
       </div>
@@ -553,7 +601,7 @@ footer .brand span { color: #FF8A4D; }
 
       <div class="hl-cta" style="margin-top:clamp(56px,8vw,96px)">
         <p data-i18n="cta.p">Want to try Harborlight as soon as it is released? Send us a message.</p>
-        <a class="btn" href="index.html?topic=Harborlight#contact" data-i18n="cta">Stay in the loop</a>
+        <a class="btn" href="index.html?topic=Harborlight#contact" data-i18n="cta.btn">Tell me when it is out</a>
       </div>
       <p class="disclaimer" data-i18n="disc">Harborlight is an independent product by BedrockDock and is not affiliated with Zabbix LLC. Zabbix is a trademark of Zabbix LLC.</p>
     </div>
@@ -578,7 +626,8 @@ footer .brand span { color: #FF8A4D; }
 (function () {
   // Engels staat in de HTML zelf; hier alleen de Nederlandse vertaling.
   var NL = {
-    'title': 'Harborlight – notifier for Zabbix | BedrockDock',
+    'title': 'Harborlight – Zabbix-meldingen op je bureaublad | BedrockDock',
+    'og.alt': 'Het meldingenpaneel van Harborlight met open Zabbix-problemen, tabs per hostgroep en een kleur per severity.',
     'desc': 'Harborlight is een desktop-app die je Zabbix-meldingen in één rustig paneel bij elkaar brengt, met een pop-up bij elk nieuw probleem, een blik op de komende week en Claude voor je vragen.',
     'aria.home': 'BedrockDock, naar de homepage',
     'nav.why': 'Waarom', 'nav.how': 'Zo werkt het', 'nav.editions': 'Gratis en Pro', 'nav.status': 'Waar we staan',
@@ -664,6 +713,7 @@ footer .brand span { color: #FF8A4D; }
     't5.h': 'Klaar voor de release', 't5.p': 'Installer, code-signing en automatische updates.',
     't6.h': 'Mac en Linux', 't6.p': 'Na de Windows-versie.',
     'cta.p': 'Wil je Harborlight proberen zodra hij uitkomt? Stuur ons een bericht.',
+    'cta.btn': 'Laat me weten als hij uit is',
     'disc': 'Harborlight is een onafhankelijk product van BedrockDock en is niet verbonden aan Zabbix LLC. Zabbix is een handelsmerk van Zabbix LLC.'
   };
 
@@ -673,8 +723,10 @@ footer .brand span { color: #FF8A4D; }
   document.querySelectorAll('[data-i18n-alt]').forEach(function (el) { EN[el.getAttribute('data-i18n-alt')] = el.getAttribute('alt'); });
   document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { EN[el.getAttribute('data-i18n-aria')] = el.getAttribute('aria-label'); });
 
-  var lang = 'en';
-  try { var saved = localStorage.getItem('bd-lang'); if (saved === 'nl' || saved === 'en') lang = saved; } catch (e) {}
+  // Elke taal heeft een eigen URL (/harborlight.html en /nl/harborlight.html). De knop gaat naar de andere versie.
+  var lang = document.documentElement.lang === 'nl' ? 'nl' : 'en';
+  var alt = document.querySelector('.lang').getAttribute('data-alt');
+  try { var saved = localStorage.getItem('bd-lang'); if ((saved === 'nl' || saved === 'en') && saved !== lang) { location.replace(alt + location.hash); return; } } catch (e) {}
 
   function t(k) { return (lang === 'nl' && NL[k]) || EN[k]; }
 
@@ -692,9 +744,9 @@ footer .brand span { color: #FF8A4D; }
 
   document.querySelectorAll('.lang button').forEach(function (b) {
     b.addEventListener('click', function () {
-      lang = b.getAttribute('data-lang');
-      try { localStorage.setItem('bd-lang', lang); } catch (e) {}
-      apply();
+      var to = b.getAttribute('data-lang');
+      try { localStorage.setItem('bd-lang', to); } catch (e) {}
+      if (to !== lang) location.href = alt + location.hash;
     });
   });
 
