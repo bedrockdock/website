@@ -334,6 +334,21 @@ textarea { min-height: 140px; resize: vertical; }
 .bv-term i { height: 7px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
 .bv-term i.ok { background: #3F7F6A; }
 
+/* HuisLast: detailsectie */
+.hu-sum { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 16px 16px 0; }
+.hu-sum div { background: var(--l2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; }
+.hu-sum div.up { border-color: var(--accent); }
+.hu-sum span { color: var(--muted); font-size: .85rem; }
+.hu-sum strong { font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 700; }
+.hu-sum div.up strong { color: var(--accent-text); }
+.hu-rows { display: grid; gap: 8px; padding: 16px; }
+.hu-rows div { display: grid; grid-template-columns: 1fr 30% auto; align-items: center; gap: 12px; background: var(--l2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: .9rem; }
+.hu-rows i { height: 8px; border-radius: 4px; background: var(--stone-dark); display: block; width: var(--w); }
+.hu-rows .ok i { background: #3F7F6A; }
+.hu-rows em { font-style: normal; font-family: var(--display); font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.hu-rows .ok em { border-color: #3F7F6A; color: #7CC4A9; }
+.hl-cta .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
 /* Sowly: brede kaart met mascotte Kiempje */
 .prod-head { display: flex; align-items: center; gap: 16px; }
 .app-icon { width: 56px; height: 56px; flex: none; }
@@ -342,7 +357,7 @@ textarea { min-height: 140px; resize: vertical; }
 .group.second { margin-top: clamp(56px, 8vw, 96px); }
 .work.pair { grid-template-columns: 1fr 1fr; }
 .sowly .txt { display: flex; flex-direction: column; gap: 18px; }
-.sowly .status.live { background: var(--accent); border-color: var(--accent); color: #161D23; font-weight: 700; }
+.status.live { background: var(--accent); border-color: var(--accent); color: #161D23; font-weight: 700; }
 .garden { margin-top: auto !important; background: #E7F4E8; border-radius: 16px; display: grid; place-items: center; padding: 28px 24px 18px; }
 .kiempje {
   width: min(200px, 60%); cursor: pointer; -webkit-tap-highlight-color: transparent;
@@ -427,6 +442,7 @@ footer .brand span { color: #FF8A4D; }
         <li><a href="#thuis" data-i18n="nav.apps">Voor thuis</a></li>
         <li><a href="harborlight.html">Harborlight</a></li>
         <li><a href="#bridgeview">Bridgeview</a></li>
+        <li><a href="#huislast">HuisLast</a></li>
         <li><a href="#aanpak" data-i18n="nav.approach">Aanpak</a></li>
       </ul>
     </nav>
@@ -579,7 +595,7 @@ footer .brand span { color: #FF8A4D; }
       <p class="group-lead" data-i18n="grp.appsp">Werkt in je browser, ook op je telefoon.</p>
       <div class="work pair">
         <article class="card big">
-          <span class="status" data-i18n="wlho.status">Live in nov/dec 2026</span>
+          <span class="status live" data-i18n="wlho.status">Live sinds november 2026</span>
           <h3>HuisLast</h3>
           <p data-i18n="wlho.p">Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.</p>
           <ul class="chips" style="justify-self:start">
@@ -589,11 +605,12 @@ footer .brand span { color: #FF8A4D; }
             <li data-i18n="wlho.c4">Gasloos wonen</li>
           </ul>
           <ol class="track">
-            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t1h">Rekenmodel</strong><span data-i18n="wlho.t1p">Gecontroleerd bij CBS, RVO en Milieu Centraal.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t1h">Rekenmodel</strong><span data-i18n="wlho.t1p">Gebouwd op openbare gegevens van CBS, PBL, RVO en Milieu Centraal.</span></li>
             <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t2h">App en betaald rapport</strong><span data-i18n="wlho.t2p">Inclusief betalen met iDEAL.</span></li>
-            <li class="now"><span class="tag" data-i18n="hlx.t2tag">Nu</span><strong data-i18n="wlho.t3h">Hosting en mail</strong><span data-i18n="wlho.t3p">Alles klaarzetten voor de livegang.</span></li>
-            <li><span class="tag" data-i18n="wlho.t4tag">Nov/dec</span><strong data-i18n="wlho.t4h">Livegang</strong><span data-i18n="wlho.t4p">HuisLast gaat live.</span></li>
+            <li class="now"><span class="tag" data-i18n="wlho.t4tag">Live</span><strong data-i18n="wlho.t4h">HuisLast is live</strong><span data-i18n="wlho.t4p">Doe de gratis check op huislast.nl.</span></li>
           </ol>
+          <a class="btn" href="https://huislast.nl/" style="align-self:flex-start" data-i18n="wlho.cta">Doe de gratis check</a>
+          <a class="more" href="#huislast" data-i18n="wlho.more">Meer over HuisLast →</a>
           <div class="viz" aria-hidden="true">
             <div class="meter">
               <i style="height:18%"></i><i style="height:26%"></i><i style="height:34%"></i><i style="height:42%"></i><i style="height:50%"></i><i style="height:57%"></i><i style="height:64%"></i><i class="hl" style="height:72%"></i><i class="hl" style="height:80%"></i><i class="hl" style="height:88%"></i><i class="hl" style="height:96%"></i>
@@ -856,6 +873,98 @@ footer .brand span { color: #FF8A4D; }
     </div>
   </section>
 
+  <!-- HUISLAST -->
+  <section class="layer s-werk" id="huislast">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i18n="hux.h2">HuisLast: nu live</h2>
+        <p class="lead" data-i18n="hux.lead">Op 1 januari 2027 stopt de salderingsregeling. HuisLast rekent voor jouw eigen huis uit wat dat je kost, en wat isolatie, een warmtepomp, airco, zonnepanelen of een thuisbatterij je vanaf dan nog oplevert. Je kiest je energielabel, vult een paar gegevens in en ziet per maatregel de investering na subsidie, de besparing per jaar en de terugverdientijd. Eerlijk, ook als het antwoord is: doe het niet.</p>
+      </div>
+
+      <div class="hl-now">
+        <div class="panel" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="hu-sum">
+            <div><span data-i18n="hux.now">Energiekosten nu</span><strong data-i18n="hux.v1">€1.818</strong></div>
+            <div class="up"><span data-i18n="hux.from">Vanaf 2027</span><strong data-i18n="hux.v2">€2.440</strong></div>
+          </div>
+          <div class="hu-rows">
+            <div class="ok"><span data-i18n="hux.r1">Volledige warmtepomp</span><i style="--w:82%"></i><em data-i18n="hux.pays">Loont</em></div>
+            <div class="ok"><span data-i18n="hux.r2">Gevelisolatie</span><i style="--w:46%"></i><em data-i18n="hux.pays">Loont</em></div>
+            <div class="ok"><span data-i18n="hux.r3">Plug-in batterij</span><i style="--w:54%"></i><em data-i18n="hux.pays">Loont</em></div>
+            <div><span data-i18n="hux.r4">Vaste batterij</span><i style="--w:100%"></i><em data-i18n="hux.no">Loont niet</em></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="sh" data-i18n="hlx.nowh">Waar we nu staan</h3>
+          <p data-i18n="hux.nowp">HuisLast staat live op huislast.nl. De check is gratis en zonder account. Wil je alles samen doorgerekend zien? Dan bestel je het persoonlijke rapport.</p>
+          <ol class="track">
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t1h">Rekenmodel</strong><span data-i18n="wlho.t1p">Gebouwd op openbare gegevens van CBS, PBL, RVO en Milieu Centraal.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t2h">App en betaald rapport</strong><span data-i18n="wlho.t2p">Inclusief betalen met iDEAL.</span></li>
+            <li class="done"><span class="tag" data-i18n="hlx.t1tag">Klaar</span><strong data-i18n="wlho.t3h">Hosting en mail</strong><span data-i18n="hux.t3p">Het rapport komt als pdf in je mailbox.</span></li>
+            <li class="now"><span class="tag" data-i18n="wlho.t4tag">Live</span><strong data-i18n="wlho.t4h">HuisLast is live</strong><span data-i18n="wlho.t4p">Doe de gratis check op huislast.nl.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hlx.careh">Waar we op letten</h3>
+        <ul class="principles three">
+          <li>
+            <h3 data-i18n="hux.c1h">Onafhankelijk</h3>
+            <p data-i18n="hux.c1p">HuisLast verkoopt geen installaties of energiecontracten, toont geen advertenties en geeft je gegevens niet door aan installateurs of offertesites. Het verdient alleen aan het persoonlijke rapport.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hux.c2h">Gerekend in je browser</h3>
+            <p data-i18n="hux.c2p">De berekening draait in je eigen browser; wat je invult, komt niet bij ons. Alleen als je het rapport koopt, ontvangen we je keuzes en je e-mailadres. De site gebruikt geen cookies.</p>
+          </li>
+          <li>
+            <h3 data-i18n="hux.c3h">Alle bronnen op tafel</h3>
+            <p data-i18n="hux.c3p">Prijzen, subsidies, rendementen en levensduur komen uit openbare bronnen, en de site laat precies zien welke. Het gasverbruik volgt het gemeten verbruik, dus isolatie levert minder op dan in veel folders.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hl-block">
+        <h3 data-i18n="hux.nexth">Gratis check en rapport</h3>
+        <div class="editions">
+          <article class="card">
+            <h3 data-i18n="hux.e1h">Gratis check</h3>
+            <p class="sub" data-i18n="hux.e1sub">Zonder account</p>
+            <ul>
+              <li data-i18n="hux.e1a">Je energiekosten nu en vanaf 2027</li>
+              <li data-i18n="hux.e1b">Per maatregel: investering na subsidie, besparing per jaar en terugverdientijd</li>
+              <li data-i18n="hux.e1c">Een terugverdiengrafiek over 15 jaar, en CO₂</li>
+              <li data-i18n="hux.e1d">Een duidelijk oordeel per maatregel, ook als het niet loont</li>
+            </ul>
+          </article>
+          <article class="card pro">
+            <h3 data-i18n="hux.e2h">Persoonlijk rapport</h3>
+            <p class="sub" data-i18n="hux.e2sub">€8,99, eenmalig</p>
+            <ul>
+              <li data-i18n="hux.e2a">Alles uit de gratis check</li>
+              <li data-i18n="hux.e2b">Al je gekozen maatregelen samen doorgerekend, in een stappenplan</li>
+              <li data-i18n="hux.e2c">Subsidies met bedragen, en een scenario voor een stijgende of dalende gasprijs</li>
+              <li data-i18n="hux.e2d">Als pdf in je mailbox, betaald met iDEAL, geen abonnement</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="hl-block">
+        <div class="hl-cta">
+          <p data-i18n="hux.cta">Op 1 januari 2027 stopt de saldering. Zie wat dat betekent voor jouw huis.</p>
+          <div class="btns">
+            <a class="btn ghost" href="https://huislast.nl/hoe-we-rekenen/" data-i18n="hux.how">Zo rekenen we</a>
+            <a class="btn" href="https://huislast.nl/" data-i18n="wlho.cta">Doe de gratis check</a>
+          </div>
+        </div>
+        <p class="disclaimer" data-i18n="hux.disc">HuisLast is een onafhankelijk product van BedrockDock en is niet verbonden aan CBS, Milieu Centraal, PBL of RVO.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="layer s-contact" id="contact">
     <div class="wrap contact">
@@ -922,12 +1031,32 @@ footer .brand span { color: #FF8A4D; }
       'grp.tools': 'Voor IT-beheer', 'grp.toolsp': 'Desktop-apps voor wie servers en netwerken beheert.',
       'tools.lead': 'Tools voor IT-beheer en apps voor thuis. Ze beginnen allemaal bij iets waar mensen nu te veel gedoe mee hebben.',
       'status': 'In ontwikkeling',
-      'wlho.status': 'Live in nov/dec 2026',
+      'wlho.status': 'Live sinds november 2026',
       'wlho.p': 'Een onafhankelijke duurzaamheidscheck voor huiseigenaren en huizenkopers. Kies je energielabel, vul een paar gegevens in en zie wat een warmtepomp, isolatie, zonnepanelen of een thuisbatterij jou echt oplevert na het einde van de saldering op 1 januari 2027. Eerlijk, ook als het antwoord is: niet de moeite waard.',
-      'wlho.t1h': 'Rekenmodel', 'wlho.t1p': 'Gecontroleerd bij CBS, RVO en Milieu Centraal.',
+      'wlho.t1h': 'Rekenmodel', 'wlho.t1p': 'Gebouwd op openbare gegevens van CBS, PBL, RVO en Milieu Centraal.',
       'wlho.t2h': 'App en betaald rapport', 'wlho.t2p': 'Inclusief betalen met iDEAL.',
-      'wlho.t3h': 'Hosting en mail', 'wlho.t3p': 'Alles klaarzetten voor de livegang.',
-      'wlho.t4tag': 'Nov/dec', 'wlho.t4h': 'Livegang', 'wlho.t4p': 'HuisLast gaat live.',
+      'wlho.t3h': 'Hosting en mail',
+      'wlho.t4tag': 'Live', 'wlho.t4h': 'HuisLast is live', 'wlho.t4p': 'Doe de gratis check op huislast.nl.',
+      'wlho.cta': 'Doe de gratis check', 'wlho.more': 'Meer over HuisLast →',
+      'hux.h2': 'HuisLast: nu live',
+      'hux.lead': 'Op 1 januari 2027 stopt de salderingsregeling. HuisLast rekent voor jouw eigen huis uit wat dat je kost, en wat isolatie, een warmtepomp, airco, zonnepanelen of een thuisbatterij je vanaf dan nog oplevert. Je kiest je energielabel, vult een paar gegevens in en ziet per maatregel de investering na subsidie, de besparing per jaar en de terugverdientijd. Eerlijk, ook als het antwoord is: doe het niet.',
+      'hux.now': 'Energiekosten nu', 'hux.from': 'Vanaf 2027',
+      'hux.v1': '€1.818', 'hux.v2': '€2.440',
+      'hux.r1': 'Volledige warmtepomp', 'hux.r2': 'Gevelisolatie', 'hux.r3': 'Plug-in batterij', 'hux.r4': 'Vaste batterij',
+      'hux.pays': 'Loont', 'hux.no': 'Loont niet',
+      'hux.nowp': 'HuisLast staat live op huislast.nl. De check is gratis en zonder account. Wil je alles samen doorgerekend zien? Dan bestel je het persoonlijke rapport.',
+      'hux.t3p': 'Het rapport komt als pdf in je mailbox.',
+      'hux.c1h': 'Onafhankelijk', 'hux.c1p': 'HuisLast verkoopt geen installaties of energiecontracten, toont geen advertenties en geeft je gegevens niet door aan installateurs of offertesites. Het verdient alleen aan het persoonlijke rapport.',
+      'hux.c2h': 'Gerekend in je browser', 'hux.c2p': 'De berekening draait in je eigen browser; wat je invult, komt niet bij ons. Alleen als je het rapport koopt, ontvangen we je keuzes en je e-mailadres. De site gebruikt geen cookies.',
+      'hux.c3h': 'Alle bronnen op tafel', 'hux.c3p': 'Prijzen, subsidies, rendementen en levensduur komen uit openbare bronnen, en de site laat precies zien welke. Het gasverbruik volgt het gemeten verbruik, dus isolatie levert minder op dan in veel folders.',
+      'hux.nexth': 'Gratis check en rapport',
+      'hux.e1h': 'Gratis check', 'hux.e1sub': 'Zonder account',
+      'hux.e1a': 'Je energiekosten nu en vanaf 2027', 'hux.e1b': 'Per maatregel: investering na subsidie, besparing per jaar en terugverdientijd', 'hux.e1c': 'Een terugverdiengrafiek over 15 jaar, en CO₂', 'hux.e1d': 'Een duidelijk oordeel per maatregel, ook als het niet loont',
+      'hux.e2h': 'Persoonlijk rapport', 'hux.e2sub': '€8,99, eenmalig',
+      'hux.e2a': 'Alles uit de gratis check', 'hux.e2b': 'Al je gekozen maatregelen samen doorgerekend, in een stappenplan', 'hux.e2c': 'Subsidies met bedragen, en een scenario voor een stijgende of dalende gasprijs', 'hux.e2d': 'Als pdf in je mailbox, betaald met iDEAL, geen abonnement',
+      'hux.cta': 'Op 1 januari 2027 stopt de saldering. Zie wat dat betekent voor jouw huis.',
+      'hux.how': 'Zo rekenen we',
+      'hux.disc': 'HuisLast is een onafhankelijk product van BedrockDock en is niet verbonden aan CBS, Milieu Centraal, PBL of RVO.',
       'wlho.c1': 'Warmtepomp, hybride of airco', 'wlho.c2': 'Isolatie', 'wlho.c3': 'Zonnepanelen en thuisbatterij', 'wlho.c4': 'Gasloos wonen',
       'hl.sub': 'Notifier for Zabbix',
       'hl.p': 'Een desktop-app die je Zabbix-meldingen in één rustig overzicht bij elkaar brengt, met tabs per hostgroep, filters op severity, een pop-up bij nieuwe problemen en een snooze-knop. Hij laat ook zien welke problemen eraan zitten te komen.',
@@ -1016,12 +1145,32 @@ footer .brand span { color: #FF8A4D; }
       'grp.tools': 'For IT management', 'grp.toolsp': 'Desktop apps for people who manage servers and networks.',
       'tools.lead': 'Tools for IT management and apps for home. Each one starts with something people currently find too much hassle.',
       'status': 'In development',
-      'wlho.status': 'Launching Nov/Dec 2026',
+      'wlho.status': 'Live since November 2026',
       'wlho.p': 'An independent sustainability check for Dutch homeowners and house buyers. Pick your energy label, fill in a few details and see what a heat pump, insulation, solar panels or a home battery really earn you once net metering ends on 1 January 2027. Honest, also when the answer is: not worth it.',
-      'wlho.t1h': 'Calculation model', 'wlho.t1p': 'Checked against CBS, RVO and Milieu Centraal.',
+      'wlho.t1h': 'Calculation model', 'wlho.t1p': 'Built on public data from CBS, PBL, RVO and Milieu Centraal.',
       'wlho.t2h': 'App and paid report', 'wlho.t2p': 'Including payment through iDEAL.',
-      'wlho.t3h': 'Hosting and mail', 'wlho.t3p': 'Getting everything ready for launch.',
-      'wlho.t4tag': 'Nov/Dec', 'wlho.t4h': 'Launch', 'wlho.t4p': 'HuisLast goes live.',
+      'wlho.t3h': 'Hosting and mail',
+      'wlho.t4tag': 'Live', 'wlho.t4h': 'HuisLast is live', 'wlho.t4p': 'Do the free check at huislast.nl.',
+      'wlho.cta': 'Do the free check', 'wlho.more': 'More about HuisLast →',
+      'hux.h2': 'HuisLast: live now',
+      'hux.lead': 'On 1 January 2027 net metering ends in the Netherlands. HuisLast calculates for your own home what that costs you, and what insulation, a heat pump, air conditioning, solar panels or a home battery still earn you from then on. You pick your energy label, fill in a few details and see per measure the investment after subsidy, the yearly saving and the payback time. Honest, also when the answer is: don\'t do it.',
+      'hux.now': 'Energy costs now', 'hux.from': 'From 2027',
+      'hux.v1': '€1,818', 'hux.v2': '€2,440',
+      'hux.r1': 'Full heat pump', 'hux.r2': 'Facade insulation', 'hux.r3': 'Plug-in battery', 'hux.r4': 'Fixed battery',
+      'hux.pays': 'Pays off', 'hux.no': 'Not worth it',
+      'hux.nowp': 'HuisLast is live at huislast.nl. The check is free and needs no account. Want everything worked out together? Then you order the personal report.',
+      'hux.t3p': 'The report arrives as a PDF in your mailbox.',
+      'hux.c1h': 'Independent', 'hux.c1p': 'HuisLast sells no installations or energy contracts, shows no ads and does not pass your details on to installers or quote sites. It earns money only with the personal report.',
+      'hux.c2h': 'Calculated in your browser', 'hux.c2p': 'The calculation runs in your own browser; what you fill in does not reach us. Only when you buy the report do we receive your choices and email address. The site uses no cookies.',
+      'hux.c3h': 'Every source on the table', 'hux.c3p': 'Prices, subsidies, efficiencies and lifetimes come from public sources, and the site shows exactly which. Gas use follows measured consumption, so insulation savings come out lower than in many brochures.',
+      'hux.nexth': 'Free check and report',
+      'hux.e1h': 'Free check', 'hux.e1sub': 'No account needed',
+      'hux.e1a': 'Your energy costs now and from 2027', 'hux.e1b': 'Per measure: investment after subsidy, yearly saving and payback time', 'hux.e1c': 'A payback chart over 15 years, and CO₂', 'hux.e1d': 'A clear verdict per measure, also when it does not pay off',
+      'hux.e2h': 'Personal report', 'hux.e2sub': '€8.99, one-off',
+      'hux.e2a': 'Everything from the free check', 'hux.e2b': 'All chosen measures worked out together, in a step-by-step plan', 'hux.e2c': 'Subsidies with amounts, and a scenario for rising or falling gas prices', 'hux.e2d': 'As a PDF in your mailbox, paid through iDEAL, no subscription',
+      'hux.cta': 'Net metering ends on 1 January 2027. See what it means for your home.',
+      'hux.how': 'How we calculate',
+      'hux.disc': 'HuisLast is an independent product by BedrockDock and is not affiliated with CBS, Milieu Centraal, PBL or RVO.',
       'wlho.c1': 'Heat pump, hybrid or air conditioning', 'wlho.c2': 'Insulation', 'wlho.c3': 'Solar panels and home battery', 'wlho.c4': 'Going gas-free',
       'hl.sub': 'Notifier for Zabbix',
       'hl.p': 'A desktop app that brings your Zabbix alerts together in one calm overview, with tabs per host group, severity filters, a pop-up for new problems and a snooze button. It also shows which problems are on their way.',
